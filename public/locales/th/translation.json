@@ -1,0 +1,31 @@
+{
+  "navbar": {
+    "login": "เข้าสู่ระบบ",
+    "register": "ลงทะเบียน",
+    "language": "เปลี่ยนภาษา",
+    "thai": "ไทย",
+    "english": "อังกฤษ",
+    "searchPlaceholder": "พิมพ์ชื่อหนังสือ / ผู้แต่ง... "
+  },
+  "footer": {
+    "bookStore": "บุ๊คสโตร์",
+    "aboutUs": "เกี่ยวกับเรา",
+    "history": "ประวัติความเป็นมา",
+    "boardOfDirectors": "คณะกรรมการบริหาร",
+    "ourBranch": "สาขาของเรา",
+    "dealer": "ร้านค้าตัวแทนจำหน่าย",
+    "help": "ช่วยเหลือ",
+    "howToOrder": "วิธีการสั่งซื้อ",
+    "howToPayment": "วิธีการชำระเงิน",
+    "transport": "การจัดส่ง",
+    "productReturn": "การคืนสินค้า",
+    "cancelProduct": "การยกเลิกสินค้า",
+    "privacyPolicy": "นโยบายส่วนบุคคล",
+    "condition": "เงื่อนไข",
+    "contact": "ติดต่อเรา",
+    "recruitment": "สมัครงานกับเรา",
+    "contactDealer": "ติดต่อตัวแทนจำหน่าย",
+    "social": "โซเชียลเน็ตเวิร์ค",
+    "subscribe": "สมัครรับข่าวสาร"
+  }
+}

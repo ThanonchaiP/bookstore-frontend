@@ -1,0 +1,31 @@
+{
+  "navbar": {
+    "login": "Login",
+    "register": "Register",
+    "language": "Language",
+    "thai": "Thai",
+    "english": "English",
+    "searchPlaceholder": "Type book name / author ... "
+  },
+  "footer": {
+    "bookStore": "Book Store",
+    "aboutUs": "About us",
+    "history": "History",
+    "boardOfDirectors": "Board of directors",
+    "ourBranch": "Our branch",
+    "dealer": "Dealer",
+    "help": "Help",
+    "howToOrder": "How to order",
+    "howToPayment": "How to payment",
+    "transport": "Transport",
+    "productReturn": "Product return",
+    "cancelProduct": "Cancel product",
+    "privacyPolicy": "Privacy policy",
+    "condition": "Condition",
+    "contact": "Contact",
+    "recruitment": "Recruitment",
+    "contactDealer": "Contact dealer",
+    "social": "Social",
+    "subscribe": "Subscribe"
+  }
+}

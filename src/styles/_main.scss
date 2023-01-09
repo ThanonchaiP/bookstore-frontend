@@ -1,0 +1,53 @@
+//Color
+$primary-color: #554994;
+
+@mixin container($max-width: 1140px) {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+//Breakpoint
+$xs-small: 330px;
+$x-small: 576px;
+$small: 576px;
+$medium: 768px;
+$large: 992px;
+$extra-small-large: 1165px;
+$extra-large: 1200px;
+$extra-extra-large: 1450px;
+
+@mixin breakpoint($point) {
+  @if $point == xsl {
+    // >1165px
+    @media (min-width: $extra-small-large) {
+      @content;
+    }
+  } @else if $point == lg {
+    // >992px
+    @media (min-width: $large) {
+      @content;
+    }
+  } @else if $point == md {
+    // >768px
+    @media (min-width: $medium) {
+      @content;
+    }
+  } @else if $point == sm {
+    // >576px
+    @media (min-width: $small) {
+      @content;
+    }
+  } @else if $point == xs {
+    // <576px
+    @media (max-width: $x-small) {
+      @content;
+    }
+  } @else if $point == xss {
+    // <330px
+    @media (max-width: $xs-small) {
+      @content;
+    }
+  }
+}
