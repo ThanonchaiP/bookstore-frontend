@@ -1,16 +1,24 @@
 @use "@/styles/_main.scss" as *;
 
 .navbar {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0;
   background-color: #ffffff;
   padding: 1rem;
+  z-index: 110;
+  @include container();
+  @include breakpoint(md) {
+    position: relative;
+  }
+}
+
+.navbar__container {
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
-  z-index: 110;
-  @include container();
 }
 
 .logo {

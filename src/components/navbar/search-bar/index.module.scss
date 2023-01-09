@@ -3,7 +3,10 @@
 .search-bar {
   display: flex;
   justify-content: center;
-  height: 40px;
+  height: 30px;
+  @include breakpoint(md) {
+    height: 40px;
+  }
 
   input {
     padding: 7px;
@@ -14,6 +17,10 @@
     border-radius: 4px 0 0 4px;
     border: 2px solid #eeeeee;
     transition: 0.3s;
+    font-size: 13px;
+    @include breakpoint(md) {
+      font-size: 1rem;
+    }
 
     &:focus {
       border-color: $primary-color;

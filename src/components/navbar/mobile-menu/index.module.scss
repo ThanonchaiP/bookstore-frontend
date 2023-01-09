@@ -38,11 +38,12 @@
   height: 40px;
   border-radius: 4px;
   color: #ffffff;
+  user-select: none;
   background-color: $primary-color;
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   visibility: hidden;
   top: 76px;
   left: 0;

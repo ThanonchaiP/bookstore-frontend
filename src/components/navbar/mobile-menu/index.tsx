@@ -24,13 +24,6 @@ function MobileMenu() {
         <button className={styled["btn-login"]}>{t("navbar.login")}</button>
 
         <div className="mt-8 flex flex-col gap-5">
-          <div className="cursor-pointer">
-            <p className="flex justify-between">
-              {t("category")}
-              <i className="fa-solid fa-chevron-right" />
-            </p>
-          </div>
-
           <Link className="flex justify-between items-center" to="">
             {t("navbar.favorite")}
             <i className="fa-solid fa-chevron-right" />

@@ -2,11 +2,15 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "./index.module.scss";
 
-function SearchBar() {
+type Props = {
+  className?: string;
+};
+
+function SearchBar({ className }: Props) {
   const { t } = useTranslation();
 
   return (
-    <div className={styled["search-bar"]}>
+    <div className={`${styled["search-bar"]} ${className}`}>
       <input type="text" placeholder={t("navbar.searchPlaceholder")!} />
       <button type="button">
         <i className="fa-solid fa-magnifying-glass" />

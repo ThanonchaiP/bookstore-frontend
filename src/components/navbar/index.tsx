@@ -14,32 +14,35 @@ const Navbar = () => {
       {!isMobile && <HelpMenu />}
 
       <div className={styled.navbar}>
-        {isMobile && <MobileMenu />}
+        <div className={styled.navbar__container}>
+          {isMobile && <MobileMenu />}
 
-        <img src={logo} alt="logo" className={styled.logo} />
+          <img src={logo} alt="logo" className={styled.logo} />
 
-        {!isMobile && <SearchBar />}
+          {!isMobile && <SearchBar />}
 
-        <div className="flex justify-end items-center gap-5">
-          {!isMobile && (
-            <Fragment>
-              <i className={`fa-solid fa-heart mb-1 ${styled["favorite-icon"]}`} />
-              <span className={styled["vertical-divider"]} />
-            </Fragment>
-          )}
+          <div className="flex justify-end items-center gap-5">
+            {!isMobile && (
+              <Fragment>
+                <i className={`fa-solid fa-heart mb-1 ${styled["favorite-icon"]}`} />
+                <span className={styled["vertical-divider"]} />
+              </Fragment>
+            )}
 
-          <div className="relative">
-            <i className={`fa-sharp fa-solid fa-cart-shopping ${styled["cart-icon"]}`} />
-            <span className={styled.quantity}>5</span>
-          </div>
-
-          {!isMobile && (
-            <div className={styled["total-price"]}>
-              <i className="fa-solid fa-baht-sign mr-1" />
-              <p>0.00</p>
+            <div className="relative">
+              <i className={`fa-sharp fa-solid fa-cart-shopping ${styled["cart-icon"]}`} />
+              <span className={styled.quantity}>5</span>
             </div>
-          )}
+
+            {!isMobile && (
+              <div className={styled["total-price"]}>
+                <i className="fa-solid fa-baht-sign mr-1" />
+                <p>0.00</p>
+              </div>
+            )}
+          </div>
         </div>
+        {isMobile && <SearchBar className="mt-4" />}
       </div>
     </Fragment>
   );
