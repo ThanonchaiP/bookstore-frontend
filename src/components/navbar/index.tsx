@@ -10,10 +10,10 @@ const Navbar = () => {
   const isMobile = useMediaQuery("(max-width: 768px)");
 
   return (
-    <div className="navbar">
+    <Fragment>
       {!isMobile && <HelpMenu />}
 
-      <div className={styled.main}>
+      <div className={styled.navbar}>
         {isMobile && <MobileMenu />}
 
         <img src={logo} alt="logo" className={styled.logo} />
@@ -41,7 +41,7 @@ const Navbar = () => {
           )}
         </div>
       </div>
-    </div>
+    </Fragment>
   );
 };
 

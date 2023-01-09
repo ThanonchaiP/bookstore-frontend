@@ -1,11 +1,13 @@
 {
+  "category": "Category",
   "navbar": {
     "login": "Login",
     "register": "Register",
     "language": "Language",
     "thai": "Thai",
     "english": "English",
-    "searchPlaceholder": "Type book name / author ... "
+    "searchPlaceholder": "Type book name / author ... ",
+    "favorite": "Favorite"
   },
   "footer": {
     "bookStore": "Book Store",

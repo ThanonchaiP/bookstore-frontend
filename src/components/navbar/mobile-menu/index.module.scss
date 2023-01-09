@@ -9,15 +9,28 @@
 .mobile-menu {
   padding: 1rem 1rem 24px;
   position: absolute;
-  top: -150%;
+  visibility: hidden;
+  bottom: 100%;
   left: 0;
-  background-color: antiquewhite;
   width: 100%;
-  z-index: 10;
+  background-color: #ffffff;
+  z-index: 110;
+
+  a,
+  p {
+    user-select: none;
+    font-weight: 500;
+  }
+
+  i {
+    color: $primary-color;
+  }
 }
 
 .active {
+  visibility: visible;
   top: 75.02px;
+  bottom: unset;
 }
 
 .btn-login {
@@ -26,4 +39,22 @@
   border-radius: 4px;
   color: #ffffff;
   background-color: $primary-color;
+}
+
+.overlay {
+  position: absolute;
+  visibility: hidden;
+  top: 76px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 76px);
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  z-index: 100;
+}
+
+.overlay-active {
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
 }

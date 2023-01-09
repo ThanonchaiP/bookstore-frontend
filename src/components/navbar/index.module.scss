@@ -1,12 +1,15 @@
 @use "@/styles/_main.scss" as *;
 
-.main {
+.navbar {
+  position: relative;
+  background-color: #ffffff;
   padding: 1rem;
   display: grid;
   grid-template-columns: 1fr 2fr 1fr;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
+  z-index: 110;
   @include container();
 }
 

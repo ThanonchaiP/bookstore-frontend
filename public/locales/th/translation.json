@@ -1,11 +1,13 @@
 {
+  "category": "หมวดหมู่",
   "navbar": {
     "login": "เข้าสู่ระบบ",
     "register": "ลงทะเบียน",
     "language": "เปลี่ยนภาษา",
     "thai": "ไทย",
     "english": "อังกฤษ",
-    "searchPlaceholder": "พิมพ์ชื่อหนังสือ / ผู้แต่ง... "
+    "searchPlaceholder": "พิมพ์ชื่อหนังสือ / ผู้แต่ง... ",
+    "favorite": "รายการโปรด"
   },
   "footer": {
     "bookStore": "บุ๊คสโตร์",
