@@ -43,9 +43,12 @@
   gap: 10px;
   align-items: center;
   justify-content: center;
-  bottom: 40px;
+  bottom: 20px;
   left: 50%;
   transform: translateX(-50%);
+  @include breakpoint(md) {
+    bottom: 40px;
+  }
 
   li {
     width: 8px;
