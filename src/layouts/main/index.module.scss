@@ -4,5 +4,6 @@
   margin-top: 121.02px;
   @include breakpoint(md) {
     margin-top: 0;
+    min-height: calc(100vh - 449.94px);
   }
 }

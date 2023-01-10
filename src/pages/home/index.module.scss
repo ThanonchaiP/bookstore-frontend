@@ -1,0 +1,5 @@
+@use "@/styles/main" as *;
+
+.home {
+  @include container();
+}
