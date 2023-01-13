@@ -14,14 +14,15 @@ function Carousel({}: Props) {
   const settings: Settings = {
     dots: true,
     infinite: true,
+    autoplay: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
     dotsClass: styled.dot,
     appendDots: (dots) => <ul>{dots}</ul>,
     customPaging: () => <span />,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
   };
   return (
     <div className={styled.carousel}>
@@ -38,7 +39,7 @@ function Carousel({}: Props) {
 
 export default Carousel;
 
-function SampleNextArrow(props: CustomArrowProps) {
+export function NextArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <span className={`${styled["arrow-container"]} ${styled["next-arrow"]}`} onClick={onClick}>
@@ -47,7 +48,7 @@ function SampleNextArrow(props: CustomArrowProps) {
   );
 }
 
-function SamplePrevArrow(props: CustomArrowProps) {
+export function PrevArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <span className={`${styled["arrow-container"]} ${styled["prev-arrow"]}`} onClick={onClick}>

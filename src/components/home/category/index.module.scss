@@ -1,0 +1,13 @@
+@use "@/styles/main" as *;
+
+.category__card {
+  padding: 8px 0;
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-color;
+    transform: translateY(-5%);
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+}

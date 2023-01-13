@@ -1,4 +1,5 @@
 import { Fragment } from "react";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import useMediaQuery from "@/hooks/useMediaQuery";
 import HelpMenu from "./help-menu";
@@ -17,7 +18,9 @@ const Navbar = () => {
         <div className={styled.navbar__container}>
           {isMobile && <MobileMenu />}
 
-          <img src={logo} alt="logo" className={styled.logo} />
+          <Link to="/">
+            <img src={logo} alt="logo" className={styled.logo} />
+          </Link>
 
           {!isMobile && <SearchBar />}
 
