@@ -1,5 +1,8 @@
 {
   "category": "Category",
+  "filter": "Filter",
+  "filterPrice": "Filter price",
+  "priceRange": "Price range",
   "navbar": {
     "login": "Login",
     "register": "Register",

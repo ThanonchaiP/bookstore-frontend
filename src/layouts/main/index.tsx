@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { Fragment, Suspense } from "react";
 import { Outlet } from "react-router";
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
@@ -9,7 +9,9 @@ function MainLayout() {
     <Fragment>
       <Navbar />
       <div className={styled.content}>
-        <Outlet />
+        <Suspense fallback={null}>
+          <Outlet />
+        </Suspense>
       </div>
       <Footer />
     </Fragment>

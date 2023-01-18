@@ -1,0 +1,15 @@
+@use "@/styles/main" as *;
+
+.btn-submit {
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  margin-top: 1rem;
+  color: #ffffff;
+  background-color: $primary-color;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #42367f;
+  }
+}

@@ -1,0 +1,27 @@
+@use "@/styles/main" as *;
+
+.category {
+  max-height: 277px;
+  overflow-y: scroll;
+}
+
+.filter {
+  input {
+    max-width: 110px;
+    height: calc(1.5em + 0.75rem + 2px);
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 8px;
+    line-height: 1.5;
+    color: #6e6e6e;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 2px solid #eeeeee;
+    border-radius: 0.5rem;
+    outline: none;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+}

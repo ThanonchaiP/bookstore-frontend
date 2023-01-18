@@ -1,5 +1,8 @@
 {
   "category": "หมวดหมู่",
+  "filter": "ตัวกรอง",
+  "filterPrice": "กรองราคา",
+  "priceRange": "ช่วงราคา",
   "navbar": {
     "login": "เข้าสู่ระบบ",
     "register": "ลงทะเบียน",
