@@ -4,7 +4,7 @@ import styled from "./index.module.scss";
 
 type Props = {};
 
-function index({}: Props) {
+function HomePage({}: Props) {
   return (
     <div className={styled.home}>
       <Carousel />
@@ -13,4 +13,4 @@ function index({}: Props) {
   );
 }
 
-export default index;
+export default HomePage;

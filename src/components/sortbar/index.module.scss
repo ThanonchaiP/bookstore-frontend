@@ -1,0 +1,67 @@
+@use "@/styles/main" as *;
+
+.btn-dropdown {
+  width: 231px;
+  background-color: #ffffff;
+  border: 2px #eeeeee solid;
+  border-radius: 8px;
+  height: 40px;
+  text-align: center;
+  transition: 0.3s;
+  &:hover {
+    border-color: $primary-color;
+  }
+}
+
+.dropdown-icon {
+  position: absolute;
+  top: 11px;
+  right: 15px;
+  color: $primary-color;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+
+  p {
+    cursor: pointer;
+    padding: 4px 1rem;
+
+    &:hover {
+      background-color: #f7f7f7;
+    }
+  }
+}
+
+.show {
+  border-color: $primary-color;
+}
+
+.active {
+  display: block;
+}
+
+.btn-display {
+  width: 40px;
+  height: 40px;
+  background-color: #999899;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  i {
+    color: #ffffff;
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.display-active {
+  background-color: $primary-color;
+}

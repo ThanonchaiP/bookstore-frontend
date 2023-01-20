@@ -1,6 +1,7 @@
 @use "@/styles/main" as *;
 
 .category {
+  width: 277px;
   max-height: 277px;
   overflow-y: scroll;
 }

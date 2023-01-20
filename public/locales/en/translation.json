@@ -3,6 +3,7 @@
   "filter": "Filter",
   "filterPrice": "Filter price",
   "priceRange": "Price range",
+  "sortBy": "Sort By",
   "navbar": {
     "login": "Login",
     "register": "Register",
@@ -32,5 +33,13 @@
     "contactDealer": "Contact dealer",
     "social": "Social",
     "subscribe": "Subscribe"
+  },
+  "orderByItem": {
+    "newBook": "New Book",
+    "bestSales": "Best Sales",
+    "priceLowToHigh": "Price low to high",
+    "priceHighToLow": "Price high to low",
+    "alphabetLowToHigh": "Alphabet low to high",
+    "alphabetHighToLow": "Alphabet high to low"
   }
 }

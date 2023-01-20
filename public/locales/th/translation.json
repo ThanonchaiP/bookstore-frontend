@@ -3,6 +3,7 @@
   "filter": "ตัวกรอง",
   "filterPrice": "กรองราคา",
   "priceRange": "ช่วงราคา",
+  "sortBy": "เรียงตาม",
   "navbar": {
     "login": "เข้าสู่ระบบ",
     "register": "ลงทะเบียน",
@@ -32,5 +33,13 @@
     "contactDealer": "ติดต่อตัวแทนจำหน่าย",
     "social": "โซเชียลเน็ตเวิร์ค",
     "subscribe": "สมัครรับข่าวสาร"
+  },
+  "orderByItem": {
+    "newBook": "มาใหม่",
+    "bestSales": "ขายดี",
+    "priceLowToHigh": "ราคาจากตํ่าไปสูง",
+    "priceHighToLow": "ราคาจากสูงไปตํ่า",
+    "alphabetLowToHigh": "ตามตัวอักษรน้อยไปมาก",
+    "alphabetHighToLow": "ตามตัวอักษรมากไปน้อย"
   }
 }
