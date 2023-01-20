@@ -7,21 +7,13 @@ export enum Display {
 }
 
 type FilterStete = {
-  keyword?: string;
   category: number[];
-  display: number;
   price?: { min: number; max: number };
-  sort?: {
-    id: number;
-    orderBy: string;
-    op: string;
-  };
+  sort?: { id: number; orderBy: string; op: string };
 };
 
 const initialState: FilterStete = {
-  keyword: "",
   category: [],
-  display: Display.Column,
 };
 
 const filterSlice = createSlice({
@@ -41,16 +33,13 @@ const filterSlice = createSlice({
     setPriceRange: (state, action) => {
       state.price = action.payload;
     },
-    setDisplay: (state, action) => {
-      state.display = action.payload;
-    },
     setOrderBy: (state, action) => {
       state.sort = action.payload;
     },
   },
 });
 
-export const { setCategory, setDisplay, setOrderBy, setPriceRange } = filterSlice.actions;
+export const { setCategory, setOrderBy, setPriceRange } = filterSlice.actions;
 export const selectFilterState = (state: RootState) => state.filter;
 
 export default filterSlice.reducer;

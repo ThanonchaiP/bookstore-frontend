@@ -2,25 +2,25 @@ import { memo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import useOnClickOutside from "@/hooks/useOnClickOutside";
 import gridIcon from "@/assets/grid-2.png";
-import styled from "./index.module.scss";
-import { Display, selectFilterState, setDisplay, setOrderBy } from "../../slice/filterSlice";
+import { Display, selectFilterState, setOrderBy } from "../../slice/filterSlice";
 import { useAppDispatch, useAppSelector } from "../../store/configureStore";
+import styled from "./index.module.scss";
 
+type Props = { displayChange?: (display: number) => void };
 type SortItem = {
   id: number;
   name: string;
   value: { orderBy: string; op: string };
 };
 
-function SortBar() {
+function SortBar({ displayChange }: Props) {
   const ref = useRef(null);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-
   const { sort } = useAppSelector(selectFilterState);
-  const { display } = useAppSelector(selectFilterState);
 
   const [show, setShow] = useState(false);
+  const [display, setDisplay] = useState(Display.Column);
 
   const displayList = [
     {
@@ -31,7 +31,10 @@ function SortBar() {
     { id: 2, icon: <i className="fa-solid fa-list" />, value: Display.List },
   ];
 
-  const handleDisplay = (value: number) => dispatch(setDisplay(value));
+  const handleDisplay = (value: number) => {
+    setDisplay(value);
+    if (displayChange) displayChange(value);
+  };
 
   const onChange = (data: SortItem) => {
     const { id, value } = data;
