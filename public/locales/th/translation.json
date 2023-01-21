@@ -4,6 +4,8 @@
   "filterPrice": "กรองราคา",
   "priceRange": "ช่วงราคา",
   "sortBy": "เรียงตาม",
+  "previous": "ก่อนหน้า",
+  "next": "ถัดไป",
   "navbar": {
     "login": "เข้าสู่ระบบ",
     "register": "ลงทะเบียน",

@@ -2,9 +2,9 @@ import { memo, useState } from "react";
 import styled from "./index.module.scss";
 
 type Props = {
-  id: string | number;
+  id: number;
   name: string;
-  onChange?: (value: number | string) => void;
+  onChange?: (value: number) => void;
 };
 
 const FilterItem = ({ id, name, onChange }: Props) => {
@@ -12,7 +12,7 @@ const FilterItem = ({ id, name, onChange }: Props) => {
 
   const handleChange = () => {
     setChecked(!checked);
-    if (onChange) onChange(+id);
+    if (onChange) onChange(id);
   };
 
   return (

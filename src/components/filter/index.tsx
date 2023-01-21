@@ -31,7 +31,7 @@ const Filter: FC<WithTranslation> = ({ t }) => {
 
       <div className={styled.category}>
         {categories.map((item) => (
-          <FilterItem {...item} key={item.id} onChange={(value) => onChange(+value)} />
+          <FilterItem {...item} key={item.id} onChange={(value) => onChange(value)} />
         ))}
       </div>
 

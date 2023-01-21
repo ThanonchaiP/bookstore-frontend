@@ -4,6 +4,8 @@
   "filterPrice": "Filter price",
   "priceRange": "Price range",
   "sortBy": "Sort By",
+  "previous": "Previous",
+  "next": "Next",
   "navbar": {
     "login": "Login",
     "register": "Register",
