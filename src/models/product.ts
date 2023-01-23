@@ -14,6 +14,7 @@ export interface Product {
   author: Author;
   category: Category;
   publisher: Author;
+  image: string;
 }
 
 interface Category {

@@ -1,4 +1,4 @@
-import Category from "../../components/home/category";
+import Category from "../../components/category-menu";
 import Carousel from "../../components/carousel";
 import styled from "./index.module.scss";
 

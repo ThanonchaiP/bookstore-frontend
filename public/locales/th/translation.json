@@ -6,6 +6,11 @@
   "sortBy": "เรียงตาม",
   "previous": "ก่อนหน้า",
   "next": "ถัดไป",
+  "resultsFor": "ค้นพบสินค้า",
+  "author": "ผู้แต่ง",
+  "addToCart": "หยิบใส่รถเข็น",
+  "publisher": "สำนักพิมพ์",
+  "readMore": "อ่านเพิ่มเติม",
   "navbar": {
     "login": "เข้าสู่ระบบ",
     "register": "ลงทะเบียน",

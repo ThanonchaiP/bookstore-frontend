@@ -6,21 +6,24 @@ import { Display, selectFilterState, setOrderBy } from "../../slice/filterSlice"
 import { useAppDispatch, useAppSelector } from "../../store/configureStore";
 import styled from "./index.module.scss";
 
-type Props = { displayChange?: (display: number) => void };
+type Props = {
+  display?: number;
+  onDisplayChange?: (display: number) => void;
+};
+
 type SortItem = {
   id: number;
   name: string;
   value: { orderBy: string; op: string };
 };
 
-function SortBar({ displayChange }: Props) {
+function SortBar({ display, onDisplayChange }: Props) {
   const ref = useRef(null);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
   const { sort } = useAppSelector(selectFilterState);
 
   const [show, setShow] = useState(false);
-  const [display, setDisplay] = useState(Display.Column);
 
   const displayList = [
     {
@@ -32,8 +35,7 @@ function SortBar({ displayChange }: Props) {
   ];
 
   const handleDisplay = (value: number) => {
-    setDisplay(value);
-    if (displayChange) displayChange(value);
+    if (onDisplayChange) onDisplayChange(value);
   };
 
   const onChange = (data: SortItem) => {
@@ -51,12 +53,12 @@ function SortBar({ displayChange }: Props) {
   useOnClickOutside(ref, handleClose);
 
   const sortList = [
-    { id: 1, name: t("orderByItem.newBook"), value: { orderBy: "publishedDate", op: "desc" } },
-    { id: 2, name: t("orderByItem.bestSales"), value: { orderBy: "sold", op: "desc" } },
-    { id: 3, name: t("orderByItem.priceLowToHigh"), value: { orderBy: "price", op: "asc" } },
-    { id: 4, name: t("orderByItem.priceHighToLow"), value: { orderBy: "price", op: "desc" } },
-    { id: 5, name: t("orderByItem.alphabetLowToHigh"), value: { orderBy: "name", op: "asc" } },
-    { id: 6, name: t("orderByItem.alphabetHighToLow"), value: { orderBy: "name", op: "desc" } },
+    { id: 1, name: t("orderByItem.newBook"), value: { orderBy: "publishedDate", op: "DESC" } },
+    { id: 2, name: t("orderByItem.bestSales"), value: { orderBy: "sold", op: "DESC" } },
+    { id: 3, name: t("orderByItem.priceLowToHigh"), value: { orderBy: "price", op: "ASC" } },
+    { id: 4, name: t("orderByItem.priceHighToLow"), value: { orderBy: "price", op: "DESC" } },
+    { id: 5, name: t("orderByItem.alphabetLowToHigh"), value: { orderBy: "name", op: "ASC" } },
+    { id: 6, name: t("orderByItem.alphabetHighToLow"), value: { orderBy: "name", op: "DESC" } },
   ];
 
   return (

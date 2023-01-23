@@ -6,6 +6,11 @@
   "sortBy": "Sort By",
   "previous": "Previous",
   "next": "Next",
+  "resultsFor": "Results for",
+  "author": "Author",
+  "addToCart": "Add to cart",
+  "publisher": "Publisher",
+  "readMore": "Read more",
   "navbar": {
     "login": "Login",
     "register": "Register",

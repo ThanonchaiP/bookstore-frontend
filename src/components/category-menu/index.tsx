@@ -1,10 +1,10 @@
 import { FC, memo } from "react";
 import Slider from "react-slick";
 import { withTranslation, WithTranslation } from "react-i18next";
-import { NextArrow, PrevArrow } from "../../../components/carousel";
+import { NextArrow, PrevArrow } from "../carousel";
 import styled from "./index.module.scss";
 
-const Category: FC<WithTranslation> = ({ t }) => {
+const CategoryMenu: FC<WithTranslation> = ({ t }) => {
   const categories = [
     { id: 1, name: "นิยาย1" },
     { id: 2, name: "นิยาย2" },
@@ -45,4 +45,4 @@ const Category: FC<WithTranslation> = ({ t }) => {
   );
 };
 
-export default withTranslation()(memo(Category));
+export default withTranslation()(memo(CategoryMenu));
