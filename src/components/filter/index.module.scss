@@ -1,28 +1,135 @@
 @use "@/styles/main" as *;
 
 .category {
-  width: 277px;
-  max-height: 277px;
-  overflow-y: scroll;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  max-height: 288px;
+  @include breakpoint(lg) {
+    max-height: 277px;
+    padding: 0;
+    display: block;
+    width: 277px;
+    overflow-y: scroll;
+  }
+
+  &.expanded {
+    max-height: fit-content;
+    overflow: unset;
+  }
 }
 
 .filter {
-  input {
-    max-width: 110px;
-    height: calc(1.5em + 0.75rem + 2px);
-    font-size: 1rem;
-    font-weight: 400;
-    padding: 0 8px;
-    line-height: 1.5;
-    color: #6e6e6e;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 2px solid #eeeeee;
-    border-radius: 0.5rem;
-    outline: none;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  bottom: 0;
+  width: 70%;
+  z-index: 115;
+  transition: 0.3s;
+  opacity: 0;
+  background-color: #ffffff;
+  overflow-y: scroll;
+  padding-bottom: 1rem;
+  @include breakpoint(xss) {
+    width: 80%;
+  }
+  @include breakpoint(md) {
+    width: 400px;
+  }
+  @include breakpoint(lg) {
+    overflow: hidden;
+    opacity: 1;
+    position: unset;
+    width: auto;
+    background-color: #ffffff;
+  }
+}
 
-    &:focus {
-      border-color: $primary-color;
-    }
+.filter.show {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn-filter {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 4px;
+  font-weight: 400;
+  padding: 7px 1rem;
+  color: #ffffff;
+  background-color: $primary-color;
+  transition: 0.3s;
+  @include breakpoint(md) {
+    height: 40px;
+    font-size: 1rem;
+  }
+  @include breakpoint(lg) {
+    display: none;
+  }
+
+  &:hover {
+    background-color: #392d78;
+  }
+}
+
+.filter-overlay {
+  position: fixed;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  opacity: 0;
+  transition: 0.2s ease-in-out;
+  z-index: 114;
+}
+
+.filter-overlay.show {
+  visibility: visible;
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.custom-filter {
+  visibility: hidden;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  opacity: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  width: 70%;
+  z-index: 115;
+  transition: 0.3s;
+  @include breakpoint(sm) {
+    width: 400px;
+  }
+}
+
+.custom-filter.active {
+  left: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.view-more {
+  cursor: pointer;
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.cancel-icon {
+  position: absolute;
+  top: 19px;
+  right: 20px;
+  font-size: 1.5rem;
+  @include breakpoint(lg) {
+    display: none;
   }
 }

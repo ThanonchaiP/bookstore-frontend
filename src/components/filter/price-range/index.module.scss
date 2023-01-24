@@ -1,13 +1,38 @@
 @use "@/styles/main" as *;
 
+.range-input {
+  max-width: 110px;
+  height: calc(1.5em + 0.75rem + 2px);
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0 8px;
+  line-height: 1.5;
+  color: #6e6e6e;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 2px solid #eeeeee;
+  border-radius: 0.5rem;
+  outline: none;
+  @include breakpoint(xss) {
+    max-width: 80px;
+  }
+
+  &:focus {
+    border-color: $primary-color;
+  }
+}
+
 .btn-submit {
-  width: 200px;
+  width: calc(100% - 32px);
   height: 40px;
   border-radius: 4px;
   margin-top: 1rem;
   color: #ffffff;
   background-color: $primary-color;
   transition: background-color 0.3s;
+  @include breakpoint(lg) {
+    width: 200px;
+  }
 
   &:hover {
     background-color: #42367f;

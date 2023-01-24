@@ -72,3 +72,36 @@
     transform: scale(1);
   }
 }
+
+/* mobile screen */
+.filter-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background-color: #eeeeee;
+  border: 1px solid #eeeeee;
+  height: 40px;
+  cursor: pointer;
+
+  p {
+    font-weight: 500;
+  }
+}
+
+.filter-item.selected {
+  border-color: $primary-color;
+
+  &::before {
+    content: "";
+    font-size: 10px;
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid $primary-color;
+    border-left: 15px solid transparent;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+  }
+}

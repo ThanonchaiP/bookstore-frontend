@@ -35,11 +35,23 @@ const PriceRange = () => {
 
   return (
     <form onSubmit={handleSubmit} className="text-center">
-      <p className="bg-gray-400 text-white px-4 py-2 mt-2 text-left">{t("priceRange")}</p>
+      <p className="bg-gray-400 text-white px-4 py-2 text-left">{t("priceRange")}</p>
       <div className="flex justify-between items-center gap-2 px-4 mt-4">
-        <input type="number" name="min" value={input.min} onChange={(e) => setMin(e.target.value)} />
+        <input
+          className={styled["range-input"]}
+          type="number"
+          name="min"
+          value={input.min}
+          onChange={(e) => setMin(e.target.value)}
+        />
         <span>-</span>
-        <input type="number" name="max" value={input.max} onChange={(e) => setMax(e.target.value)} />
+        <input
+          className={styled["range-input"]}
+          type="number"
+          name="max"
+          value={input.max}
+          onChange={(e) => setMax(e.target.value)}
+        />
       </div>
 
       <div className="px-4 mt-6">

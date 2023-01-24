@@ -63,13 +63,14 @@ function SortBar({ display, onDisplayChange }: Props) {
 
   return (
     <div className="flex items-center">
-      <label>{t("sortBy")} : </label>
+      <label className="hidden md:block">{t("sortBy")} : </label>
 
       <div className="relative ml-2" ref={ref}>
         <button className={`${styled["btn-dropdown"]} ${show && styled.show}`} onClick={handleShow}>
-          {(sort && sortList[sort.id].name) || t("sortBy")}
+          {(sort && sortList[sort.id - 1].name) || t("sortBy")}
+          <i className="sm:hidden fa-solid fa-chevron-down ml-2" />
         </button>
-        <i className={`fa-solid fa-chevron-down ${styled["dropdown-icon"]}`} />
+        <i className={`hidden sm:block fa-solid fa-chevron-down ${styled["dropdown-icon"]}`} />
 
         <div className={`${styled["dropdown-menu"]} ${show && styled.active}`}>
           {sortList.map((item) => (
@@ -80,7 +81,7 @@ function SortBar({ display, onDisplayChange }: Props) {
         </div>
       </div>
 
-      <div className="flex items-center gap-2 ml-3">
+      <div className="hidden md:flex items-center gap-2 ml-3">
         {displayList.map((item) => (
           <button
             key={item.id}

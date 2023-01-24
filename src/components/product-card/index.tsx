@@ -31,7 +31,7 @@ function ProductCard({ data, className = "", display }: Props) {
           <p className={styled["product-card__name"]}>{name}</p>
           <p className={styled["product-card__author"]}>{`${t("author")} : ${author.name}`}</p>
 
-          <div className="flex items-center gap-4 mb-6">
+          <div className="flex items-center gap-4 mb-4 sm:mb-6">
             <p className={`flex items-center gap-2 ${styled.price}`}>฿ {price}</p>
           </div>
 

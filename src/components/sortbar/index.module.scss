@@ -1,13 +1,22 @@
 @use "@/styles/main" as *;
 
 .btn-dropdown {
-  width: 231px;
-  background-color: #ffffff;
-  border: 2px #eeeeee solid;
-  border-radius: 8px;
+  color: $primary-color;
+  padding: 0 1rem;
+  font-size: 14px;
   height: 40px;
-  text-align: center;
+  text-align: right;
   transition: 0.3s;
+  @include breakpoint(sm) {
+    text-align: center;
+    font-size: 1rem;
+    color: #000000;
+    background-color: #ffffff;
+    border: 2px #eeeeee solid;
+    border-radius: 8px;
+    width: 231px;
+  }
+
   &:hover {
     border-color: $primary-color;
   }
@@ -24,16 +33,24 @@
   display: none;
   position: absolute;
   top: 45px;
-  left: 0;
-  width: 100%;
+  right: 0;
+  width: 200px;
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
   z-index: 10;
+  @include breakpoint(sm) {
+    width: 100%;
+    left: 0;
+  }
 
   p {
+    font-size: 14px;
     cursor: pointer;
     padding: 4px 1rem;
+    @include breakpoint(md) {
+      font-size: 1rem;
+    }
 
     &:hover {
       background-color: #f7f7f7;
