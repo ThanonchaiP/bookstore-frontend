@@ -15,6 +15,7 @@ function Carousel({ children, className = "" }: Props) {
     dots: true,
     infinite: true,
     autoplay: true,
+    lazyLoad: "progressive",
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

@@ -7,9 +7,9 @@ import Pagination from "../../components/pagination";
 import ProductCard from "../../components/product-card";
 import { Display } from "../../store/slice/filterSlice";
 
-function SearchPage() {
-  const { data, pagination, meta, keywordText, display, t, onPageChange, onDisplayChange } = useSearchViewModel();
+function ProductFilterPage() {
   const isDesktop = useMediaQuery("(min-width: 992px)");
+  const { data, pagination, meta, keywordText, display, t, onPageChange, onDisplayChange } = useSearchViewModel();
 
   return (
     <div className={styled.search}>
@@ -50,4 +50,4 @@ function SearchPage() {
   );
 }
 
-export default SearchPage;
+export default ProductFilterPage;

@@ -3,19 +3,20 @@ import { FC, Fragment, memo, useCallback, useEffect, useRef, useState } from "re
 import { WithTranslation, withTranslation } from "react-i18next";
 import { Category } from "models/category";
 import useOnClickOutside from "../../utils/hooks/useOnClickOutside";
-import { useAppDispatch } from "../../store/configureStore";
+import { useAppDispatch, useAppSelector } from "../../store/configureStore";
 import { setCategory } from "../../store/slice/filterSlice";
 import { getAll } from "../../services/category.service";
 import FilterItem from "./filter-item";
 import styled from "./index.module.scss";
 import PriceRange from "./price-range";
+import { selectCategoryState } from "../../store/slice/categorySlice";
 
 const Filter: FC<WithTranslation> = ({ t }) => {
   const filterRef = useRef(null);
   const dispatch = useAppDispatch();
+  const { categories } = useAppSelector(selectCategoryState);
 
   const [openMenu, setOpenMenu] = useState(false);
-  const [categories, setCategories] = useState<Category[]>([]);
   const [collapsibleMenu, setCollapsibleMenu] = useState(false);
 
   const onChange = useCallback((value: number) => dispatch(setCategory(value)), []);
@@ -27,15 +28,6 @@ const Filter: FC<WithTranslation> = ({ t }) => {
     }
   });
 
-  useEffect(() => {
-    const getCategories = async () => {
-      const result = await getAll();
-      setCategories(result.data);
-    };
-
-    getCategories();
-  }, []);
-
   return (
     <Fragment>
       <div className={classnames(styled.filter, { [styled.show]: openMenu })} ref={filterRef}>
@@ -45,9 +37,8 @@ const Filter: FC<WithTranslation> = ({ t }) => {
         <p className="bg-gray-400 text-white px-4 py-2">{t("category")}</p>
 
         <div className={classnames(styled.category, { [styled.expanded]: collapsibleMenu })}>
-          {categories.map((item) => (
-            <FilterItem {...item} key={item.id} onChange={onChange} />
-          ))}
+          {categories.length > 0 &&
+            categories.map((item) => <FilterItem {...item} key={item.id} onChange={onChange} />)}
         </div>
 
         {!collapsibleMenu && (
