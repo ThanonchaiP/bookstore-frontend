@@ -1,8 +1,8 @@
 import { memo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
-import useOnClickOutside from "@/hooks/useOnClickOutside";
 import gridIcon from "@/assets/grid-2.png";
-import { Display, selectFilterState, setOrderBy } from "../../slice/filterSlice";
+import useOnClickOutside from "../../utils/hooks/useOnClickOutside";
+import { Display, selectFilterState, setOrderBy } from "../../store/slice/filterSlice";
 import { useAppDispatch, useAppSelector } from "../../store/configureStore";
 import styled from "./index.module.scss";
 

@@ -5,7 +5,7 @@ import { Product } from "models/product";
 import { Meta } from "models/meta";
 import { getProduct } from "../../services/product.service";
 import { useAppSelector } from "../../store/configureStore";
-import { Display, selectFilterState } from "../../slice/filterSlice";
+import { Display, selectFilterState } from "../../store/slice/filterSlice";
 
 export function useSearchViewModel() {
   const { t } = useTranslation();

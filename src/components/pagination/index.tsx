@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
-import { usePagination, NEXT_DOTS, PREV_DOTS } from "@/hooks/usePagination";
+import { usePagination, NEXT_DOTS, PREV_DOTS } from "../../utils/hooks/usePagination";
 import styled from "./index.module.scss";
 
 type Props = {

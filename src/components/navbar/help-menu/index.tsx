@@ -1,7 +1,7 @@
 import { Fragment, memo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import useOnClickOutside from "@/hooks/useOnClickOutside";
+import useOnClickOutside from "../../../utils/hooks/useOnClickOutside";
 import styled from "./index.module.scss";
 
 function HelpMenu() {

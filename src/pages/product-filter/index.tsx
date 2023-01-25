@@ -1,11 +1,11 @@
-import useMediaQuery from "@/hooks/useMediaQuery";
+import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import { useSearchViewModel } from "./SearchViewModel";
 import styled from "./index.module.scss";
 import Filter from "../../components/filter";
 import SortBar from "../../components/sortbar";
 import Pagination from "../../components/pagination";
 import ProductCard from "../../components/product-card";
-import { Display } from "../../slice/filterSlice";
+import { Display } from "../../store/slice/filterSlice";
 
 function SearchPage() {
   const { data, pagination, meta, keywordText, display, t, onPageChange, onDisplayChange } = useSearchViewModel();

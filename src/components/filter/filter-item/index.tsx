@@ -1,6 +1,6 @@
 import { Fragment, memo, useState } from "react";
 import classnames from "classnames";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import useMediaQuery from "../../../utils/hooks/useMediaQuery";
 import styled from "./index.module.scss";
 
 type Props = {

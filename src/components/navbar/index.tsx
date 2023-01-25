@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import useMediaQuery from "@/hooks/useMediaQuery";
+import useMediaQuery from "../../utils/hooks/useMediaQuery";
 import HelpMenu from "./help-menu";
 import styled from "./index.module.scss";
 import MobileMenu from "./mobile-menu";

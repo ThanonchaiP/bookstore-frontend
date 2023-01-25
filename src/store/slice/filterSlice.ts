@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { RootState } from "../store/configureStore";
+import { RootState } from "../configureStore";
 
 export enum Display {
   Column = 1,
