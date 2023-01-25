@@ -5,7 +5,7 @@
 }
 
 .arrow-container {
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   width: 50px;
@@ -19,6 +19,9 @@
   background-color: rgba(0, 0, 0, 0.3);
   transition: 0.3s;
   z-index: 1;
+  @include breakpoint(sm) {
+    display: flex;
+  }
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.6);
@@ -51,17 +54,25 @@
   }
 
   li {
-    width: 8px;
-    height: 8px;
-    border-radius: 4px / 16px;
+    width: 5px;
+    height: 5px;
+    border-radius: 3px;
     background-color: #fff;
     opacity: 1;
     transition: width 0.4s ease-out;
+    @include breakpoint(sm) {
+      width: 8px;
+      height: 8px;
+      border-radius: 4px / 16px;
+    }
   }
 
   :global(li.slick-active) {
-    width: 28px;
+    width: 18px;
     background-color: $primary-color;
+    @include breakpoint(sm) {
+      width: 28px;
+    }
   }
 
   span {

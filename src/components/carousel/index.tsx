@@ -1,16 +1,16 @@
+import { ReactNode } from "react";
+import classnames from "classnames";
 import Slider, { Settings, CustomArrowProps } from "react-slick";
 import styled from "./index.module.scss";
-import banner1 from "@/assets/banner/1.jpg";
-import banner2 from "@/assets/banner/2.jpg";
-import banner3 from "@/assets/banner/3.png";
-import banner4 from "@/assets/banner/4.jpg";
-import banner5 from "@/assets/banner/5.jpg";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-type Props = {};
+type Props = {
+  children?: ReactNode;
+  className?: string;
+};
 
-function Carousel({}: Props) {
+function Carousel({ children, className = "" }: Props) {
   const settings: Settings = {
     dots: true,
     infinite: true,
@@ -25,14 +25,8 @@ function Carousel({}: Props) {
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className={styled.carousel}>
-      <Slider {...settings}>
-        <img src={banner1} alt="banner" />
-        <img src={banner2} alt="banner" />
-        <img src={banner3} alt="banner" />
-        <img src={banner4} alt="banner" />
-        <img src={banner5} alt="banner" />
-      </Slider>
+    <div className={classnames(styled.carousel, { [className]: className })}>
+      <Slider {...settings}>{children}</Slider>
     </div>
   );
 }

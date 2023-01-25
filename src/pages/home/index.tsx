@@ -1,13 +1,11 @@
 import Category from "../../components/category-menu";
-import Carousel from "../../components/carousel";
+import Banner from "../../components/banner";
 import styled from "./index.module.scss";
 
-type Props = {};
-
-function HomePage({}: Props) {
+function HomePage() {
   return (
     <div className={styled.home}>
-      <Carousel />
+      <Banner />
       <Category />
     </div>
   );
