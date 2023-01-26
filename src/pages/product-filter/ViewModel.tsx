@@ -6,11 +6,14 @@ import { Meta } from "models/meta";
 import { getProduct } from "../../services/product.service";
 import { useAppSelector } from "../../store/configureStore";
 import { Display, selectFilterState } from "../../store/slice/filterSlice";
+import useMediaQuery from "../../utils/hooks/useMediaQuery";
 
 export function useSearchViewModel() {
   const { t } = useTranslation();
   const { search } = useLocation();
+  const isMobile = useMediaQuery("(max-width: 768px)");
   const filterState = useAppSelector(selectFilterState);
+
   const keyword = new URLSearchParams(search).get("keyword") || "";
   const keywordText = keyword && `"${keyword}"`;
 
@@ -21,6 +24,10 @@ export function useSearchViewModel() {
 
   const onPageChange = useCallback((page: number) => setPagination((state) => ({ ...state, page })), []);
   const onDisplayChange = useCallback((value: number) => setDisplay(value), []);
+
+  useEffect(() => {
+    if (isMobile && display === Display.List) setDisplay(Display.Column);
+  }, [isMobile]);
 
   useEffect(() => {
     const loadData = async () => {

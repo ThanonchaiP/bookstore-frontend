@@ -27,7 +27,10 @@ function ProductCard({ data, className = "", display }: Props) {
             <img className={styled["favorite-icon"]} src={favouriteIcon} alt="favourite-icon" width={24} height={24} />
           </div>
 
-          <img className={styled["product-card__image"]} src={image} alt={name} crossOrigin="anonymous" />
+          <div className={styled["product-card__image"]}>
+            <img src={image} alt={name} crossOrigin="anonymous" />
+          </div>
+
           <p className={styled["product-card__name"]}>{name}</p>
           <p className={styled["product-card__author"]}>{`${t("author")} : ${author.name}`}</p>
 
@@ -42,9 +45,11 @@ function ProductCard({ data, className = "", display }: Props) {
       ) : (
         <Fragment>
           <div className={styled["list-wrapper"]}>
-            <img className={styled["product-card__image"]} src={image} alt={name} crossOrigin="anonymous" />
+            <div className={`${styled["product-card__image"]} ${styled["m-0"]}`}>
+              <img src={image} alt={name} crossOrigin="anonymous" />
+            </div>
 
-            <div className="pr-4">
+            <div className="pr-4 ml-4">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                   <i className="fa-solid fa-book text-gray-500" />
