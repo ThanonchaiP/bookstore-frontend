@@ -1,5 +1,5 @@
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
-import { useSearchViewModel } from "./SearchViewModel";
+import { useSearchViewModel } from "./ViewModel";
 import styled from "./index.module.scss";
 import Filter from "../../components/filter";
 import SortBar from "../../components/sortbar";

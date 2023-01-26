@@ -1,68 +1,19 @@
-import { FC, memo, useCallback, useState } from "react";
-import Slider, { Settings } from "react-slick";
+import { FC, memo } from "react";
+import Slider from "react-slick";
 import { withTranslation, WithTranslation } from "react-i18next";
-import { NextArrow, PrevArrow } from "../carousel";
 import { useAppSelector } from "../../store/configureStore";
 import { selectCategoryState } from "../../store/slice/categorySlice";
+import { useCategoryMenuViewModel } from "./VIewModel";
 import styled from "./index.module.scss";
 
 const CategoryMenu: FC<WithTranslation> = ({ t }) => {
   const { categories } = useAppSelector(selectCategoryState);
-
-  const [dragging, setDragging] = useState(false);
-
-  const handleBeforeChange = useCallback(() => {
-    setDragging(true);
-  }, [setDragging]);
-
-  const handleAfterChange = useCallback(() => {
-    setDragging(false);
-  }, [setDragging]);
-
-  const onClickCard = useCallback(
-    (categoryId: number) => (e: React.SyntheticEvent) => {
-      if (dragging) {
-        e.stopPropagation();
-        return;
-      }
-
-      console.log("categoryId : ", categoryId);
-    },
-    [dragging]
-  );
-
-  const settings: Settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 6,
-    slidesToScroll: 3,
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    lazyLoad: "progressive",
-    beforeChange: handleBeforeChange,
-    afterChange: handleAfterChange,
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 3,
-        },
-      },
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 2.1,
-          slidesToScroll: 2,
-        },
-      },
-    ],
-  };
+  const { settings, onClickCard } = useCategoryMenuViewModel();
 
   return (
     <div className="py-8">
-      <h1 className="text-xl md:text-3xl font-semibold mb-5">{t("category")}</h1>
+      <h1 className="text-xl md:text-2xl font-semibold mb-5">{t("category")}</h1>
+
       {categories.length > 0 && (
         <Slider {...settings} className="gap-4">
           {categories.map((item) => (
