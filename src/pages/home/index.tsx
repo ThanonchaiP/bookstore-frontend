@@ -1,12 +1,14 @@
-import Category from "../../components/category-menu";
+import CategorySlider from "../../components/category-menu";
 import Banner from "../../components/banner";
 import styled from "./index.module.scss";
+import BestSellerSlider from "./components/best-seller-slider";
 
 function HomePage() {
   return (
     <div className={styled.home}>
       <Banner />
-      <Category />
+      <CategorySlider />
+      <BestSellerSlider />
     </div>
   );
 }

@@ -23,7 +23,7 @@ function App() {
 
   return (
     <ConfigProvider theme={{ token: { colorPrimary: PRIMARY_COLOR } }}>
-      <RouterProvider router={router} />;
+      <RouterProvider router={router} />
     </ConfigProvider>
   );
 }

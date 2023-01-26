@@ -1,5 +1,6 @@
 {
   "category": "Category",
+  "bestSeller": "Bestseller",
   "filter": "Filter",
   "filterPrice": "Filter price",
   "priceRange": "Price range",

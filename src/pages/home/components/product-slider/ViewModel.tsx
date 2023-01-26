@@ -1,15 +1,8 @@
-import classnames from "classnames";
-import { memo, ReactNode, useCallback, useState } from "react";
-import Slider, { Settings } from "react-slick";
-import { NextArrow, PrevArrow } from "../carousel";
+import { useState, useCallback } from "react";
+import { Settings } from "react-slick";
+import { NextArrow, PrevArrow } from "../../../../components/carousel";
 
-type Props = {
-  children?: ReactNode;
-  className?: string;
-  onClick?: (id: string | number) => void;
-};
-
-function Slide({ children, className = "", onClick }: Props) {
+export function useProductSlider() {
   const [dragging, setDragging] = useState(false);
 
   const handleBeforeChange = useCallback(() => {
@@ -21,22 +14,19 @@ function Slide({ children, className = "", onClick }: Props) {
   }, [setDragging]);
 
   const onClickCard = useCallback(
-    (id: number | string) => (e: React.SyntheticEvent) => {
-      if (dragging) {
-        e.stopPropagation();
-        return;
-      }
+    (productId: string) => {
+      if (dragging) return;
 
-      console.log("Id : ", id);
+      console.log("productId : ", productId);
     },
     [dragging]
   );
 
   const settings: Settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
-    slidesToShow: 6,
+    slidesToShow: 4,
     slidesToScroll: 3,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -47,24 +37,27 @@ function Slide({ children, className = "", onClick }: Props) {
       {
         breakpoint: 800,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 3,
         },
       },
       {
         breakpoint: 500,
         settings: {
+          autoplay: true,
           slidesToShow: 2,
           slidesToScroll: 2,
         },
       },
+      {
+        breakpoint: 300,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
   };
-  return (
-    <Slider {...settings} className={classnames({ [className]: className })}>
-      {children}
-    </Slider>
-  );
-}
 
-export default memo(Slide);
+  return { settings, onClickCard };
+}

@@ -4,12 +4,13 @@ import { useTranslation } from "react-i18next";
 import { Product } from "models/product";
 import { Meta } from "models/meta";
 import { getProduct } from "../../services/product.service";
-import { useAppSelector } from "../../store/configureStore";
-import { Display, selectFilterState } from "../../store/slice/filterSlice";
+import { useAppDispatch, useAppSelector } from "../../store/configureStore";
+import { Display, resetFilter, selectFilterState } from "../../store/slice/filterSlice";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
 
 export function useSearchViewModel() {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
   const { search } = useLocation();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const filterState = useAppSelector(selectFilterState);
@@ -39,6 +40,14 @@ export function useSearchViewModel() {
 
     loadData();
   }, [search, pagination, filterState]);
+
+  //cleanup
+  useEffect(
+    () => () => {
+      dispatch(resetFilter());
+    },
+    []
+  );
 
   return { data, pagination, meta, keywordText, display, t, onPageChange, onDisplayChange };
 }

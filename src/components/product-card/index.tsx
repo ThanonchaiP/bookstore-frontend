@@ -9,14 +9,18 @@ type Props = {
   data: Product;
   className?: string;
   display?: "column" | "list";
+  onClick?: (id: string) => void;
 };
 
-function ProductCard({ data, className = "", display }: Props) {
+function ProductCard({ data, className = "", display = "column", onClick }: Props) {
   const { t } = useTranslation();
   const { name, author, category, price, image, publisher } = data;
 
   return (
-    <div className={classnames(styled["product-card"], { [className]: className })}>
+    <div
+      className={classnames(styled["product-card"], { [className]: className })}
+      onClick={() => (onClick ? onClick(data.id) : {})}
+    >
       {display === "column" ? (
         <Fragment>
           <div className="flex items-center justify-between">
@@ -28,7 +32,7 @@ function ProductCard({ data, className = "", display }: Props) {
           </div>
 
           <div className={styled["product-card__image"]}>
-            <img src={image} alt={name} crossOrigin="anonymous" />
+            <img src={image} alt={name} crossOrigin="anonymous" loading="lazy" />
           </div>
 
           <p className={styled["product-card__name"]}>{name}</p>
@@ -46,7 +50,7 @@ function ProductCard({ data, className = "", display }: Props) {
         <Fragment>
           <div className={styled["list-wrapper"]}>
             <div className={`${styled["product-card__image"]} ${styled["m-0"]}`}>
-              <img src={image} alt={name} crossOrigin="anonymous" />
+              <img src={image} alt={name} crossOrigin="anonymous" loading="lazy" />
             </div>
 
             <div className="pr-4 ml-4">

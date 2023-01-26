@@ -27,7 +27,7 @@ function useCategoryMenuViewModel() {
 
   const settings: Settings = {
     dots: false,
-    infinite: true,
+    infinite: false,
     speed: 500,
     slidesToShow: 6,
     slidesToScroll: 3,

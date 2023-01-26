@@ -11,11 +11,11 @@ const CategoryMenu: FC<WithTranslation> = ({ t }) => {
   const { settings, onClickCard } = useCategoryMenuViewModel();
 
   return (
-    <div className="py-8">
+    <div className={styled.category__container}>
       <h1 className="text-xl md:text-2xl font-semibold mb-5">{t("category")}</h1>
 
       {categories.length > 0 && (
-        <Slider {...settings} className="gap-4">
+        <Slider {...settings}>
           {categories.map((item) => (
             <div key={item.id} className="px-2" onClick={onClickCard(item.id)}>
               <div className={styled.category__card}>

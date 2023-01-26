@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { memo, ReactNode } from "react";
 import classnames from "classnames";
 import Slider, { Settings, CustomArrowProps } from "react-slick";
 import styled from "./index.module.scss";
@@ -34,20 +34,26 @@ function Carousel({ children, className = "" }: Props) {
 
 export default Carousel;
 
-export function NextArrow(props: CustomArrowProps) {
+export const NextArrow = memo(function NextArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
-    <span className={`${styled["arrow-container"]} ${styled["next-arrow"]}`} onClick={onClick}>
+    <span
+      className={classnames(styled["arrow-container"], styled["next-arrow"], { [styled.disable]: !onClick })}
+      onClick={onClick}
+    >
       <i className="fa-solid fa-angle-right" />
     </span>
   );
-}
+});
 
-export function PrevArrow(props: CustomArrowProps) {
+export const PrevArrow = memo(function PrevArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
-    <span className={`${styled["arrow-container"]} ${styled["prev-arrow"]}`} onClick={onClick}>
+    <span
+      className={classnames(styled["arrow-container"], styled["prev-arrow"], { [styled.disable]: !onClick })}
+      onClick={onClick}
+    >
       <i className="fa-solid fa-angle-left" />
     </span>
   );
-}
+});

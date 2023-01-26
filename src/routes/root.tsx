@@ -4,6 +4,7 @@ import MainLayout from "../layouts/main";
 
 const HomePage = lazy(() => import("@/pages/home"));
 const ProductFilterPage = lazy(() => import("@/pages/product-filter"));
+const BestSellerPage = lazy(() => import("@/pages/best-seller"));
 
 const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <HomePage /> },
       { path: "products-filter", element: <ProductFilterPage /> },
+      { path: "best-seller", element: <BestSellerPage /> },
     ],
   },
 ]);

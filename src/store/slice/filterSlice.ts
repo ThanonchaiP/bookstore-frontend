@@ -36,10 +36,13 @@ const filterSlice = createSlice({
     setOrderBy: (state, action) => {
       state.sort = action.payload;
     },
+    resetFilter: (state) => {
+      state.category = [];
+    },
   },
 });
 
-export const { setCategory, setOrderBy, setPriceRange } = filterSlice.actions;
+export const { setCategory, setOrderBy, setPriceRange, resetFilter } = filterSlice.actions;
 export const selectFilterState = (state: RootState) => state.filter;
 
 export default filterSlice.reducer;

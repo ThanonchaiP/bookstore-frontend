@@ -28,3 +28,8 @@ export const getProduct = async (filter: ProductParams) => {
   const result = await httpClient.get<ProductResponse>("/books", { params });
   return result.data;
 };
+
+export const bestSeller = async () => {
+  const result = await httpClient.get<ProductResponse>("/books/recommend/best-seller");
+  return result.data;
+};
