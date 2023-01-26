@@ -23,7 +23,7 @@ function getAxiosProductParams(productParams: ProductParams) {
   return params;
 }
 
-export const getProduct = async (filter: ProductParams) => {
+export const getProducts = async (filter: ProductParams) => {
   const params = getAxiosProductParams(filter);
   const result = await httpClient.get<ProductResponse>("/books", { params });
   return result.data;
@@ -31,5 +31,10 @@ export const getProduct = async (filter: ProductParams) => {
 
 export const bestSeller = async () => {
   const result = await httpClient.get<ProductResponse>("/books/recommend/best-seller");
+  return result.data;
+};
+
+export const newBook = async () => {
+  const result = await httpClient.get<ProductResponse>("/books/recommend/new-book");
   return result.data;
 };

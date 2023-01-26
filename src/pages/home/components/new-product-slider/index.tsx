@@ -1,17 +1,17 @@
+import { Product } from "models/product";
 import { memo, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Product } from "models/product";
-import { bestSeller } from "../../../../services/product.service";
+import { newBook } from "../../../../services/product.service";
 import ProductSlider from "../product-slider";
 import styled from "./index.module.scss";
 
-const BestSellerSlider = () => {
+const NewProductSlider = () => {
   const { t } = useTranslation();
   const [data, setData] = useState<Product[]>([]);
 
   useEffect(() => {
     const loadData = async () => {
-      const result = await bestSeller();
+      const result = await newBook();
       setData(result.data);
     };
 
@@ -20,11 +20,11 @@ const BestSellerSlider = () => {
 
   return (
     <div className={styled.container}>
-      <h1 className="text-xl md:text-3xl font-semibold mb-9">{t("bestSeller")}</h1>
+      <h1 className="text-xl md:text-3xl font-semibold mb-9">{t("newProduct")}</h1>
 
       <ProductSlider products={data} />
     </div>
   );
 };
 
-export default memo(BestSellerSlider);
+export default memo(NewProductSlider);

@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Product } from "models/product";
 import { Meta } from "models/meta";
-import { getProduct } from "../../services/product.service";
+import { getProducts } from "../../services/product.service";
 import { useAppDispatch, useAppSelector } from "../../store/configureStore";
 import { Display, resetFilter, selectFilterState } from "../../store/slice/filterSlice";
 import useMediaQuery from "../../utils/hooks/useMediaQuery";
@@ -33,7 +33,7 @@ export function useSearchViewModel() {
   useEffect(() => {
     const loadData = async () => {
       let payload = { search: keyword, ...pagination, ...filterState };
-      const result = await getProduct(payload);
+      const result = await getProducts(payload);
       setMeta(result.meta);
       setData(result.data);
     };

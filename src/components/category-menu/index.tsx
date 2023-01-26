@@ -12,7 +12,7 @@ const CategoryMenu: FC<WithTranslation> = ({ t }) => {
 
   return (
     <div className={styled.category__container}>
-      <h1 className="text-xl md:text-2xl font-semibold mb-5">{t("category")}</h1>
+      <h1 className="text-xl md:text-3xl font-semibold mb-9">{t("category")}</h1>
 
       {categories.length > 0 && (
         <Slider {...settings}>
