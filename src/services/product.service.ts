@@ -29,12 +29,14 @@ export const getProducts = async (filter: ProductParams) => {
   return result.data;
 };
 
-export const bestSeller = async () => {
-  const result = await httpClient.get<ProductResponse>("/books/recommend/best-seller");
+export const bestSeller = async (params: { page: number; limit: number }) => {
+  const { page, limit } = params;
+  const result = await httpClient.get<ProductResponse>(`/books/recommend/best-seller?page=${page}&limit=${limit}`);
   return result.data;
 };
 
-export const newBook = async () => {
-  const result = await httpClient.get<ProductResponse>("/books/recommend/new-book");
+export const newBook = async (params: { page: number; limit: number }) => {
+  const { page, limit } = params;
+  const result = await httpClient.get<ProductResponse>(`/books/recommend/new-book?page=${page}&limit=${limit}`);
   return result.data;
 };
