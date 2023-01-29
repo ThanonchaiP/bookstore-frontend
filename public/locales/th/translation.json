@@ -52,5 +52,16 @@
     "priceHighToLow": "ราคาจากสูงไปตํ่า",
     "alphabetLowToHigh": "ตามตัวอักษรน้อยไปมาก",
     "alphabetHighToLow": "ตามตัวอักษรมากไปน้อย"
+  },
+  "productDetail": {
+    "readReviews": "อ่านรีวิว",
+    "addToFavorites": "เพิ่มไปยังรายการโปรด",
+    "price": "ราคา",
+    "buyNow": "ซื้อทันที",
+    "addToCart": "หยิบใส่รถเข็น",
+    "releaseDate": "วันที่วางขาย",
+    "numberOfPages": "จำนวนหน้า",
+    "bookCategory": "หมวดหนังสือ",
+    "page": "หน้า"
   }
 }

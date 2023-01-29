@@ -52,5 +52,16 @@
     "priceHighToLow": "Price high to low",
     "alphabetLowToHigh": "Alphabet low to high",
     "alphabetHighToLow": "Alphabet high to low"
+  },
+  "productDetail": {
+    "readReviews": "Read reviews",
+    "addToFavorites": "Add to favorites",
+    "price": "Price",
+    "buyNow": "Buy now",
+    "addToCart": "Add to Cart",
+    "releaseDate": "Release date",
+    "numberOfPages": "Number of pages",
+    "bookCategory": "Book category",
+    "page": "Pages"
   }
 }

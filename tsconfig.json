@@ -21,9 +21,10 @@
       "@/*": ["./src/*"],
       "@/components/*": ["component/*"],
       "@/styles/*": ["styles/*"],
-      "@/hooks/*": ["hooks/*"],
       "@/assets/*": ["assets/*"],
-      "@/pages/*": ["pages/*"]
+      "@/pages/*": ["pages/*"],
+      "@/services/*": ["services/*"],
+      "@/models/*": ["models/*"]
     }
   },
   "include": ["src"],

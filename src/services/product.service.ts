@@ -1,3 +1,4 @@
+import { BookResponse } from "models/book";
 import { ProductParams, ProductResponse } from "models/product";
 import { httpClient } from "../utils/http-client";
 
@@ -26,6 +27,11 @@ function getAxiosProductParams(productParams: ProductParams) {
 export const getProducts = async (filter: ProductParams) => {
   const params = getAxiosProductParams(filter);
   const result = await httpClient.get<ProductResponse>("/books", { params });
+  return result.data;
+};
+
+export const getProduct = async (productId: string) => {
+  const result = await httpClient.get<BookResponse>(`/books/${productId}`);
   return result.data;
 };
 

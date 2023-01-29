@@ -1,6 +1,7 @@
 import classnames from "classnames";
 import { memo, Fragment } from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Product } from "models/product";
 import styled from "./index.module.scss";
 import favouriteIcon from "../../assets/favourite-icon.png";
@@ -9,20 +10,22 @@ type Props = {
   data: Product;
   className?: string;
   display?: "column" | "list";
-  onClick?: (id: string) => void;
 };
 
-function ProductCard({ data, className = "", display = "column", onClick }: Props) {
+function ProductCard({ data, className = "", display = "column" }: Props) {
   const { t } = useTranslation();
-  const { name, author, category, price, image, publisher } = data;
+  const { id, name, author, category, price, image, publisher } = data;
+
+  const addToCart = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+
+    console.log("add to cart");
+  };
 
   return (
-    <div
-      className={classnames(styled["product-card"], { [className]: className })}
-      onClick={() => (onClick ? onClick(data.id) : {})}
-    >
+    <div className={classnames(styled["product-card"], { [className]: className })}>
       {display === "column" ? (
-        <Fragment>
+        <Link to={`/product-detail/${id}`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <i className="fa-solid fa-book text-gray-500" />
@@ -42,12 +45,12 @@ function ProductCard({ data, className = "", display = "column", onClick }: Prop
             <p className={`flex items-center gap-2 ${styled.price}`}>฿ {price}</p>
           </div>
 
-          <button type="button" className={styled["btn-add"]}>
+          <button type="button" className={styled["btn-add"]} onClick={addToCart}>
             {t("addToCart")}
           </button>
-        </Fragment>
+        </Link>
       ) : (
-        <Fragment>
+        <Link to={`/product-detail/${id}`}>
           <div className={styled["list-wrapper"]}>
             <div className={`${styled["product-card__image"]} ${styled["m-0"]}`}>
               <img src={image} alt={name} crossOrigin="anonymous" loading="lazy" />
@@ -79,13 +82,13 @@ function ProductCard({ data, className = "", display = "column", onClick }: Prop
                 <p className={`flex items-center gap-2 ${styled.price}`}>฿ {price}</p>
               </div>
 
-              <button type="button" className={styled["btn-add"]}>
+              <button type="button" className={styled["btn-add"]} onClick={addToCart}>
                 {t("addToCart")}
               </button>
               <p className="mt-4 text-center">{t("readMore")}</p>
             </div>
           </div>
-        </Fragment>
+        </Link>
       )}
     </div>
   );
