@@ -62,6 +62,9 @@
     "releaseDate": "Release date",
     "numberOfPages": "Number of pages",
     "bookCategory": "Book category",
-    "page": "Pages"
+    "page": "Pages",
+    "productDetails": "Product details",
+    "bookInfo": "Book info",
+    "like": "Like"
   }
 }

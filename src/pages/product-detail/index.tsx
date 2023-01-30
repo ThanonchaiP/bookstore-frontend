@@ -48,7 +48,7 @@ const ProductDetail = () => {
                   <p className="underline ml-2 cursor-pointer hidden sm:block">{t("productDetail.readReviews")}</p>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="hidden items-center gap-2 sm:flex">
                   <img className={styled["favourite-icon"]} src={favouriteIcon} alt="favourite-icon" />
                   <p className="underline cursor-pointer">{t("productDetail.addToFavorites")}</p>
                 </div>
@@ -57,7 +57,7 @@ const ProductDetail = () => {
               <div className="order-[-1] mb-2 sm:order-4 sm:mb-0">
                 <p className="hidden text-2xl font-semibold mb-2 sm:block">{t("productDetail.price")}</p>
 
-                <div className="flex flex-col sm:gap-10 sm:flex-row sm:items-end">
+                <div className="relative flex flex-col sm:gap-10 sm:flex-row sm:items-end">
                   <p className={styled.price}>
                     <i className="fa-solid fa-baht-sign mr-3" />
                     {data.price}
@@ -74,6 +74,15 @@ const ProductDetail = () => {
                   </div>
 
                   <p className={`${styled["discount-percent"]} hidden sm:block`}>ประหยัด 15%</p>
+
+                  <div className="absolute flex flex-col items-center right-[20px] top-[20%] sm:hidden">
+                    <img
+                      className="grayscale-[1] opacity-[0.2] hover:opacity-[1] hover:grayscale-0"
+                      src={favouriteIcon}
+                      alt="favourite-icon"
+                    />
+                    <p className="text-sm">{t("productDetail.like")}</p>
+                  </div>
                 </div>
               </div>
 
@@ -97,7 +106,7 @@ const ProductDetail = () => {
 
           <div className="flex flex-col mt-8 sm:m-8 sm:p-8 rounded-md shadow-md sm:flex-row">
             <div className="sm:min-w-[270px] md:min-w-[350px]">
-              <h5 className="font-semibold mb-4">ข้อมูลหนังสือ</h5>
+              <h5 className="font-semibold mb-4">{t("productDetail.bookInfo")}</h5>
               <div className="flex flex-col justify-center gap-1 sm:gap-3">
                 {bookDetail.map((item, index) => (
                   <p key={index}>
@@ -109,7 +118,7 @@ const ProductDetail = () => {
             </div>
 
             <div className="mt-5 sm:mt-0">
-              <h5 className="font-semibold mb-4">{`รายละเอียดสินค้า : ${data.name}`}</h5>
+              <h5 className="font-semibold mb-4">{`${t("productDetail.productDetails")} : ${data.name}`}</h5>
               <p className="leading-relaxed">{data.description}</p>
             </div>
           </div>

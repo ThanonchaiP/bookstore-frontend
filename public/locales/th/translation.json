@@ -62,6 +62,9 @@
     "releaseDate": "วันที่วางขาย",
     "numberOfPages": "จำนวนหน้า",
     "bookCategory": "หมวดหนังสือ",
-    "page": "หน้า"
+    "page": "หน้า",
+    "productDetails": "รายละเอียดสินค้า",
+    "bookInfo": "ข้อมูลหนังสือ",
+    "like": "ถูกใจ"
   }
 }

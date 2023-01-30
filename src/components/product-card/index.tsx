@@ -1,10 +1,10 @@
 import classnames from "classnames";
-import { memo, Fragment } from "react";
+import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Product } from "models/product";
+import favouriteIcon from "assets/favourite-icon.png";
 import styled from "./index.module.scss";
-import favouriteIcon from "../../assets/favourite-icon.png";
 
 type Props = {
   data: Product;
