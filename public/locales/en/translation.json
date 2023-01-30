@@ -66,5 +66,24 @@
     "productDetails": "Product details",
     "bookInfo": "Book info",
     "like": "Like"
+  },
+  "login": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "newMember": "New member",
+    "register": "Register",
+    "here": "here",
+    "forgotPassword": "Forgot Password"
+  },
+  "errorMessage": {
+    "required": {
+      "email": "Please enter your Email",
+      "password": "Please enter your password"
+    },
+    "formInvalid": {
+      "email": "Incorrect invalid"
+    },
+    "incorrect": "Incorrect email or password"
   }
 }

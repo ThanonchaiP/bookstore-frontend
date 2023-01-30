@@ -7,6 +7,7 @@ const ProductFilterPage = lazy(() => import("@/pages/product-filter"));
 const ProductDtailPage = lazy(() => import("@/pages/product-detail"));
 const BestSellerPage = lazy(() => import("@/pages/best-seller"));
 const NewProductPage = lazy(() => import("@/pages/new-product"));
+const LoginPage = lazy(() => import("@/pages/login"));
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
     element: <MainLayout />,
     children: [
       { index: true, element: <HomePage /> },
+      { path: "login", element: <LoginPage /> },
       { path: "products-filter", element: <ProductFilterPage /> },
       { path: "product-detail/:id", element: <ProductDtailPage /> },
       { path: "best-seller", element: <BestSellerPage /> },

@@ -53,7 +53,7 @@ function HelpMenu() {
         </li>
         <li>|</li>
         <li>
-          <Link to="">{t("navbar.login")}</Link>
+          <Link to="/login">{t("navbar.login")}</Link>
         </li>
       </ul>
     </div>

@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "@reduxjs/toolkit": "^1.9.1",
     "antd": "^5.1.2",
     "axios": "^1.2.2",
@@ -25,7 +26,8 @@
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
     "swr": "^2.0.0",
-    "vite-tsconfig-paths": "^4.0.5"
+    "vite-tsconfig-paths": "^4.0.5",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",

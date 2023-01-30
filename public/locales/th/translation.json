@@ -66,5 +66,24 @@
     "productDetails": "รายละเอียดสินค้า",
     "bookInfo": "ข้อมูลหนังสือ",
     "like": "ถูกใจ"
+  },
+  "login": {
+    "login": "เข้าสู่ระบบ",
+    "email": "อีเมล",
+    "password": "รหัสผ่าน",
+    "newMember": "สมาชิกใหม่",
+    "register": "ลงทะเบียน",
+    "here": "ที่นี่",
+    "forgotPassword": "ลืมรหัสผ่าน"
+  },
+  "errorMessage": {
+    "required": {
+      "email": "โปรดป้อนอีเมลของคุณ",
+      "password": "กรุณาระบุรหัสผ่าน"
+    },
+    "formInvalid": {
+      "email": "กรุณาตรวจสอบอีเมลของคุณอีกครั้ง"
+    },
+    "incorrect": "อีเมล หรือ รหัสผ่าน ไม่ถูกต้อง"
   }
 }
