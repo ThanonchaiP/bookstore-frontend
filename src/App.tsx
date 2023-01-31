@@ -1,6 +1,8 @@
+import { SWRConfig } from "swr";
 import { useCallback, useEffect } from "react";
 import { ConfigProvider } from "antd";
 import { RouterProvider } from "react-router";
+import { fetcher } from "utils/http-client";
 import { PRIMARY_COLOR } from "./utils/constants";
 import { useAppDispatch } from "./store/configureStore";
 import { fetchCategoriesAsync } from "./store/slice/categorySlice";
@@ -23,7 +25,9 @@ function App() {
 
   return (
     <ConfigProvider theme={{ token: { colorPrimary: PRIMARY_COLOR } }}>
-      <RouterProvider router={router} />
+      <SWRConfig value={{ fetcher, revalidateOnFocus: false }}>
+        <RouterProvider router={router} />
+      </SWRConfig>
     </ConfigProvider>
   );
 }

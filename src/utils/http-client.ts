@@ -7,3 +7,4 @@ axios.interceptors.response.use((response) => {
 });
 
 export const httpClient = axios;
+export const fetcher = (url: string) => httpClient(url).then((res) => res.data);

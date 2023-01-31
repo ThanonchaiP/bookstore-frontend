@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { Category } from "models/category";
 import { RootState } from "store/configureStore";
-import { getAll } from "../../services/category.service";
+import { getCategories } from "services/category.service";
 
 type CategoryState = {
   categories: Category[];
@@ -12,7 +12,7 @@ export const fetchCategoriesAsync = createAsyncThunk<Category[]>(
   "category/fetchCategoriesAsync",
   async (_, thunkAPI) => {
     try {
-      const response = await getAll();
+      const response = await getCategories();
       return response.data;
     } catch (error: any) {
       return thunkAPI.rejectWithValue({ error: error.data });

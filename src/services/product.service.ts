@@ -1,3 +1,4 @@
+import useSWR from "swr";
 import { BookResponse } from "models/book";
 import { ProductParams, ProductResponse } from "models/product";
 import { httpClient } from "../utils/http-client";
@@ -35,14 +36,14 @@ export const getProduct = async (productId: string) => {
   return result.data;
 };
 
-export const bestSeller = async (params: { page: number; limit: number }) => {
+export const getBestSeller = (params: { page: number; limit: number }) => {
   const { page, limit } = params;
-  const result = await httpClient.get<ProductResponse>(`/books/recommend/best-seller?page=${page}&limit=${limit}`);
-  return result.data;
+  const { data, isLoading } = useSWR<ProductResponse>(`/books/recommend/best-seller?page=${page}&limit=${limit}`);
+  return { data, isLoading };
 };
 
-export const newBook = async (params: { page: number; limit: number }) => {
+export const getNewProduct = (params: { page: number; limit: number }) => {
   const { page, limit } = params;
-  const result = await httpClient.get<ProductResponse>(`/books/recommend/new-book?page=${page}&limit=${limit}`);
-  return result.data;
+  const { data, isLoading } = useSWR<ProductResponse>(`/books/recommend/new-book?page=${page}&limit=${limit}`);
+  return { data, isLoading };
 };

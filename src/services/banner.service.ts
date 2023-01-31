@@ -1,7 +1,7 @@
+import useSWR from "swr";
 import { BannerResponse } from "models/banner";
-import { httpClient } from "../utils/http-client";
 
-export const getBanners = async () => {
-  const result = await httpClient.get<BannerResponse>("/banners");
-  return result.data;
+export const getBanners = () => {
+  const { data, isLoading } = useSWR<BannerResponse>(`/banners`);
+  return { data, isLoading };
 };

@@ -1,9 +1,9 @@
+import { memo } from "react";
 import { Row, Col } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import styled from "./index.module.scss";
-import { memo } from "react";
 
 const Footer = () => {
   const { t } = useTranslation();

@@ -1,23 +1,13 @@
-import { Product } from "models/product";
-import { memo, useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
+import { memo } from "react";
 import { Link } from "react-router-dom";
-import { newBook } from "services/product.service";
+import { useTranslation } from "react-i18next";
+import { getNewProduct } from "services/product.service";
 import ProductSlider from "../product-slider";
 import styled from "./index.module.scss";
 
 const NewProductSlider = () => {
   const { t } = useTranslation();
-  const [data, setData] = useState<Product[]>([]);
-
-  useEffect(() => {
-    const loadData = async () => {
-      const result = await newBook({ page: 1, limit: 10 });
-      setData(result.data);
-    };
-
-    loadData();
-  }, []);
+  const { data } = getNewProduct({ page: 1, limit: 10 });
 
   return (
     <div className={styled.container}>
@@ -33,7 +23,7 @@ const NewProductSlider = () => {
         </div>
       </div>
 
-      <ProductSlider products={data} />
+      {data && <ProductSlider products={data.data} />}
     </div>
   );
 };
