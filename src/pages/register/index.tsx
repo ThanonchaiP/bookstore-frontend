@@ -1,4 +1,5 @@
 import * as yup from "yup";
+import { useCallback, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -6,10 +7,18 @@ import { FormInput } from "components/form/input";
 import { RegisterForm } from "@/models/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUp } from "@/services/auth.service";
+import Dialog from "components/dialog";
 import styled from "./index.module.scss";
 
 const Register = () => {
   const { t } = useTranslation();
+
+  const [dialog, setDialog] = useState({
+    open: false,
+    variant: "success",
+    title: "Success!",
+    message: "Congratulations, your account has been successfully created.",
+  });
 
   const schema = yup.object().shape({
     firstname: yup.string().required(t("errorMessage.required.name")!),
@@ -31,11 +40,22 @@ const Register = () => {
     formState: { errors, isSubmitting },
   } = useForm<RegisterForm>({ resolver: yupResolver(schema) });
 
+  const handleClose = useCallback(() => setDialog((state) => ({ ...state, open: false })), []);
+
   const onSubmit = async (value: RegisterForm) => {
     try {
       await signUp(value);
+      setDialog((state) => ({ ...state, open: true }));
       reset();
-    } catch (error) {}
+    } catch (error: any) {
+      setDialog((state) => ({
+        ...state,
+        open: true,
+        title: "Error!",
+        variant: "error",
+        message: error.response.data.message,
+      }));
+    }
   };
 
   return (
@@ -75,6 +95,14 @@ const Register = () => {
           </p>
         </form>
       </div>
+
+      <Dialog
+        open={dialog.open}
+        title={dialog.title}
+        message={dialog.message}
+        onClose={handleClose}
+        variant={dialog.variant}
+      />
     </div>
   );
 };
