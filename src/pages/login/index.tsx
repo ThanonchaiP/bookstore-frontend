@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Input } from "components/form/input";
+import { FormInput } from "components/form/input";
 import { LoginForm } from "@/models/auth";
 import { login } from "@/services/auth.service";
 import { setItem } from "utils/localstorage";
@@ -46,14 +46,14 @@ const Login = () => {
 
         <form className={styled.content} onSubmit={handleSubmit(onSubmit)}>
           <div className="w-[100%] max-w-[580px]">
-            <Input
+            <FormInput
               label={t("login.email")}
               placeholder={t("errorMessage.required.email")!}
               {...register("email")}
               error={errors.email?.message}
               required
             />
-            <Input
+            <FormInput
               label={t("login.password")}
               type="password"
               placeholder={t("errorMessage.required.password")!}
@@ -71,7 +71,7 @@ const Login = () => {
             <div className="flex items-center justify-between flex-wrap">
               <p>
                 {t("login.newMember")}?
-                <Link to="" className="mx-2 text-blue-400">
+                <Link to="/register" className="mx-2 text-blue-400">
                   {t("login.register")}
                 </Link>
                 {t("login.here")}

@@ -16,3 +16,12 @@ interface LoginData {
     refreshToken: string;
   };
 }
+
+export type RegisterForm = {
+  firstname: string;
+  lastname: string;
+  email: string;
+  phone: string;
+  password: string;
+  confirmPassword: string;
+};

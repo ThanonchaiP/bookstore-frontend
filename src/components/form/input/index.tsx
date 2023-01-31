@@ -10,7 +10,7 @@ interface InputProps extends ComponentProps<"input"> {
   containerClassName?: string;
 }
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(function Input(
+export const FormInput = forwardRef<HTMLInputElement, InputProps>(function Input(
   { label, type = "text", className = "", error, required, containerClassName = "", ...props },
   ref
 ) {

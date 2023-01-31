@@ -76,10 +76,29 @@
     "here": "ที่นี่",
     "forgotPassword": "ลืมรหัสผ่าน"
   },
+  "register": {
+    "createAccount": "สร้างบัญชี",
+    "signUp": "สมัครสมาชิก",
+    "alreadyMember": "เป็นสมาชิกอยู่แล้วหรือ",
+    "login": "เข้าสู่ระบบ",
+    "here": "ที่นี่"
+  },
+  "input": {
+    "name": "ชื่อ",
+    "surname": "นามสกุล",
+    "phoneNumber": "เบอร์โทร",
+    "email": "อีเมล",
+    "password": "รหัสผ่าน",
+    "confirmPassword": "ยืนยันรหัสผ่าน"
+  },
   "errorMessage": {
     "required": {
+      "name": "โปรดป้อนชื่อของคุณ",
+      "surname": "โปรดป้อนนามสกุลของคุณ",
+      "phone": "โปรดป้อนเบอร์โทรของคุณ",
       "email": "โปรดป้อนอีเมลของคุณ",
-      "password": "กรุณาระบุรหัสผ่าน"
+      "password": "กรุณาระบุรหัสผ่าน",
+      "confirmPassword": "กรุณาระบุรหัสผ่านอีกครั้ง"
     },
     "formInvalid": {
       "email": "กรุณาตรวจสอบอีเมลของคุณอีกครั้ง"

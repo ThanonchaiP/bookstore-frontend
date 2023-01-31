@@ -49,7 +49,7 @@ function HelpMenu() {
         </li>
         <li>|</li>
         <li>
-          <Link to="">{t("navbar.register")}</Link>
+          <Link to="/register">{t("navbar.register")}</Link>
         </li>
         <li>|</li>
         <li>

@@ -76,14 +76,33 @@
     "here": "here",
     "forgotPassword": "Forgot Password"
   },
+  "register": {
+    "createAccount": "Create Account",
+    "signUp": "Sign up",
+    "alreadyMember": "Already member",
+    "login": "login",
+    "here": "here"
+  },
+  "input": {
+    "name": "Name",
+    "surname": "Surname",
+    "phoneNumber": "Phone number",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
   "errorMessage": {
     "required": {
-      "email": "Please enter your Email",
-      "password": "Please enter your password"
+      "name": "Please enter your Name.",
+      "surname": "Please enter your Surname.",
+      "phone": "Please enter your Phone number.",
+      "email": "Please enter your Email.",
+      "password": "Please enter your Password.",
+      "confirmPassword": "Please enter your Confirm Password."
     },
     "formInvalid": {
-      "email": "Incorrect invalid"
+      "email": "Incorrect invalid."
     },
-    "incorrect": "Incorrect email or password"
+    "incorrect": "Incorrect email or password."
   }
 }
