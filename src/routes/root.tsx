@@ -9,6 +9,7 @@ const BestSellerPage = lazy(() => import("@/pages/best-seller"));
 const NewProductPage = lazy(() => import("@/pages/new-product"));
 const LoginPage = lazy(() => import("@/pages/login"));
 const RegisterPage = lazy(() => import("@/pages/register"));
+const CartPage = lazy(() => import("@/pages/cart"));
 
 const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
       { path: "product-detail/:id", element: <ProductDtailPage /> },
       { path: "best-seller", element: <BestSellerPage /> },
       { path: "new-product", element: <NewProductPage /> },
+      {
+        path: "user",
+        children: [{ path: "cart", element: <CartPage /> }],
+      },
     ],
   },
 ]);
