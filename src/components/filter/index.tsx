@@ -1,15 +1,13 @@
 import classnames from "classnames";
-import { FC, Fragment, memo, useCallback, useEffect, useRef, useState } from "react";
+import { FC, Fragment, memo, useCallback, useRef, useState } from "react";
 import { WithTranslation, withTranslation } from "react-i18next";
-import { Category } from "models/category";
-import useOnClickOutside from "../../utils/hooks/useOnClickOutside";
-import { useAppDispatch, useAppSelector } from "../../store/configureStore";
-import { setCategory } from "../../store/slice/filterSlice";
-import { getAll } from "../../services/category.service";
+import { useAppDispatch, useAppSelector } from "store/configureStore";
+import { setCategory } from "store/slice/filterSlice";
+import { selectCategoryState } from "store/slice/categorySlice";
+import useOnClickOutside from "utils/hooks/useOnClickOutside";
 import FilterItem from "./filter-item";
 import styled from "./index.module.scss";
 import PriceRange from "./price-range";
-import { selectCategoryState } from "../../store/slice/categorySlice";
 
 const Filter: FC<WithTranslation> = ({ t }) => {
   const filterRef = useRef(null);

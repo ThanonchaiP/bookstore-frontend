@@ -1,8 +1,8 @@
 import { FC, memo } from "react";
 import Slider from "react-slick";
 import { withTranslation, WithTranslation } from "react-i18next";
-import { useAppSelector } from "../../store/configureStore";
-import { selectCategoryState } from "../../store/slice/categorySlice";
+import { useAppSelector } from "store/configureStore";
+import { selectCategoryState } from "store/slice/categorySlice";
 import { useCategoryMenuViewModel } from "./VIewModel";
 import styled from "./index.module.scss";
 

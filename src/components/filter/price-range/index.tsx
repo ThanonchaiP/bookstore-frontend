@@ -1,8 +1,8 @@
+import { Slider } from "antd";
 import { memo, SyntheticEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Slider } from "antd";
-import { setPriceRange } from "../../../store/slice/filterSlice";
-import { useAppDispatch } from "../../../store/configureStore";
+import { setPriceRange } from "store/slice/filterSlice";
+import { useAppDispatch } from "store/configureStore";
 import styled from "./index.module.scss";
 
 type Input = { min: number | string; max: number | string };
