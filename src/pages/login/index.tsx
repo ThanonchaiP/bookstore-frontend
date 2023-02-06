@@ -6,13 +6,14 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { FormInput } from "components/form/input";
 import { LoginForm } from "@/models/auth";
-import { login } from "@/services/auth.service";
-import { setItem } from "utils/localstorage";
+import { useAppDispatch } from "store/configureStore";
+import { fetchCurrentUser, signInUser } from "store/slice/accountSlice";
 import styled from "./index.module.scss";
 
 const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const loginSchema = yup.object().shape({
     email: yup.string().email(t("errorMessage.formInvalid.email")!).required(t("errorMessage.required.email")!),
@@ -29,10 +30,8 @@ const Login = () => {
 
   const onSubmit = async (value: LoginForm) => {
     try {
-      const { data } = await login(value);
-      setItem("token", JSON.stringify(data.token));
-      setItem("user", data.user);
-
+      await dispatch(signInUser(value));
+      await dispatch(fetchCurrentUser());
       navigate("/", { replace: true });
     } catch (error) {
       setFormIncorrect(true);

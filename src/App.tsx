@@ -6,6 +6,7 @@ import { fetcher } from "utils/http-client";
 import { PRIMARY_COLOR } from "./utils/constants";
 import { useAppDispatch } from "./store/configureStore";
 import { fetchCategoriesAsync } from "./store/slice/categorySlice";
+import { fetchCurrentUser } from "./store/slice/accountSlice";
 import router from "./routes/root";
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
 
   const initApp = useCallback(async () => {
     try {
-      await dispatch(fetchCategoriesAsync());
+      dispatch(fetchCategoriesAsync());
+      await dispatch(fetchCurrentUser());
     } catch (error) {
       console.log(error);
     }
