@@ -1,14 +1,16 @@
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import LoginPopup from "components/login-modal";
 import logo from "@/assets/logo.png";
-import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import { useNavbarViewModel } from "./ViewModel";
 import HelpMenu from "./help-menu";
-import styled from "./index.module.scss";
 import MobileMenu from "./mobile-menu";
 import SearchBar from "./search-bar";
+import CartPopup from "./cart-popup";
+import styled from "./index.module.scss";
 
 const Navbar = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)");
+  const { cart, isMobile, totalPrice, user, handleOpenLoginPopup } = useNavbarViewModel();
 
   return (
     <Fragment>
@@ -32,21 +34,34 @@ const Navbar = () => {
               </Fragment>
             )}
 
-            <div className="relative">
-              <i className={`fa-sharp fa-solid fa-cart-shopping ${styled["cart-icon"]}`} />
-              <span className={styled.quantity}>5</span>
-            </div>
+            <div className="relative" ref={cart.cartPopupRef}>
+              <div
+                className="flex items-center gap-5 cursor-pointer hover:text-[#554994]"
+                onClick={user ? cart.handleCartPopup : handleOpenLoginPopup}
+              >
+                <div className="relative">
+                  <i className={`fa-sharp fa-solid fa-cart-shopping ${styled["cart-icon"]}`} />
+                  {cart.cartState && cart.cartState.cartItems.length > 0 && (
+                    <span className={styled.quantity}>{cart.cartState.cartItems.length}</span>
+                  )}
+                </div>
 
-            {!isMobile && (
-              <div className={styled["total-price"]}>
-                <i className="fa-solid fa-baht-sign mr-1" />
-                <p>0.00</p>
+                {!isMobile && (
+                  <div className={styled["total-price"]}>
+                    <i className="fa-solid fa-baht-sign mr-1" />
+                    <p className="font-medium">{totalPrice.toFixed(2)}</p>
+                  </div>
+                )}
               </div>
-            )}
+
+              {user && <CartPopup open={cart.openCartPopup} handleCartPopup={cart.handleCartPopup} />}
+            </div>
           </div>
         </div>
         {isMobile && <SearchBar className="mt-4" />}
       </div>
+
+      <LoginPopup />
     </Fragment>
   );
 };

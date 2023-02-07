@@ -5,6 +5,7 @@ import { User } from "@/models/user";
 import { login } from "@/services/auth.service";
 import { getCurrentUser } from "@/services/user.service";
 import { RootState } from "store/configureStore";
+import { fetchCartAsync } from "./cartSlice";
 
 interface AccountState {
   user: User | null;
@@ -31,6 +32,10 @@ export const fetchCurrentUser = createAsyncThunk<User>(
   async (_, thunkAPI) => {
     try {
       const userId = localStorage.getItem("user");
+
+      //fetchCart
+      thunkAPI.dispatch(fetchCartAsync());
+
       const result = await getCurrentUser(userId!);
       return result.data;
     } catch (error: any) {

@@ -23,7 +23,11 @@
     "thai": "Thai",
     "english": "English",
     "searchPlaceholder": "Type book name / author ... ",
-    "favorite": "Favorite"
+    "favorite": "Favorite",
+    "manageAccount": "Manage account",
+    "favoriteList": "Favorite list",
+    "myOrder": "My Order",
+    "logOut": "Log out"
   },
   "footer": {
     "bookStore": "Book Store",
@@ -105,5 +109,14 @@
       "email": "Incorrect invalid."
     },
     "incorrect": "Incorrect email or password."
+  },
+  "cart": {
+    "selectAll": "Select all",
+    "piece": "Piece",
+    "orderSummary": "Order summary",
+    "productPrice": "Product price",
+    "shippingFee": "Shipping fee",
+    "total": "Total",
+    "payment": "Payment"
   }
 }

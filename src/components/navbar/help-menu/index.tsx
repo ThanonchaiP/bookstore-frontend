@@ -1,13 +1,17 @@
 import { Fragment, memo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import useOnClickOutside from "../../../utils/hooks/useOnClickOutside";
+import { useAppSelector } from "store/configureStore";
+import useOnClickOutside from "utils/hooks/useOnClickOutside";
+import ProfileMenu from "../profile-menu";
 import styled from "./index.module.scss";
 
 function HelpMenu() {
   const translateRef = useRef(null);
   const { t, i18n } = useTranslation();
+
   const [open, setOpen] = useState(false);
+  const { user } = useAppSelector((state) => state.account);
 
   const language = [
     { title: t("navbar.thai"), value: "th" },
@@ -48,13 +52,20 @@ function HelpMenu() {
           )}
         </li>
         <li>|</li>
-        <li>
-          <Link to="/register">{t("navbar.register")}</Link>
-        </li>
-        <li>|</li>
-        <li>
-          <Link to="/login">{t("navbar.login")}</Link>
-        </li>
+
+        {!user ? (
+          <>
+            <li>
+              <Link to="/register">{t("navbar.register")}</Link>
+            </li>
+            <li>|</li>
+            <li>
+              <Link to="/login">{t("navbar.login")}</Link>
+            </li>
+          </>
+        ) : (
+          <ProfileMenu user={user} />
+        )}
       </ul>
     </div>
   );

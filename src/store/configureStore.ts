@@ -3,12 +3,14 @@ import { configureStore } from "@reduxjs/toolkit";
 import filterSlice from "./slice/filterSlice";
 import categorySlice from "./slice/categorySlice";
 import accountSlice from "./slice/accountSlice";
+import cartSlice from "./slice/cartSlice";
 
 export const store = configureStore({
   reducer: {
     filter: filterSlice,
     category: categorySlice,
     account: accountSlice,
+    cart: cartSlice,
   },
 });
 
