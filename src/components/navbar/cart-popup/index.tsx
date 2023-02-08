@@ -1,8 +1,8 @@
 import classnames from "classnames";
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { useAppSelector } from "store/configureStore";
-import { selectCartState } from "store/slice/cartSlice";
+import { useAppDispatch, useAppSelector } from "store/configureStore";
+import { removeCartItemAsync, selectCartState } from "store/slice/cartSlice";
 import styled from "./index.module.scss";
 
 type Props = {
@@ -11,7 +11,10 @@ type Props = {
 };
 
 const CartPopup = ({ open, handleCartPopup }: Props) => {
+  const dispatch = useAppDispatch();
   const { cart, totalPrice } = useAppSelector(selectCartState);
+
+  const removeItem = (cartItemId: string) => dispatch(removeCartItemAsync({ cartItemId }));
 
   return (
     <div className={classnames(styled["cart-popup"], { [styled.active]: open })}>
@@ -26,7 +29,7 @@ const CartPopup = ({ open, handleCartPopup }: Props) => {
               </div>
 
               <img src={item.book.image} alt={item.book.name} crossOrigin="anonymous" />
-              <i className="fa-solid fa-trash text-gray-400 cursor-pointer" />
+              <i className="fa-solid fa-trash text-gray-400 cursor-pointer" onClick={() => removeItem(item.id)} />
             </div>
           ))}
       </div>

@@ -3,6 +3,9 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Product } from "models/product";
+import { useAppDispatch } from "store/configureStore";
+import { setOpenLoginPopup } from "store/slice/accountSlice";
+import { addToCartAsync } from "store/slice/cartSlice";
 import favouriteIcon from "assets/favourite-icon.png";
 import styled from "./index.module.scss";
 
@@ -14,12 +17,19 @@ type Props = {
 
 function ProductCard({ data, className = "", display = "column" }: Props) {
   const { t } = useTranslation();
+  const dispatch = useAppDispatch();
+
   const { id, name, author, category, price, image, publisher } = data;
 
   const addToCart = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
 
-    console.log("add to cart");
+    if (!localStorage.getItem("user")) {
+      dispatch(setOpenLoginPopup(true));
+      return;
+    }
+
+    dispatch(addToCartAsync({ bookId: id, quantity: 1 }));
   };
 
   return (

@@ -25,3 +25,9 @@ interface Book {
   image: string;
   author: Author;
 }
+
+export type AddToCartPayload = {
+  cartId: string;
+  bookId: string;
+  quantity: number;
+};

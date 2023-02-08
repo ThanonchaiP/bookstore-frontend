@@ -1,7 +1,8 @@
-import { Cart, CartItem } from "@/models/cart";
-import { getCart, removeCartItem, updateCartItem } from "@/services/cart.service";
 import { createAsyncThunk, createSlice, isAnyOf, PayloadAction } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import { RootState } from "store/configureStore";
+import { Cart, CartItem } from "@/models/cart";
+import { addToCart, getCart, removeCartItem, updateCartItem } from "@/services/cart.service";
 
 interface CartState {
   cart: Cart | null;
@@ -30,6 +31,26 @@ export const fetchCartAsync = createAsyncThunk(
   {
     condition: () => {
       if (!localStorage.getItem("user")) return false;
+    },
+  }
+);
+
+export const addToCartAsync = createAsyncThunk<Cart, { bookId: string; quantity: number }, { state: RootState }>(
+  "cart/addToCartAsync",
+  async ({ bookId, quantity = 1 }, thunkAPI) => {
+    try {
+      const { cart } = thunkAPI.getState().cart;
+      const payload = { cartId: cart!.id, bookId, quantity };
+
+      const newCart = await addToCart(payload);
+      return newCart.data;
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue({ error: error.response.data.message });
+    }
+  },
+  {
+    condition: ({}, { getState }) => {
+      if (!getState().cart) return false;
     },
   }
 );
@@ -92,6 +113,9 @@ const cartSlice = createSlice({
       if (state.selected.length < 1 || selectedId === -1 || selectedId === undefined) return;
       state.selected[selectedId].quantity = quantity;
     });
+    builder.addCase(addToCartAsync.fulfilled, () => {
+      toast.success("Product successfully added to your shopping cart.", { autoClose: 2000 });
+    });
     builder.addCase(removeCartItemAsync.fulfilled, (state, action) => {
       const { cartItemId } = action.meta.arg;
       const itemIndex = state.cart?.cartItems.findIndex((i) => i.id === cartItemId);
@@ -99,11 +123,14 @@ const cartSlice = createSlice({
       state.cart!.cartItems.splice(itemIndex, 1);
       state.totalPrice = state.cart!.cartItems.reduce((sum, item) => sum + item.quantity * +item.book.price, 0);
     });
-    builder.addMatcher(isAnyOf(fetchCartAsync.fulfilled), (state, action: PayloadAction<Cart>) => {
-      const { cartItems } = action.payload;
-      state.cart = action.payload;
-      state.totalPrice = cartItems.reduce((sum, item) => sum + item.quantity * +item.book.price, 0);
-    });
+    builder.addMatcher(
+      isAnyOf(fetchCartAsync.fulfilled, addToCartAsync.fulfilled),
+      (state, action: PayloadAction<Cart>) => {
+        const { cartItems } = action.payload;
+        state.cart = action.payload;
+        state.totalPrice = cartItems.reduce((sum, item) => sum + item.quantity * +item.book.price, 0);
+      }
+    );
   },
 });
 

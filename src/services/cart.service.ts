@@ -1,8 +1,13 @@
-import { CartResponse } from "@/models/cart";
+import { AddToCartPayload, CartResponse } from "@/models/cart";
 import { httpClient } from "utils/http-client";
 
 export const getCart = async (userId: string) => {
   const result = await httpClient.get<CartResponse>(`/cart/user/${userId}`);
+  return result.data;
+};
+
+export const addToCart = async (payload: AddToCartPayload) => {
+  const result = await httpClient.post<CartResponse>(`/cart-item`, payload);
   return result.data;
 };
 

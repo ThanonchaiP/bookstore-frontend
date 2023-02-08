@@ -19,7 +19,7 @@ const Cart = () => {
 
   const onSelectAll = (e: ChangeEvent<HTMLInputElement>) => {
     const { checked } = e.target;
-    if (!cart) return;
+    if (!cart || cart.cartItems.length < 1) return;
 
     if (checked) dispatch(setSelected(cart.cartItems));
     else dispatch(setSelected([]));
@@ -30,7 +30,10 @@ const Cart = () => {
       <Row className="mt-3">
         <Col span={24} xl={16}>
           <div className="flex items-center gap-3 rounded-md shadow-md p-4">
-            <FormCheckbox onChange={onSelectAll} checked={cart?.cartItems.length === selected.length} />
+            <FormCheckbox
+              onChange={onSelectAll}
+              checked={cart?.cartItems.length === selected.length && selected.length > 0}
+            />
             <p className="text-base">{`${t("cart.selectAll")} ( ${cart?.cartItems.length || 0} ${t(
               "cart.piece"
             )} )`}</p>
