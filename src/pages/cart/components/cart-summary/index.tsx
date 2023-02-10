@@ -33,7 +33,7 @@ const CartSummary = () => {
         selectedPayload.push({ quantity: item.quantity, book: { id: item.book.id }, cartItemId: item.id });
       }
 
-      const payload = { cartId: cart.id, totalQty, totalPrice, items: selectedPayload };
+      const payload = { cartId: cart.id, totalQty, totalPrice, items: selectedPayload, shippingFee };
       await createOrder(payload);
       dispatch(fetchCartAsync());
 

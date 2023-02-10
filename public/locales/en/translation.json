@@ -27,6 +27,7 @@
     "manageAccount": "Manage account",
     "favoriteList": "Favorite list",
     "myOrder": "My Order",
+    "editProfile": "Edit profile",
     "logOut": "Log out"
   },
   "footer": {
@@ -118,5 +119,13 @@
     "shippingFee": "Shipping fee",
     "total": "Total",
     "payment": "Payment"
+  },
+  "order": {
+    "myOrder": "My Order",
+    "orderTotal": "Order Total",
+    "order": "Order",
+    "orderDate": "Order date",
+    "quantity": "Quantity",
+    "price": "Price"
   }
 }

@@ -10,6 +10,9 @@ const NewProductPage = lazy(() => import("@/pages/new-product"));
 const LoginPage = lazy(() => import("@/pages/login"));
 const RegisterPage = lazy(() => import("@/pages/register"));
 const CartPage = lazy(() => import("@/pages/cart"));
+const UserWrapper = lazy(() => import("@/pages/user"));
+const OrderPage = lazy(() => import("@/pages/user/components/order"));
+const ProtectedRoute = lazy(() => import("./ProtectedRoute"));
 
 const router = createBrowserRouter([
   {
@@ -23,9 +26,11 @@ const router = createBrowserRouter([
       { path: "product-detail/:id", element: <ProductDtailPage /> },
       { path: "best-seller", element: <BestSellerPage /> },
       { path: "new-product", element: <NewProductPage /> },
+      { path: "user/cart", element: <ProtectedRoute />, children: [{ index: true, element: <CartPage /> }] },
       {
         path: "user",
-        children: [{ path: "cart", element: <CartPage /> }],
+        element: <UserWrapper />,
+        children: [{ path: "order", element: <OrderPage /> }],
       },
     ],
   },

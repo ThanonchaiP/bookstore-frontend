@@ -19,8 +19,14 @@ const ProfileMenu = ({ user }: Props) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const menu = [
-    { id: 1, title: t("navbar.manageAccount"), icon: <i className="fa-solid fa-user" />, link: "" },
-    { id: 2, title: t("navbar.favoriteList"), icon: <i className="fa-solid fa-heart" />, link: "" },
+    { id: 1, title: t("navbar.manageAccount"), icon: <i className="fa-solid fa-user" />, link: "/user/edit-profile" },
+    {
+      id: 2,
+      title: t("navbar.myOrder"),
+      icon: <i className="fa-sharp fa-solid fa-cart-shopping ml-[-3px] mr-[3px]" />,
+      link: "/user/order",
+    },
+    { id: 3, title: t("navbar.favoriteList"), icon: <i className="fa-solid fa-heart" />, link: "/user/favorite" },
   ];
 
   const onClick = () => setOpenMenu((prev) => !prev);

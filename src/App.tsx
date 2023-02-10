@@ -1,5 +1,5 @@
 import { SWRConfig } from "swr";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ConfigProvider } from "antd";
 import { RouterProvider } from "react-router";
 import { ToastContainer } from "react-toastify";
@@ -13,6 +13,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(true);
 
   const initApp = useCallback(async () => {
     try {
@@ -24,8 +25,10 @@ function App() {
   }, [dispatch]);
 
   useEffect(() => {
-    initApp();
+    initApp().then(() => setLoading(false));
   }, [initApp]);
+
+  if (loading) return <p>init app....</p>;
 
   return (
     <ConfigProvider theme={{ token: { colorPrimary: PRIMARY_COLOR } }}>
