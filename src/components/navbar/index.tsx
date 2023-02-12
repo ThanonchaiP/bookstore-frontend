@@ -1,5 +1,7 @@
+import classnames from "classnames";
 import { Fragment } from "react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import LoginPopup from "components/login-modal";
 import logo from "@/assets/logo.png";
 import { useNavbarViewModel } from "./ViewModel";
@@ -7,16 +9,18 @@ import HelpMenu from "./help-menu";
 import MobileMenu from "./mobile-menu";
 import SearchBar from "./search-bar";
 import CartPopup from "./cart-popup";
+import ProfileMenu from "./profile-menu";
 import styled from "./index.module.scss";
 
 const Navbar = () => {
-  const { cart, isMobile, totalPrice, user, handleOpenLoginPopup } = useNavbarViewModel();
+  const { t } = useTranslation();
+  const { cart, isMobile, totalPrice, user, sticky, handleOpenLoginPopup } = useNavbarViewModel();
 
   return (
     <Fragment>
       {!isMobile && <HelpMenu />}
 
-      <div className={styled.navbar}>
+      <div className={classnames(styled.navbar, { [styled.sticky]: sticky })}>
         <div className={styled.navbar__container}>
           {isMobile && <MobileMenu />}
 
@@ -29,7 +33,17 @@ const Navbar = () => {
           <div className="flex justify-end items-center gap-5">
             {!isMobile && (
               <Fragment>
-                <i className={`fa-solid fa-heart mb-1 ${styled["favorite-icon"]}`} />
+                {sticky ? (
+                  user ? (
+                    <ProfileMenu className="text-[#555559] font-semibold" user={user} />
+                  ) : (
+                    <Link to="/login" className="text-[#555559] text-base font-bold">
+                      {t("navbar.login")}
+                    </Link>
+                  )
+                ) : (
+                  <i className={`fa-solid fa-heart mb-1 ${styled["favorite-icon"]}`} />
+                )}
                 <span className={styled["vertical-divider"]} />
               </Fragment>
             )}
@@ -58,7 +72,7 @@ const Navbar = () => {
             </div>
           </div>
         </div>
-        {isMobile && <SearchBar className="mt-4" />}
+        {isMobile && <SearchBar />}
       </div>
 
       <LoginPopup />

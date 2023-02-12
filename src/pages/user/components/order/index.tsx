@@ -1,7 +1,7 @@
 import moment from "moment";
 import { useCallback } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { getOrders } from "@/services/order.service";
 import Pagination from "components/pagination";
 import styled from "./index.module.scss";
@@ -31,7 +31,7 @@ const Order = () => {
                   {t("order.order")} <span className="text-[#554994]">#{order.orderId}</span>
                 </h4>
                 <h4 className="font-medium md:text-base">
-                  {t("order.orderDate")} {moment(order.createdAt).utc().locale("th").format("DD MMMM YYYY เวลา HH:mm")}
+                  {t("order.orderDate")} {moment(order.orderDate).locale("th").format("DD MMMM YYYY เวลา HH:mm")}
                 </h4>
               </div>
 
@@ -47,7 +47,9 @@ const Order = () => {
                 </div>
 
                 <div className="flex-1">
-                  <h4 className="text-base font-medium">{item.book.name}</h4>
+                  <Link to={`/product-detail/${item.book.id}`} className="text-base font-medium">
+                    {item.book.name}
+                  </Link>
                   <p>
                     {t("order.quantity")}: {item.quantity}
                   </p>

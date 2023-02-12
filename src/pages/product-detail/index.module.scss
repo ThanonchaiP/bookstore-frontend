@@ -2,7 +2,7 @@
 
 .container {
   padding-top: 1.5rem;
-  @include container();
+  @include container($max-width: 1140px);
 
   .detail-container {
     display: flex;

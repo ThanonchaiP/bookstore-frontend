@@ -64,7 +64,7 @@ function HelpMenu() {
             </li>
           </>
         ) : (
-          <ProfileMenu user={user} />
+          <ProfileMenu user={user} className="text-[#898989]" />
         )}
       </ul>
     </div>

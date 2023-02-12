@@ -5,6 +5,7 @@ export type CreateOrderPayload = {
   shippingFee: number;
   totalQty: number;
   totalPrice: number;
+  orderDate: Date;
   items: OrderItemPayload[];
 };
 
@@ -27,6 +28,7 @@ interface Order {
   shippingFee: string;
   totalQty: number;
   totalPrice: string;
+  orderDate: string;
   createdAt: string;
   updatedAt: string;
   orderItems: OrderItem[];

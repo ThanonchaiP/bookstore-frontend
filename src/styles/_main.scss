@@ -1,7 +1,7 @@
 //Color
 $primary-color: #554994;
 
-@mixin container($max-width: 1140px) {
+@mixin container($max-width: 1240px) {
   max-width: $max-width;
   margin: 0 auto;
   padding-left: 1rem;

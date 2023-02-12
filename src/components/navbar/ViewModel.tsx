@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { setOpenLoginPopup } from "store/slice/accountSlice";
@@ -12,6 +12,7 @@ export function useNavbarViewModel() {
   const navigate = useNavigate();
 
   const { user } = useAppSelector((state) => state.account);
+  const [sticky, setSticky] = useState(false);
   const { cart, totalPrice } = useAppSelector((state) => state.cart);
   const [openCartPopup, setOpenCartPopup] = useState(false);
 
@@ -32,10 +33,19 @@ export function useNavbarViewModel() {
     if (openCartPopup) setOpenCartPopup(false);
   });
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setSticky(window.scrollY > 100);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return {
     isMobile,
     user,
     totalPrice,
+    sticky,
     cart: {
       cartState: cart,
       cartPopupRef,

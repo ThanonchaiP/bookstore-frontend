@@ -1,4 +1,5 @@
 import { memo, useRef, useState } from "react";
+import classnames from "classnames";
 import { Link } from "react-router-dom";
 import { User } from "@/models/user";
 import { useAppDispatch } from "store/configureStore";
@@ -10,9 +11,10 @@ import styled from "./index.module.scss";
 
 type Props = {
   user: User;
+  className?: string;
 };
 
-const ProfileMenu = ({ user }: Props) => {
+const ProfileMenu = ({ user, className }: Props) => {
   const ref = useRef(null);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -41,7 +43,11 @@ const ProfileMenu = ({ user }: Props) => {
   });
 
   return (
-    <div className="relative font-medium cursor-pointer select-none" onClick={onClick} ref={ref}>
+    <div
+      className={classnames("relative font-medium cursor-pointer select-none", [className])}
+      onClick={onClick}
+      ref={ref}
+    >
       {user.firstname}
       <i className="fa-solid fa-angle-down ml-2" />
 
