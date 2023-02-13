@@ -1,0 +1,20 @@
+@use "@/styles/main" as *;
+
+.category {
+  padding: 1rem;
+  min-height: calc(100vh - 441.94px);
+  @include container();
+
+  &__header {
+    font-size: 30px;
+    font-weight: 600;
+    text-align: center;
+    color: $primary-color;
+  }
+}
+
+.grid-container {
+  @include breakpoint(xss) {
+    grid-template-columns: 1fr;
+  }
+}

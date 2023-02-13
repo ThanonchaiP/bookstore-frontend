@@ -38,6 +38,8 @@ const filterSlice = createSlice({
     },
     resetFilter: (state) => {
       state.category = [];
+      state.sort = undefined;
+      state.price = undefined;
     },
   },
 });

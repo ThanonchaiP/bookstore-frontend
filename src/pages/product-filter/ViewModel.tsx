@@ -1,21 +1,21 @@
-import { useCallback, useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { getProducts } from "services/product.service";
+import { useAppDispatch, useAppSelector } from "store/configureStore";
+import { Display, resetFilter, selectFilterState } from "store/slice/filterSlice";
 import { Product } from "models/product";
 import { Meta } from "models/meta";
-import { getProducts } from "../../services/product.service";
-import { useAppDispatch, useAppSelector } from "../../store/configureStore";
-import { Display, resetFilter, selectFilterState } from "../../store/slice/filterSlice";
-import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import useMediaQuery from "utils/hooks/useMediaQuery";
 
 export function useSearchViewModel() {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
-  const { search } = useLocation();
   const isMobile = useMediaQuery("(max-width: 768px)");
   const filterState = useAppSelector(selectFilterState);
+  const [searchParams] = useSearchParams();
 
-  const keyword = new URLSearchParams(search).get("keyword") || "";
+  const keyword = useMemo(() => searchParams.get("keyword") || "", [searchParams]);
   const keywordText = keyword && `"${keyword}"`;
 
   const [data, setData] = useState<Product[]>([]);
@@ -39,7 +39,7 @@ export function useSearchViewModel() {
     };
 
     loadData();
-  }, [search, pagination, filterState]);
+  }, [keyword, pagination, filterState]);
 
   //cleanup
   useEffect(

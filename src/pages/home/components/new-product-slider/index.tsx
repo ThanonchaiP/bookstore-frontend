@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { getNewProduct } from "services/product.service";
 import ProductSlider from "../product-slider";
-import styled from "./index.module.scss";
+import styled from "../best-seller-slider/index.module.scss";
 
 const NewProductSlider = () => {
   const { t } = useTranslation();

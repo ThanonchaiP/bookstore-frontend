@@ -8,6 +8,7 @@ import styled from "./index.module.scss";
 
 type Props = {
   display?: number;
+  disableDisplayIcon?: boolean;
   onDisplayChange?: (display: number) => void;
 };
 
@@ -17,7 +18,7 @@ type SortItem = {
   value: { orderBy: string; op: string };
 };
 
-function SortBar({ display, onDisplayChange }: Props) {
+function SortBar({ display, disableDisplayIcon, onDisplayChange }: Props) {
   const ref = useRef(null);
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
@@ -81,17 +82,19 @@ function SortBar({ display, onDisplayChange }: Props) {
         </div>
       </div>
 
-      <div className="hidden md:flex items-center gap-2 ml-3">
-        {displayList.map((item) => (
-          <button
-            key={item.id}
-            className={`${styled["btn-display"]} ${item.value === display && styled["display-active"]}`}
-            onClick={() => handleDisplay(item.value)}
-          >
-            {item.icon}
-          </button>
-        ))}
-      </div>
+      {!disableDisplayIcon && (
+        <div className="hidden md:flex items-center gap-2 ml-3">
+          {displayList.map((item) => (
+            <button
+              key={item.id}
+              className={`${styled["btn-display"]} ${item.value === display && styled["display-active"]}`}
+              onClick={() => handleDisplay(item.value)}
+            >
+              {item.icon}
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
