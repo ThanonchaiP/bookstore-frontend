@@ -3,14 +3,14 @@ import { Row, Col } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const Footer = () => {
   const { t } = useTranslation();
 
   return (
-    <div className={styled.footer}>
-      <img width={151} className={styled.logo} src={logo} alt="logo" />
+    <div className={styles.footer}>
+      <img width={151} className={styles.logo} src={logo} alt="logo" />
 
       <Row className="mt-10 gap-y-5">
         <Col xs={24} sm={12} md={8} lg={6} className="pr-4">
@@ -56,14 +56,14 @@ const Footer = () => {
         <Col xs={24} md={8} lg={4}>
           <p className="mb-4 font-bold">{t("footer.social")}</p>
 
-          <div className={styled["icon-wrapper"]}>
+          <div className={styles["icon-wrapper"]}>
             <i className="fa-brands fa-facebook-f" />
             <i className="fa-brands fa-instagram" />
             <i className="fa-brands fa-twitter" />
             <i className="fa-brands fa-youtube" />
           </div>
 
-          <button className={styled["btn-subscribe"]}>
+          <button className={styles["btn-subscribe"]}>
             <i className="fa-regular fa-paper-plane" />
             {t("footer.subscribe")}
           </button>

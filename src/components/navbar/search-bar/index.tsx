@@ -2,7 +2,7 @@ import { memo, useEffect } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 import { useNavigate, useLocation } from "react-router-dom";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type Props = { className?: string };
 type IFormInput = { keyword: String };
@@ -23,7 +23,7 @@ function SearchBar({ className }: Props) {
   }, [search]);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className={`${styled["search-bar"]} ${className}`}>
+    <form onSubmit={handleSubmit(onSubmit)} className={`${styles["search-bar"]} ${className}`}>
       <input type="text" placeholder={t("navbar.searchPlaceholder")!} {...register("keyword")} />
       <button type="submit">
         <i className="fa-solid fa-magnifying-glass" />

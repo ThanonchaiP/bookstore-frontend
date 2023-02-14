@@ -4,7 +4,7 @@ import gridIcon from "@/assets/grid-2.png";
 import useOnClickOutside from "../../utils/hooks/useOnClickOutside";
 import { Display, selectFilterState, setOrderBy } from "../../store/slice/filterSlice";
 import { useAppDispatch, useAppSelector } from "../../store/configureStore";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type Props = {
   display?: number;
@@ -67,13 +67,13 @@ function SortBar({ display, disableDisplayIcon, onDisplayChange }: Props) {
       <label className="hidden md:block">{t("sortBy")} : </label>
 
       <div className="relative ml-2" ref={ref}>
-        <button className={`${styled["btn-dropdown"]} ${show && styled.show}`} onClick={handleShow}>
+        <button className={`${styles["btn-dropdown"]} ${show && styles.show}`} onClick={handleShow}>
           {(sort && sortList[sort.id - 1].name) || t("sortBy")}
           <i className="sm:hidden fa-solid fa-chevron-down ml-2" />
         </button>
-        <i className={`hidden sm:block fa-solid fa-chevron-down ${styled["dropdown-icon"]}`} />
+        <i className={`hidden sm:block fa-solid fa-chevron-down ${styles["dropdown-icon"]}`} />
 
-        <div className={`${styled["dropdown-menu"]} ${show && styled.active}`}>
+        <div className={`${styles["dropdown-menu"]} ${show && styles.active}`}>
           {sortList.map((item) => (
             <p key={item.id} onClick={() => onChange(item)}>
               {item.name}
@@ -87,7 +87,7 @@ function SortBar({ display, disableDisplayIcon, onDisplayChange }: Props) {
           {displayList.map((item) => (
             <button
               key={item.id}
-              className={`${styled["btn-display"]} ${item.value === display && styled["display-active"]}`}
+              className={`${styles["btn-display"]} ${item.value === display && styles["display-active"]}`}
               onClick={() => handleDisplay(item.value)}
             >
               {item.icon}

@@ -1,11 +1,11 @@
 import { Row, Col } from "antd";
 import ProtectedRoute from "routes/ProtectedRoute";
 import Sidebar from "./components/sidebar";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const UserWrapper = () => {
   return (
-    <Row className={styled.container}>
+    <Row className={styles.container}>
       <Col className="pr-8" span={0} lg={7}>
         <Sidebar />
       </Col>

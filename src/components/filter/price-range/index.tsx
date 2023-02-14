@@ -3,7 +3,7 @@ import { memo, SyntheticEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { setPriceRange } from "store/slice/filterSlice";
 import { useAppDispatch } from "store/configureStore";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type Input = { min: number | string; max: number | string };
 
@@ -38,7 +38,7 @@ const PriceRange = () => {
       <p className="bg-gray-400 text-white px-4 py-2 text-left">{t("priceRange")}</p>
       <div className="flex justify-between items-center gap-2 px-4 mt-4">
         <input
-          className={styled["range-input"]}
+          className={styles["range-input"]}
           type="number"
           name="min"
           value={input.min}
@@ -46,7 +46,7 @@ const PriceRange = () => {
         />
         <span>-</span>
         <input
-          className={styled["range-input"]}
+          className={styles["range-input"]}
           type="number"
           name="max"
           value={input.max}
@@ -58,7 +58,7 @@ const PriceRange = () => {
         <Slider range min={0} max={10000} value={[+input.min, +input.max]} onChange={(value) => onChange(value)} />
       </div>
 
-      <button className={styled["btn-submit"]} type="submit">
+      <button className={styles["btn-submit"]} type="submit">
         {t("filterPrice")}
       </button>
     </form>

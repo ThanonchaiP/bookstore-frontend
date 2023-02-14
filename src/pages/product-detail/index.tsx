@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import { Book } from "models/book";
 import { getProduct } from "services/product.service";
 import favouriteIcon from "assets/favourite-icon.png";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -30,18 +30,18 @@ const ProductDetail = () => {
   return (
     <>
       {data && (
-        <div className={styled.container}>
-          <div className={`${styled["detail-container"]} p-0 sm:px-8`}>
-            <div className={styled["image-wrapper"]}>
+        <div className={styles.container}>
+          <div className={`${styles["detail-container"]} p-0 sm:px-8`}>
+            <div className={styles["image-wrapper"]}>
               <img src={data.image} alt={data.name} crossOrigin="anonymous" />
             </div>
 
-            <div className={`${styled.detail} sm:px-1 sm:pt-1`}>
-              <h1 className={styled.detail__name}>{data.name}</h1>
-              <p className={styled.detail__author}>{`${t("author")} : ${data.author.name}`}</p>
+            <div className={`${styles.detail} sm:px-1 sm:pt-1`}>
+              <h1 className={styles.detail__name}>{data.name}</h1>
+              <p className={styles.detail__author}>{`${t("author")} : ${data.author.name}`}</p>
 
               <div className="flex items-center gap-4 order-3 sm:gap-14 sm:mb-6">
-                <div className={styled.rating}>
+                <div className={styles.rating}>
                   {Array.from({ length: 5 }).map((_, index) => (
                     <i key={index} className="fa-regular fa-star"></i>
                   ))}
@@ -49,7 +49,7 @@ const ProductDetail = () => {
                 </div>
 
                 <div className="hidden items-center gap-2 sm:flex">
-                  <img className={styled["favourite-icon"]} src={favouriteIcon} alt="favourite-icon" />
+                  <img className={styles["favourite-icon"]} src={favouriteIcon} alt="favourite-icon" />
                   <p className="underline cursor-pointer">{t("productDetail.addToFavorites")}</p>
                 </div>
               </div>
@@ -58,12 +58,12 @@ const ProductDetail = () => {
                 <p className="hidden text-2xl font-semibold mb-2 sm:block">{t("productDetail.price")}</p>
 
                 <div className="relative flex flex-col sm:gap-10 sm:flex-row sm:items-end">
-                  <p className={styled.price}>
+                  <p className={styles.price}>
                     <i className="fa-solid fa-baht-sign mr-3" />
                     {data.price}
                   </p>
 
-                  <div className={`${styled["detail-discount"]} mt-1 sm:mt-0 sm:flex-col`}>
+                  <div className={`${styles["detail-discount"]} mt-1 sm:mt-0 sm:flex-col`}>
                     <span className="hidden sm:block">ราคาปกติ</span>
                     <p className="text-xl line-through ">
                       <i className="fa-solid fa-baht-sign mr-3 sm:hidden" />
@@ -73,7 +73,7 @@ const ProductDetail = () => {
                     <p className="text-xl ml-3 sm:hidden">-15%</p>
                   </div>
 
-                  <p className={`${styled["discount-percent"]} hidden sm:block`}>ประหยัด 15%</p>
+                  <p className={`${styles["discount-percent"]} hidden sm:block`}>ประหยัด 15%</p>
 
                   <div className="absolute flex flex-col items-center right-[20px] top-[20%] sm:hidden">
                     <img
@@ -87,15 +87,15 @@ const ProductDetail = () => {
               </div>
 
               <div className="flex gap-4 mt-6 order-5">
-                <button className={styled["btn-buy-now"]} type="button">
+                <button className={styles["btn-buy-now"]} type="button">
                   {t("productDetail.buyNow")}
                 </button>
-                <button className={styled["btn-add-to-cart"]} type="button">
+                <button className={styles["btn-add-to-cart"]} type="button">
                   {t("productDetail.addToCart")}
                 </button>
               </div>
 
-              <div className={styled["social-media"]}>
+              <div className={styles["social-media"]}>
                 <p className="font-semibold text-lg">Share in social media :</p>
                 <i className="fa-brands fa-facebook-f"></i>
                 <i className="fa-brands fa-twitter"></i>

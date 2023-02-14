@@ -2,7 +2,7 @@ import classnames from "classnames";
 import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { usePagination, NEXT_DOTS, PREV_DOTS } from "../../utils/hooks/usePagination";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type Props = {
   currentPage: number;
@@ -50,10 +50,10 @@ const Pagination = (props: Props) => {
   };
 
   return (
-    <ul className={classnames(styled["pagination-container"], { [className]: className })}>
+    <ul className={classnames(styles["pagination-container"], { [className]: className })}>
       <li
-        className={classnames(styled["pagination-item"], {
-          [styled.disabled]: currentPage === 1,
+        className={classnames(styles["pagination-item"], {
+          [styles.disabled]: currentPage === 1,
         })}
         onClick={onPrevious}
       >
@@ -66,7 +66,7 @@ const Pagination = (props: Props) => {
             return (
               <li
                 key={index}
-                className={`${styled["pagination-item"]} font-bold`}
+                className={`${styles["pagination-item"]} font-bold`}
                 onClick={() => onClickDots(pageNumber)}
               >
                 ...
@@ -77,8 +77,8 @@ const Pagination = (props: Props) => {
           return (
             <li
               key={index}
-              className={classnames(styled["pagination-item"], {
-                [styled.selected]: pageNumber === currentPage,
+              className={classnames(styles["pagination-item"], {
+                [styles.selected]: pageNumber === currentPage,
               })}
               onClick={() => (onPageChange ? onPageChange(+pageNumber) : {})}
             >
@@ -88,8 +88,8 @@ const Pagination = (props: Props) => {
         })}
 
       <li
-        className={classnames(styled["pagination-item"], {
-          [styled.disabled]: currentPage === lastPage,
+        className={classnames(styles["pagination-item"], {
+          [styles.disabled]: currentPage === lastPage,
         })}
         onClick={onNext}
       >

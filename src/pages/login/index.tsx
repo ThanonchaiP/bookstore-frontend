@@ -8,7 +8,7 @@ import { FormInput } from "components/form/input";
 import { LoginForm } from "@/models/auth";
 import { useAppDispatch } from "store/configureStore";
 import { fetchCurrentUser, signInUser } from "store/slice/accountSlice";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -39,11 +39,11 @@ const Login = () => {
   };
 
   return (
-    <div className={styled.login}>
-      <div className={styled["login__container"]}>
+    <div className={styles.login}>
+      <div className={styles["login__container"]}>
         <h1 className="text-center text-2xl font-bold mb-4">{t("login.login")}</h1>
 
-        <form className={styled.content} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.content} onSubmit={handleSubmit(onSubmit)}>
           <div className="w-[100%] max-w-[580px]">
             <FormInput
               label={t("login.email")}
@@ -63,7 +63,7 @@ const Login = () => {
 
             {formIncorrect && <p className="text-sm font-medium text-red-500">{t("errorMessage.incorrect")}</p>}
 
-            <button className={styled["btn-submit"]} type="submit" disabled={isSubmitting}>
+            <button className={styles["btn-submit"]} type="submit" disabled={isSubmitting}>
               {t("login.login")}
             </button>
 

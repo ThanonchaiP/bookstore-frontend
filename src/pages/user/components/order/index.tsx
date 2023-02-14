@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 import { getOrders } from "@/services/order.service";
 import Pagination from "components/pagination";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 import "moment/dist/locale/th";
 
 const Order = () => {
@@ -24,8 +24,8 @@ const Order = () => {
 
       {data &&
         data.data.map((order) => (
-          <div className={styled["order-item"]} key={order.id}>
-            <div className={styled["order-item__header"]}>
+          <div className={styles["order-item"]} key={order.id}>
+            <div className={styles["order-item__header"]}>
               <div>
                 <h4 className="font-medium md:text-base">
                   {t("order.order")} <span className="text-[#554994]">#{order.orderId}</span>
@@ -41,8 +41,8 @@ const Order = () => {
             </div>
 
             {order.orderItems.map((item) => (
-              <div className={styled["item-container"]} key={item.id}>
-                <div className={styled["product-img"]}>
+              <div className={styles["item-container"]} key={item.id}>
+                <div className={styles["product-img"]}>
                   <img src={item.book.image} alt={item.book.name} crossOrigin="anonymous" />
                 </div>
 

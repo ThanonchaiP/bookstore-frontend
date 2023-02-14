@@ -7,7 +7,7 @@ import { signOut } from "store/slice/accountSlice";
 import useOnClickOutside from "utils/hooks/useOnClickOutside";
 import { useTranslation } from "react-i18next";
 import { clearCart } from "store/slice/cartSlice";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type Props = {
   user: User;
@@ -52,14 +52,14 @@ const ProfileMenu = ({ user, className }: Props) => {
       <i className="fa-solid fa-angle-down ml-2" />
 
       {openMenu && (
-        <div className={styled["dropdown-menu"]}>
+        <div className={styles["dropdown-menu"]}>
           {menu.map((item) => (
-            <Link className={styled.item} key={item.id} to={item.link}>
+            <Link className={styles.item} key={item.id} to={item.link}>
               {item.icon}
               {item.title}
             </Link>
           ))}
-          <p className={styled.item} onClick={onSignOut}>
+          <p className={styles.item} onClick={onSignOut}>
             <i className="fa-solid fa-right-from-bracket" />
             {t("navbar.logOut")}
           </p>

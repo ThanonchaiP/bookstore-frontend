@@ -1,34 +1,34 @@
-import useMediaQuery from "../../utils/hooks/useMediaQuery";
+import useMediaQuery from "utils/hooks/useMediaQuery";
+import Filter from "components/filter";
+import SortBar from "components/sortbar";
+import Pagination from "components/pagination";
+import ProductCard from "components/product-card";
+import { Display } from "store/slice/filterSlice";
 import { useSearchViewModel } from "./ViewModel";
-import styled from "./index.module.scss";
-import Filter from "../../components/filter";
-import SortBar from "../../components/sortbar";
-import Pagination from "../../components/pagination";
-import ProductCard from "../../components/product-card";
-import { Display } from "../../store/slice/filterSlice";
+import styles from "./index.module.scss";
 
 function ProductFilterPage() {
   const isDesktop = useMediaQuery("(min-width: 992px)");
   const { data, pagination, meta, keywordText, display, t, onPageChange, onDisplayChange } = useSearchViewModel();
 
   return (
-    <div className={styled.search}>
+    <div className={styles.search}>
       {isDesktop && (
-        <div className={styled.search__filter}>
+        <div className={styles.search__filter}>
           <Filter />
         </div>
       )}
 
-      <div className={styled.search__content}>
+      <div className={styles.search__content}>
         {!isDesktop && <p className="md:text-xl my-4">{`${meta.itemCount} ${t("resultsFor")} ${keywordText}`}</p>}
 
-        <div className="flex justify-between items-center mb-6">
+        <div className="flex justify-between items-center mb-6 md:mb-8">
           {isDesktop ? <p className="text-xl">{`${meta.itemCount} ${t("resultsFor")} ${keywordText}`}</p> : <Filter />}
           <SortBar display={display} onDisplayChange={onDisplayChange} />
         </div>
 
         <div
-          className={`${styled["product-container"]} grid ${
+          className={`${styles["product-container"]} grid ${
             display === Display.Column ? "grid-cols-2 sm:grid-cols-3" : "grid-cols-1"
           } gap-x-4 gap-y-9`}
         >

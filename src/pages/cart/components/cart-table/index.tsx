@@ -1,5 +1,5 @@
 import { memo } from "react";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 import { Cart } from "@/models/cart";
 import CartItem from "../cart-item";
 
@@ -11,7 +11,7 @@ const CartTable = ({ cart }: Props) => {
   const { cartItems } = cart;
 
   return (
-    <table className={styled.table}>
+    <table className={styles.table}>
       <tbody>
         <tr>
           <td />

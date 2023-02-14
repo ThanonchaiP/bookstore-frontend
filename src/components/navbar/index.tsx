@@ -10,7 +10,7 @@ import MobileMenu from "./mobile-menu";
 import SearchBar from "./search-bar";
 import CartPopup from "./cart-popup";
 import ProfileMenu from "./profile-menu";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -20,12 +20,12 @@ const Navbar = () => {
     <Fragment>
       {!isMobile && <HelpMenu />}
 
-      <div className={classnames(styled.navbar, { [styled.sticky]: sticky })}>
-        <div className={styled.navbar__container}>
+      <div className={classnames(styles.navbar, { [styles.sticky]: sticky })}>
+        <div className={styles.navbar__container}>
           {isMobile && <MobileMenu />}
 
           <Link to="/">
-            <img src={logo} alt="logo" className={styled.logo} />
+            <img src={logo} alt="logo" className={styles.logo} />
           </Link>
 
           {!isMobile && <SearchBar />}
@@ -42,9 +42,9 @@ const Navbar = () => {
                     </Link>
                   )
                 ) : (
-                  <i className={`fa-solid fa-heart mb-1 ${styled["favorite-icon"]}`} />
+                  <i className={`fa-solid fa-heart mb-1 ${styles["favorite-icon"]}`} />
                 )}
-                <span className={styled["vertical-divider"]} />
+                <span className={styles["vertical-divider"]} />
               </Fragment>
             )}
 
@@ -54,14 +54,14 @@ const Navbar = () => {
                 onClick={user ? cart.handleCartPopup : handleOpenLoginPopup}
               >
                 <div className="relative">
-                  <i className={`fa-sharp fa-solid fa-cart-shopping ${styled["cart-icon"]}`} />
+                  <i className={`fa-sharp fa-solid fa-cart-shopping ${styles["cart-icon"]}`} />
                   {cart.cartState && cart.cartState.cartItems.length > 0 && (
-                    <span className={styled.quantity}>{cart.cartState.cartItems.length}</span>
+                    <span className={styles.quantity}>{cart.cartState.cartItems.length}</span>
                   )}
                 </div>
 
                 {!isMobile && (
-                  <div className={styled["total-price"]}>
+                  <div className={styles["total-price"]}>
                     <i className="fa-solid fa-baht-sign mr-1" />
                     <p className="font-medium">{totalPrice.toFixed(2)}</p>
                   </div>

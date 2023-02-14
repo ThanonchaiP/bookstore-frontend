@@ -8,7 +8,7 @@ import { RegisterForm } from "@/models/auth";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { signUp } from "@/services/auth.service";
 import Dialog from "components/dialog";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const Register = () => {
   const { t } = useTranslation();
@@ -59,11 +59,11 @@ const Register = () => {
   };
 
   return (
-    <div className={styled.register}>
-      <div className={styled["register__container"]}>
+    <div className={styles.register}>
+      <div className={styles["register__container"]}>
         <h1 className="text-center text-2xl font-bold mb-4">{t("register.createAccount")}</h1>
 
-        <form className={styled.content} onSubmit={handleSubmit(onSubmit)}>
+        <form className={styles.content} onSubmit={handleSubmit(onSubmit)}>
           <FormInput label={t("input.name")} required {...register("firstname")} error={errors.firstname?.message} />
           <FormInput label={t("input.surname")} required {...register("lastname")} error={errors.lastname?.message} />
           <FormInput label={t("input.phoneNumber")} required {...register("phone")} error={errors.phone?.message} />
@@ -83,7 +83,7 @@ const Register = () => {
             error={errors.confirmPassword?.message}
           />
 
-          <button disabled={isSubmitting} className={styled["btn-submit"]} type="submit">
+          <button disabled={isSubmitting} className={styles["btn-submit"]} type="submit">
             {t("register.signUp")}
           </button>
           <p className="text-sm mt-2">

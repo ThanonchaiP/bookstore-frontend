@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import { getBestSeller } from "services/product.service";
 import ProductCard from "components/product-card";
 import Pagination from "components/pagination";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const BestSeller = () => {
   const { t } = useTranslation();
@@ -16,10 +16,10 @@ const BestSeller = () => {
   }, []);
 
   return (
-    <div className={styled.container}>
+    <div className={styles.container}>
       <h1>{t("bestSeller")}</h1>
 
-      <div className={`grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4 ${styled["grid-container"]}`}>
+      <div className={`grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 lg:grid-cols-4 ${styles["grid-container"]}`}>
         {data && data.data.map((item) => <ProductCard key={item.id} data={item} />)}
       </div>
 

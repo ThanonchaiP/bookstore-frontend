@@ -5,7 +5,7 @@ import { FormCheckbox } from "components/form/checkbox";
 import { Link } from "react-router-dom";
 import { removeCartItemAsync, removeSelectItem, setSelected, updateCartItemAsync } from "store/slice/cartSlice";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 type Props = {
   item: ICartItem;
@@ -48,17 +48,17 @@ const CartItem = ({ item }: Props) => {
       </td>
 
       <td>
-        <div className={styled["product-image"]}>
+        <div className={styles["product-image"]}>
           <img src={item.book.image} alt={item.book.name} crossOrigin="anonymous" />
         </div>
       </td>
 
       <td>
         <Link to={`/product-detail/${item.book.id}`}>
-          <p className={styled["product-name"]}>{item.book.name}</p>
+          <p className={styles["product-name"]}>{item.book.name}</p>
         </Link>
-        <p className={styled["product-author"]}>{item.book.author.name}</p>
-        <div className={styled.tag}>Book</div>
+        <p className={styles["product-author"]}>{item.book.author.name}</p>
+        <div className={styles.tag}>Book</div>
         <p className="text-xs mt-1">Quantity : {item.book.quantity}</p>
       </td>
 
@@ -79,7 +79,7 @@ const CartItem = ({ item }: Props) => {
           />
           <input
             type="number"
-            className={styled["quantity-field"]}
+            className={styles["quantity-field"]}
             value={item.quantity}
             onChange={(e) => onChange(e.target.value)}
           />

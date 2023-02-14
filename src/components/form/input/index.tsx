@@ -1,6 +1,6 @@
 import { ComponentProps, forwardRef } from "react";
 import classnames from "classnames";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 interface InputProps extends ComponentProps<"input"> {
   label: string;
@@ -15,14 +15,14 @@ export const FormInput = forwardRef<HTMLInputElement, InputProps>(function Input
   ref
 ) {
   return (
-    <div className={classnames([styled["form-group"], containerClassName])}>
+    <div className={classnames([styles["form-group"], containerClassName])}>
       <label className="inline-block mb-2">
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>
 
       <input
-        className={classnames([styled.input, className], { [styled["input-invalid"]]: error })}
+        className={classnames([styles.input, className], { [styles["input-invalid"]]: error })}
         type={type}
         ref={ref}
         {...props}

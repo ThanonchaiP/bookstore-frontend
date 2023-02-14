@@ -1,7 +1,7 @@
 import { memo, ReactNode } from "react";
 import classnames from "classnames";
 import Slider, { Settings, CustomArrowProps } from "react-slick";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -19,14 +19,14 @@ function Carousel({ children, className = "" }: Props) {
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    dotsClass: styled.dot,
+    dotsClass: styles.dot,
     appendDots: (dots) => <ul>{dots}</ul>,
     customPaging: () => <span />,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
   };
   return (
-    <div className={classnames(styled.carousel, { [className]: className })}>
+    <div className={classnames(styles.carousel, { [className]: className })}>
       <Slider {...settings}>{children}</Slider>
     </div>
   );
@@ -38,7 +38,7 @@ export const NextArrow = memo(function NextArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <span
-      className={classnames(styled["arrow-container"], styled["next-arrow"], { [styled.disable]: !onClick })}
+      className={classnames(styles["arrow-container"], styles["next-arrow"], { [styles.disable]: !onClick })}
       onClick={onClick}
     >
       <i className="fa-solid fa-angle-right" />
@@ -50,7 +50,7 @@ export const PrevArrow = memo(function PrevArrow(props: CustomArrowProps) {
   const { onClick } = props;
   return (
     <span
-      className={classnames(styled["arrow-container"], styled["prev-arrow"], { [styled.disable]: !onClick })}
+      className={classnames(styles["arrow-container"], styles["prev-arrow"], { [styles.disable]: !onClick })}
       onClick={onClick}
     >
       <i className="fa-solid fa-angle-left" />

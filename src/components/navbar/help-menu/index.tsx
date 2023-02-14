@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAppSelector } from "store/configureStore";
 import useOnClickOutside from "utils/hooks/useOnClickOutside";
 import ProfileMenu from "../profile-menu";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 function HelpMenu() {
   const translateRef = useRef(null);
@@ -28,19 +28,19 @@ function HelpMenu() {
   });
 
   return (
-    <div className={styled["help-menu-container"]}>
-      <ul className={styled["help-menu"]}>
+    <div className={styles["help-menu-container"]}>
+      <ul className={styles["help-menu"]}>
         <li className="relative" ref={translateRef}>
           <p className="flex items-center gap-2 cursor-pointer" onClick={() => setOpen((state) => !state)}>
             {t("navbar.language")} <i className="fa-solid fa-angle-down" />
           </p>
 
           {open && (
-            <div className={styled["translate-menu"]}>
+            <div className={styles["translate-menu"]}>
               {language.map((item, index) => (
                 <Fragment key={index}>
                   <p
-                    className={`${i18n.language === item.value && styled.active}`}
+                    className={`${i18n.language === item.value && styles.active}`}
                     onClick={() => onChange(item.value)}
                   >
                     {item.title}

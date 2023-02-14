@@ -4,7 +4,7 @@ import { signOut } from "store/slice/accountSlice";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { clearCart } from "store/slice/cartSlice";
-import styled from "./index.module.scss";
+import styles from "./index.module.scss";
 
 const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
   const dispatch = useAppDispatch();
@@ -34,19 +34,19 @@ const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
   return (
     <Fragment>
       {!open ? (
-        <i className={`fa-solid fa-bars w-max ${styled["hamburger-icon"]}`} onClick={onOpenMenu} />
+        <i className={`fa-solid fa-bars w-max ${styles["hamburger-icon"]}`} onClick={onOpenMenu} />
       ) : (
-        <i className={`fa-solid fa-xmark w-max text-3xl ${styled["hamburger-icon"]}`} onClick={onCloseMenu} />
+        <i className={`fa-solid fa-xmark w-max text-3xl ${styles["hamburger-icon"]}`} onClick={onCloseMenu} />
       )}
 
-      <div className={`${styled["mobile-menu"]} ${open && styled.active}`}>
+      <div className={`${styles["mobile-menu"]} ${open && styles.active}`}>
         {!user ? (
-          <Link to="/login" className={styled["btn-login"]}>
+          <Link to="/login" className={styles["btn-login"]}>
             {t("navbar.login")}
           </Link>
         ) : (
           <div className="flex flex-col items-center bg-[#554994] py-5">
-            <div className={styled["profile-img"]}>{user.firstname[0]}</div>
+            <div className={styles["profile-img"]}>{user.firstname[0]}</div>
 
             <p className="font-medium text-white text-center">
               {user.firstname} {user.lastname}
@@ -98,7 +98,7 @@ const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
         </div>
       </div>
 
-      <div className={`${styled.overlay} ${open && styled["overlay-active"]}`} />
+      <div className={`${styles.overlay} ${open && styles["overlay-active"]}`} />
     </Fragment>
   );
 };

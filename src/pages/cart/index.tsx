@@ -3,12 +3,12 @@ import { Row, Col } from "antd";
 import { FormCheckbox } from "components/form/checkbox";
 import CartTable from "./components/cart-table";
 import CartSummary from "./components/cart-summary";
-import styled from "./index.module.scss";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { selectCartState, setSelected } from "store/slice/cartSlice";
 import { useTranslation } from "react-i18next";
 import useMediaQuery from "utils/hooks/useMediaQuery";
 import CartDisplayMobile from "./components/cart-display-mobile";
+import styles from "./index.module.scss";
 
 const Cart = () => {
   const { t } = useTranslation();
@@ -26,7 +26,7 @@ const Cart = () => {
   };
 
   return (
-    <div className={styled.container}>
+    <div className={styles.container}>
       <Row className="mt-3">
         <Col span={24} xl={16}>
           <div className="flex items-center gap-3 rounded-md shadow-md p-4">
