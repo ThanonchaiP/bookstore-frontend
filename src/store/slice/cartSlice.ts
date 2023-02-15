@@ -35,13 +35,16 @@ export const fetchCartAsync = createAsyncThunk(
   }
 );
 
-export const addToCartAsync = createAsyncThunk<Cart, { bookId: string; quantity: number }, { state: RootState }>(
+export const addToCartAsync = createAsyncThunk<
+  Cart,
+  { bookId: string; quantity: number; buyNow?: boolean },
+  { state: RootState }
+>(
   "cart/addToCartAsync",
-  async ({ bookId, quantity = 1 }, thunkAPI) => {
+  async ({ bookId, quantity = 1, buyNow }, thunkAPI) => {
     try {
       const { cart } = thunkAPI.getState().cart;
       const payload = { cartId: cart!.id, bookId, quantity };
-
       const newCart = await addToCart(payload);
       return newCart.data;
     } catch (error: any) {
@@ -113,9 +116,17 @@ const cartSlice = createSlice({
       if (state.selected.length < 1 || selectedId === -1 || selectedId === undefined) return;
       state.selected[selectedId].quantity = quantity;
     });
-    builder.addCase(addToCartAsync.fulfilled, () => {
+
+    builder.addCase(addToCartAsync.fulfilled, (state, action) => {
+      const { buyNow, bookId } = action.meta.arg;
+      if (buyNow) {
+        const item = action.payload.cartItems.find((item) => item.book.id === bookId);
+        state.selected.push(item!);
+        return;
+      }
       toast.success("Product successfully added to your shopping cart.", { autoClose: 2000 });
     });
+
     builder.addCase(removeCartItemAsync.fulfilled, (state, action) => {
       const { cartItemId } = action.meta.arg;
       const itemIndex = state.cart?.cartItems.findIndex((i) => i.id === cartItemId);
@@ -123,6 +134,7 @@ const cartSlice = createSlice({
       state.cart!.cartItems.splice(itemIndex, 1);
       state.totalPrice = state.cart!.cartItems.reduce((sum, item) => sum + item.quantity * +item.book.price, 0);
     });
+
     builder.addMatcher(
       isAnyOf(fetchCartAsync.fulfilled, addToCartAsync.fulfilled),
       (state, action: PayloadAction<Cart>) => {

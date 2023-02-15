@@ -83,6 +83,10 @@
   }
 }
 
+.favorite-active {
+  filter: grayscale(0);
+}
+
 .price {
   font-size: 18px;
   font-weight: 700;

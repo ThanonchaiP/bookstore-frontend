@@ -33,7 +33,7 @@ function App() {
   return (
     <ConfigProvider theme={{ token: { colorPrimary: PRIMARY_COLOR } }}>
       <SWRConfig value={{ fetcher, revalidateOnFocus: false }}>
-        <ToastContainer theme="colored" />
+        <ToastContainer theme="colored" autoClose={4000} pauseOnFocusLoss={false} pauseOnHover={false} />
         <RouterProvider router={router} />
       </SWRConfig>
     </ConfigProvider>

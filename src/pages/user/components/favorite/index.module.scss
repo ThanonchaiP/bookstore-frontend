@@ -1,0 +1,30 @@
+@use "@/styles/main" as *;
+
+.btn-add,
+.btn-remove {
+  width: 100%;
+  height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  outline: none;
+  transition: 0.3s;
+  font-family: "Prompt", sans-serif;
+}
+
+.btn-add {
+  color: #ffffff;
+  background-color: #554994;
+  &:hover {
+    background-color: #423776;
+  }
+}
+
+.btn-remove {
+  margin-top: 5px;
+  color: #999899;
+
+  &:hover {
+    color: #717171;
+  }
+}

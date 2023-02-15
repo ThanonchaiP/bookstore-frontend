@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
-import { setOpenLoginPopup } from "store/slice/accountSlice";
+import { setOpenLoginPopup, userSelector } from "store/slice/accountSlice";
 import useMediaQuery from "utils/hooks/useMediaQuery";
 import useOnClickOutside from "utils/hooks/useOnClickOutside";
 
@@ -11,7 +11,7 @@ export function useNavbarViewModel() {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
 
-  const { user } = useAppSelector((state) => state.account);
+  const user = useAppSelector(userSelector);
   const [sticky, setSticky] = useState(false);
   const { cart, totalPrice } = useAppSelector((state) => state.cart);
   const [openCartPopup, setOpenCartPopup] = useState(false);

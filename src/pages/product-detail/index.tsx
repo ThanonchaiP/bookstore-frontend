@@ -1,31 +1,10 @@
-import moment from "moment";
-import { useEffect, useState } from "react";
-import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
-import { Book } from "models/book";
-import { getProduct } from "services/product.service";
+import classnames from "classnames";
+import { useProductDetailViewModel } from "./ViewModel";
 import favouriteIcon from "assets/favourite-icon.png";
 import styles from "./index.module.scss";
 
 const ProductDetail = () => {
-  const { id } = useParams();
-  const { t } = useTranslation();
-  const [data, setData] = useState<Book>();
-
-  const bookDetail = [
-    { name: t("productDetail.releaseDate"), value: moment(data?.publishedDate).format("DD/MM/YYYY") },
-    { name: t("productDetail.numberOfPages"), value: `${data?.pageNumber} ${t("productDetail.page")}` },
-    { name: t("productDetail.bookCategory"), value: data?.category.name },
-  ];
-
-  useEffect(() => {
-    const loadData = async () => {
-      const result = await getProduct(id!);
-      setData(result.data);
-    };
-
-    if (id) loadData();
-  }, [id]);
+  const { data, favoriteActive, bookDetail, t, addToCart, buyNow, handleFavorite } = useProductDetailViewModel();
 
   return (
     <>
@@ -48,9 +27,15 @@ const ProductDetail = () => {
                   <p className="underline ml-2 cursor-pointer hidden sm:block">{t("productDetail.readReviews")}</p>
                 </div>
 
-                <div className="hidden items-center gap-2 sm:flex">
-                  <img className={styles["favourite-icon"]} src={favouriteIcon} alt="favourite-icon" />
-                  <p className="underline cursor-pointer">{t("productDetail.addToFavorites")}</p>
+                <div className="hidden items-center gap-2 sm:flex" onClick={handleFavorite}>
+                  <img
+                    className={classnames(styles["favourite-icon"], { [styles["favourite-active"]]: favoriteActive })}
+                    src={favouriteIcon}
+                    alt="favourite-icon"
+                  />
+                  <p className="underline cursor-pointer">
+                    {favoriteActive ? t("productDetail.removeFavorites") : t("productDetail.addToFavorites")}
+                  </p>
                 </div>
               </div>
 
@@ -67,19 +52,22 @@ const ProductDetail = () => {
                     <span className="hidden sm:block">ราคาปกติ</span>
                     <p className="text-xl line-through ">
                       <i className="fa-solid fa-baht-sign mr-3 sm:hidden" />
-                      500.00
+                      {data.price}
                     </p>
 
                     <p className="text-xl ml-3 sm:hidden">-15%</p>
                   </div>
 
-                  <p className={`${styles["discount-percent"]} hidden sm:block`}>ประหยัด 15%</p>
+                  <p className={`${styles["discount-percent"]} hidden sm:block`}>ประหยัด 0%</p>
 
                   <div className="absolute flex flex-col items-center right-[20px] top-[20%] sm:hidden">
                     <img
-                      className="grayscale-[1] opacity-[0.2] hover:opacity-[1] hover:grayscale-0"
+                      className={`${
+                        favoriteActive ? "opacity-[0.2]" : "grayscale-[1]"
+                      } hover:opacity-[1] hover:grayscale-0`}
                       src={favouriteIcon}
                       alt="favourite-icon"
+                      onClick={handleFavorite}
                     />
                     <p className="text-sm">{t("productDetail.like")}</p>
                   </div>
@@ -87,10 +75,10 @@ const ProductDetail = () => {
               </div>
 
               <div className="flex gap-4 mt-6 order-5">
-                <button className={styles["btn-buy-now"]} type="button">
+                <button className={styles["btn-buy-now"]} type="button" onClick={buyNow}>
                   {t("productDetail.buyNow")}
                 </button>
-                <button className={styles["btn-add-to-cart"]} type="button">
+                <button className={styles["btn-add-to-cart"]} type="button" onClick={addToCart}>
                   {t("productDetail.addToCart")}
                 </button>
               </div>

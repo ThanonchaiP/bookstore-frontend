@@ -4,6 +4,7 @@ import { signOut } from "store/slice/accountSlice";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { clearCart } from "store/slice/cartSlice";
+import { clearFavoriteState } from "store/slice/favoriteSlice";
 import styles from "./index.module.scss";
 
 const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
@@ -22,8 +23,9 @@ const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
   const onCloseMenu = () => setOpen(false);
 
   const onLogOut = () => {
-    dispatch(signOut());
     dispatch(clearCart());
+    dispatch(clearFavoriteState());
+    dispatch(signOut());
     setOpen(false);
   };
 

@@ -1,12 +1,13 @@
-import { memo, useRef, useState } from "react";
 import classnames from "classnames";
+import { memo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { User } from "@/models/user";
 import { useAppDispatch } from "store/configureStore";
 import { signOut } from "store/slice/accountSlice";
-import useOnClickOutside from "utils/hooks/useOnClickOutside";
 import { useTranslation } from "react-i18next";
 import { clearCart } from "store/slice/cartSlice";
+import { clearFavoriteState } from "store/slice/favoriteSlice";
+import useOnClickOutside from "utils/hooks/useOnClickOutside";
 import styles from "./index.module.scss";
 
 type Props = {
@@ -34,8 +35,9 @@ const ProfileMenu = ({ user, className }: Props) => {
   const onClick = () => setOpenMenu((prev) => !prev);
 
   const onSignOut = () => {
-    dispatch(signOut());
+    dispatch(clearFavoriteState());
     dispatch(clearCart());
+    dispatch(signOut());
   };
 
   useOnClickOutside(ref, () => {

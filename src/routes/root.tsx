@@ -12,6 +12,7 @@ const RegisterPage = lazy(() => import("@/pages/register"));
 const CartPage = lazy(() => import("@/pages/cart"));
 const UserWrapper = lazy(() => import("@/pages/user"));
 const OrderPage = lazy(() => import("@/pages/user/components/order"));
+const FavoritePage = lazy(() => import("@/pages/user/components/favorite"));
 const CategoryPage = lazy(() => import("@/pages/category"));
 const ProtectedRoute = lazy(() => import("./ProtectedRoute"));
 
@@ -32,7 +33,10 @@ const router = createBrowserRouter([
       {
         path: "user",
         element: <UserWrapper />,
-        children: [{ path: "order", element: <OrderPage /> }],
+        children: [
+          { path: "order", element: <OrderPage /> },
+          { path: "favorite", element: <FavoritePage /> },
+        ],
       },
     ],
   },

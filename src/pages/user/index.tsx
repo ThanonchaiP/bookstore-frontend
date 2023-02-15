@@ -9,7 +9,7 @@ const UserWrapper = () => {
       <Col className="pr-8" span={0} lg={7}>
         <Sidebar />
       </Col>
-      <Col span={24} lg={17} >
+      <Col span={24} lg={17}>
         <ProtectedRoute />
       </Col>
     </Row>

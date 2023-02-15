@@ -10,6 +10,7 @@ import MobileMenu from "./mobile-menu";
 import SearchBar from "./search-bar";
 import CartPopup from "./cart-popup";
 import ProfileMenu from "./profile-menu";
+import FavoriteMenu from "./favorite-menu";
 import styles from "./index.module.scss";
 
 const Navbar = () => {
@@ -42,7 +43,7 @@ const Navbar = () => {
                     </Link>
                   )
                 ) : (
-                  <i className={`fa-solid fa-heart mb-1 ${styles["favorite-icon"]}`} />
+                  <FavoriteMenu />
                 )}
                 <span className={styles["vertical-divider"]} />
               </Fragment>

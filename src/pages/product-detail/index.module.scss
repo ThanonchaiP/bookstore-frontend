@@ -76,6 +76,10 @@
   }
 }
 
+.favourite-active {
+  filter: grayscale(0);
+}
+
 .price {
   height: 37px;
   font-size: 30px;
@@ -130,6 +134,9 @@
 .btn-buy-now {
   color: #ffffff;
   background-color: $primary-color;
+  &:hover {
+    background-color: #392d75;
+  }
 }
 
 .btn-add-to-cart {

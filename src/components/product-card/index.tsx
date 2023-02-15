@@ -3,9 +3,10 @@ import { memo } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Product } from "models/product";
-import { useAppDispatch } from "store/configureStore";
+import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { setOpenLoginPopup } from "store/slice/accountSlice";
 import { addToCartAsync } from "store/slice/cartSlice";
+import { addFavoriteAsync, removeFavoriteAsync } from "store/slice/favoriteSlice";
 import favouriteIcon from "assets/favourite-icon.png";
 import styles from "./index.module.scss";
 
@@ -19,7 +20,9 @@ function ProductCard({ data, className = "", display = "column" }: Props) {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();
 
+  const { favorites } = useAppSelector((state) => state.favorite);
   const { id, name, author, category, price, image, publisher } = data;
+  const favoritActive = favorites.find((item) => item.book.id === id);
 
   const addToCart = (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
@@ -32,6 +35,12 @@ function ProductCard({ data, className = "", display = "column" }: Props) {
     dispatch(addToCartAsync({ bookId: id, quantity: 1 }));
   };
 
+  const handleClickFavorite = async (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (favoritActive) dispatch(removeFavoriteAsync({ favoriteId: favoritActive.id }));
+    else dispatch(addFavoriteAsync({ bookId: id }));
+  };
+
   return (
     <div className={classnames(styles["product-card"], { [className]: className })}>
       {display === "column" ? (
@@ -41,7 +50,14 @@ function ProductCard({ data, className = "", display = "column" }: Props) {
               <i className="fa-solid fa-book text-gray-500" />
               <p className="text-sm text-gray-500 font-semibold">{category.name}</p>
             </div>
-            <img className={styles["favorite-icon"]} src={favouriteIcon} alt="favourite-icon" width={24} height={24} />
+            <img
+              className={classnames(styles["favorite-icon"], { [styles["favorite-active"]]: favoritActive })}
+              src={favouriteIcon}
+              alt="favourite-icon"
+              width={24}
+              height={24}
+              onClick={handleClickFavorite}
+            />
           </div>
 
           <div className={styles["product-card__image"]}>
@@ -73,11 +89,12 @@ function ProductCard({ data, className = "", display = "column" }: Props) {
                   <p className="text-sm text-gray-500 font-semibold">{category.name}</p>
                 </div>
                 <img
-                  className={styles["favorite-icon"]}
+                  className={classnames(styles["favorite-icon"], { [styles["favorite-active"]]: favoritActive })}
                   src={favouriteIcon}
                   alt="favourite-icon"
                   width={24}
                   height={24}
+                  onClick={handleClickFavorite}
                 />
               </div>
 

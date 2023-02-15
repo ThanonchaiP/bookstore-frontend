@@ -6,6 +6,7 @@ import { login } from "@/services/auth.service";
 import { getCurrentUser } from "@/services/user.service";
 import { RootState } from "store/configureStore";
 import { fetchCartAsync } from "./cartSlice";
+import { fetchFavoriteAsync } from "./favoriteSlice";
 
 interface AccountState {
   user: User | null;
@@ -33,8 +34,8 @@ export const fetchCurrentUser = createAsyncThunk<User>(
     try {
       const userId = localStorage.getItem("user");
 
-      //fetchCart
-      thunkAPI.dispatch(fetchCartAsync());
+      thunkAPI.dispatch(fetchCartAsync()); //fetchCart
+      thunkAPI.dispatch(fetchFavoriteAsync()); //fetchFavorites
 
       const result = await getCurrentUser(userId!);
       return result.data;
@@ -85,6 +86,9 @@ const accountSlice = createSlice({
 
 const openLoginPopup = (state: RootState) => state.account.openLoginPopup;
 export const loginPopupSelector = createSelector([openLoginPopup], (openLoginPopup) => openLoginPopup);
+
+const user = (state: RootState) => state.account.user;
+export const userSelector = createSelector([user], (user) => user);
 
 export const { setUser, signOut, setOpenLoginPopup } = accountSlice.actions;
 export default accountSlice.reducer;

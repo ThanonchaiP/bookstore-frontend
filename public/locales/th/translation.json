@@ -71,7 +71,8 @@
     "page": "หน้า",
     "productDetails": "รายละเอียดสินค้า",
     "bookInfo": "ข้อมูลหนังสือ",
-    "like": "ถูกใจ"
+    "like": "ถูกใจ",
+    "removeFavorites": "ลบจากรายการโปรด"
   },
   "login": {
     "login": "เข้าสู่ระบบ",
@@ -127,5 +128,11 @@
     "orderDate": "สั่งซื้อวันที่",
     "quantity": "จำนวน",
     "price": "ราคา"
+  },
+  "favorite": {
+    "myWishlist": "รายการที่ชอบ",
+    "book": "หนังสือ",
+    "price": "ราคา",
+    "remove": "นำออก"
   }
 }

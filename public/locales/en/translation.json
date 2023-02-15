@@ -71,7 +71,8 @@
     "page": "Pages",
     "productDetails": "Product details",
     "bookInfo": "Book info",
-    "like": "Like"
+    "like": "Like",
+    "removeFavorites": "Remove favorites"
   },
   "login": {
     "login": "Login",
@@ -127,5 +128,11 @@
     "orderDate": "Order date",
     "quantity": "Quantity",
     "price": "Price"
+  },
+  "favorite": {
+    "myWishlist": "My Wishlist",
+    "book": "Book",
+    "price": "Price",
+    "remove": "Remove"
   }
 }
