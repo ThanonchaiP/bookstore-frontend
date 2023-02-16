@@ -16,6 +16,7 @@ const FavoritePage = lazy(() => import("@/pages/user/components/favorite"));
 const ProfilePage = lazy(() => import("@/pages/user/components/profile"));
 const ProfilePasswordPage = lazy(() => import("@/pages/user/components/profile-password"));
 const CategoryPage = lazy(() => import("@/pages/category"));
+const NotFoundPage = lazy(() => import("@/pages/not-found"));
 const ProtectedRoute = lazy(() => import("./ProtectedRoute"));
 
 const router = createBrowserRouter([
@@ -44,6 +45,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "*", element: <NotFoundPage /> },
 ]);
 
 export default router;
