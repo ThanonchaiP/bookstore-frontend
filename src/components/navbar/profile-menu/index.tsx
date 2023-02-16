@@ -22,7 +22,7 @@ const ProfileMenu = ({ user, className }: Props) => {
   const [openMenu, setOpenMenu] = useState(false);
 
   const menu = [
-    { id: 1, title: t("navbar.manageAccount"), icon: <i className="fa-solid fa-user" />, link: "/user/edit-profile" },
+    { id: 1, title: t("navbar.manageAccount"), icon: <i className="fa-solid fa-user" />, link: "/user/profile" },
     {
       id: 2,
       title: t("navbar.myOrder"),

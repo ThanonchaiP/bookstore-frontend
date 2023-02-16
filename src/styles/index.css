@@ -22,3 +22,23 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
   -moz-appearance: textfield;
 }
+
+.btn-secondary,
+.btn-primary {
+  width: 160px;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 4px;
+  border: 2px solid #554994;
+  transition: 0.3s;
+}
+
+.btn-primary {
+  color: #ffffff;
+  background-color: #554994;
+}
+
+.btn-secondary {
+  color: #554994;
+}

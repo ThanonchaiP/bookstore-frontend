@@ -16,7 +16,7 @@ const CartSummary = () => {
     return selected.reduce((sum, item) => sum + item.quantity * +item.book.price, 0);
   }, [selected]);
 
-  const shippingFee = 30;
+  const shippingFee = 0;
   const totalPrice = selected.length < 1 ? Number(0).toFixed(2) : (getSelectedPrice() + shippingFee).toFixed(2);
 
   const onCheckout = async () => {

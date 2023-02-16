@@ -57,13 +57,13 @@ const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
         )}
 
         <div className="mt-8 flex flex-col gap-5">
-          <Link className="flex justify-between items-center" to="">
+          <Link className="flex justify-between items-center" to="/user/favorite">
             {t("navbar.favorite")}
             <i className="fa-solid fa-chevron-right" />
           </Link>
 
           {!user && (
-            <Link className="flex justify-between items-center" to="">
+            <Link className="flex justify-between items-center" to="/register">
               {t("navbar.register")}
               <i className="fa-solid fa-chevron-right" />
             </Link>
@@ -71,12 +71,12 @@ const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
 
           {user && (
             <>
-              <Link className="flex justify-between items-center" to="">
+              <Link className="flex justify-between items-center" to="/user/order">
                 {t("navbar.myOrder")}
                 <i className="fa-solid fa-chevron-right" />
               </Link>
 
-              <Link className="flex justify-between items-center" to="">
+              <Link className="flex justify-between items-center" to="/user/profile">
                 {t("navbar.manageAccount")}
                 <i className="fa-solid fa-chevron-right" />
               </Link>

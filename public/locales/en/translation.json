@@ -134,5 +134,8 @@
     "book": "Book",
     "price": "Price",
     "remove": "Remove"
+  },
+  "user": {
+    "myProfile": "My profile"
   }
 }

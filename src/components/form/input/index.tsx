@@ -7,16 +7,17 @@ interface InputProps extends ComponentProps<"input"> {
   error?: string;
   required?: boolean;
   className?: string;
+  labelClassName?: string;
   containerClassName?: string;
 }
 
 export const FormInput = forwardRef<HTMLInputElement, InputProps>(function Input(
-  { label, type = "text", className = "", error, required, containerClassName = "", ...props },
+  { label, type = "text", className = "", error, required, containerClassName = "", labelClassName, ...props },
   ref
 ) {
   return (
     <div className={classnames([styles["form-group"], containerClassName])}>
-      <label className="inline-block mb-2">
+      <label className={classnames("inline-block mb-2", labelClassName)}>
         {label}
         {required && <span className="text-red-500 ml-1">*</span>}
       </label>

@@ -12,9 +12,9 @@ const Sidebar = () => {
   const menu = [
     {
       id: 1,
-      title: t("navbar.editProfile"),
+      title: t("user.myProfile"),
       icon: <i className="fa-solid fa-user text-2xl text-[#554994] w-[27px]" />,
-      link: "/user/edit-profile",
+      link: "/user/profile",
     },
     {
       id: 2,
@@ -38,7 +38,7 @@ const Sidebar = () => {
             <div className={styles.profile}>{user.firstname[0]}</div>
             <div className="flex-1 w-full">
               <p className={styles["full-name"]}>{`${user.firstname} ${user.lastname}`}</p>
-              <Link to="/user/edit-profile" className="text-base text-gray-400 hover:text-[#554994]">
+              <Link to="/user/profile" className="text-base text-gray-400 hover:text-[#554994]">
                 {t("navbar.editProfile")}
               </Link>
             </div>

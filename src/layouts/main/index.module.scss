@@ -1,7 +1,7 @@
 @use "@/styles/main" as *;
 
 .content {
-  margin-top: 121.02px;
+  margin-top: 130.02px;
   @include breakpoint(md) {
     margin-top: 0;
     min-height: calc(100vh - 441.94px);

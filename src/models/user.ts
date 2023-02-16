@@ -16,3 +16,15 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface UpdateUserPayload {
+  firstname: string;
+  lastname: string;
+  phone: string;
+}
+
+export interface PasswordForm {
+  password: string;
+  newPassword: string;
+  confirmNewPassword: string;
+}
