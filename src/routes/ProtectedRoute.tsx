@@ -6,7 +6,7 @@ const ProtectedRoute = () => {
   const { user } = useAppSelector((state) => state.account);
   const location = useLocation();
 
-  if (!user) {
+  if (!user && !localStorage.getItem("user")) {
     toast.error("You need to be logged in to do that!");
     return <Navigate to="/login" state={{ from: location }} />;
   }

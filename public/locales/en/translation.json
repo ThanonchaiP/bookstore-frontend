@@ -119,7 +119,9 @@
     "productPrice": "Product price",
     "shippingFee": "Shipping fee",
     "total": "Total",
-    "payment": "Payment"
+    "payment": "Payment",
+    "notFoundMessage": "There Are No Products In Your Cart.",
+    "shoppingNow": "Shopping now"
   },
   "order": {
     "myOrder": "My Order",
@@ -133,7 +135,8 @@
     "myWishlist": "My Wishlist",
     "book": "Book",
     "price": "Price",
-    "remove": "Remove"
+    "remove": "Remove",
+    "notFoundMessage": "There Are No Favorites Yet."
   },
   "user": {
     "myProfile": "My profile"

@@ -119,7 +119,9 @@
     "productPrice": "ราคาสินค้า",
     "shippingFee": "ค่าจัดส่ง",
     "total": "ยอดรวมทั้งสิ้น",
-    "payment": "ชำระเงิน"
+    "payment": "ชำระเงิน",
+    "notFoundMessage": "ไม่มีสินค้าในรถเข็นของคุณ",
+    "shoppingNow": "ช้อปปิ้งกันเลย"
   },
   "order": {
     "myOrder": "รายการสั่งซื้อของฉัน",
@@ -133,7 +135,8 @@
     "myWishlist": "รายการที่ชอบ",
     "book": "หนังสือ",
     "price": "ราคา",
-    "remove": "นำออก"
+    "remove": "นำออก",
+    "notFoundMessage": "คุณยังไม่มีรายการที่ชอบ"
   },
   "user": {
     "myProfile": "ข้อมูลส่วนตัว"
