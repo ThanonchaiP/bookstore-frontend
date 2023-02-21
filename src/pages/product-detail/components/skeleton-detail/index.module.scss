@@ -1,0 +1,11 @@
+@use "@/styles/main" as *;
+
+.product-image {
+  width: 200px !important;
+  height: 295px !important;
+
+  @include breakpoint(lg) {
+    width: 320px !important;
+    height: 473px !important;
+  }
+}

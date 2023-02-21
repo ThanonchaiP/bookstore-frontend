@@ -8,7 +8,10 @@ function Banner() {
 
   return (
     <Carousel className={styles.banner}>
-      {data && data.data.map((item) => <img key={item.id} src={item.image} alt="banner" crossOrigin="anonymous" />)}
+      {data &&
+        data.data.map((item) => (
+          <img key={item.id} src={item.image} alt="banner" loading="lazy" crossOrigin="anonymous" />
+        ))}
     </Carousel>
   );
 }

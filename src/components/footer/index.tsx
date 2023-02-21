@@ -10,7 +10,7 @@ const Footer = () => {
 
   return (
     <div className={styles.footer}>
-      <img width={151} className={styles.logo} src={logo} alt="logo" />
+      <img width={151} className={styles.logo} src={logo} alt="logo" loading="lazy" />
 
       <Row className="mt-10 gap-y-5">
         <Col xs={24} sm={12} md={8} lg={6} className="pr-4">

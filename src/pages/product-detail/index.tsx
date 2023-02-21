@@ -1,8 +1,10 @@
+import { Fragment } from "react";
 import classnames from "classnames";
 import RatingStar from "components/rating-star";
 import favouriteIcon from "assets/favourite-icon.png";
 import { useProductDetailViewModel } from "./ViewModel";
 import Review from "./components/Review";
+import SkeletonDetail from "./components/skeleton-detail";
 import styles from "./index.module.scss";
 
 const ProductDetail = () => {
@@ -10,9 +12,9 @@ const ProductDetail = () => {
     useProductDetailViewModel();
 
   return (
-    <>
-      {data && review && (
-        <div className={styles.container}>
+    <div className={styles.container}>
+      {data && review ? (
+        <Fragment>
           <div className={`${styles["detail-container"]} p-0 sm:px-8`}>
             <div className={styles["image-wrapper"]}>
               <img src={data.image} alt={data.name} crossOrigin="anonymous" />
@@ -32,7 +34,9 @@ const ProductDetail = () => {
 
                 <div className="hidden items-center gap-2 sm:flex" onClick={handleFavorite}>
                   <img
-                    className={classnames(styles["favourite-icon"], { [styles["favourite-active"]]: favoriteActive })}
+                    className={classnames(styles["favourite-icon"], {
+                      [styles["favourite-active"]]: favoriteActive,
+                    })}
                     src={favouriteIcon}
                     alt="favourite-icon"
                   />
@@ -65,7 +69,9 @@ const ProductDetail = () => {
 
                   <div className="absolute flex flex-col items-center right-[20px] top-[20%] sm:hidden">
                     <img
-                      className={classnames(styles["favourite-icon"], { [styles["favourite-active"]]: favoriteActive })}
+                      className={classnames(styles["favourite-icon"], {
+                        [styles["favourite-active"]]: favoriteActive,
+                      })}
                       src={favouriteIcon}
                       alt="favourite-icon"
                       onClick={handleFavorite}
@@ -111,10 +117,13 @@ const ProductDetail = () => {
               <p className="leading-relaxed">{data.description}</p>
             </div>
           </div>
+
           <Review data={review} />
-        </div>
+        </Fragment>
+      ) : (
+        <SkeletonDetail />
       )}
-    </>
+    </div>
   );
 };
 
