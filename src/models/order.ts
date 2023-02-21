@@ -1,4 +1,5 @@
 import { Meta } from "./meta";
+import { Review } from "./review";
 
 export type CreateOrderPayload = {
   cartId: string;
@@ -34,10 +35,11 @@ interface Order {
   orderItems: OrderItem[];
 }
 
-interface OrderItem {
+export interface OrderItem {
   id: string;
   quantity: number;
   book: Book;
+  review: Review | null;
 }
 
 interface Book {

@@ -1,8 +1,10 @@
 import moment from "moment";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link, useSearchParams } from "react-router-dom";
 import { getOrders } from "@/services/order.service";
+import { OrderItem } from "@/models/order";
+import ReviewPopup from "../review-popup";
 import Pagination from "components/pagination";
 import styles from "./index.module.scss";
 import "moment/dist/locale/th";
@@ -10,12 +12,24 @@ import "moment/dist/locale/th";
 const Order = () => {
   const { t } = useTranslation();
   let [searchParams, setSearchParams] = useSearchParams();
+  const [openPopup, setOpenPopup] = useState(false);
+  const [itemReview, setItemReview] = useState<OrderItem>();
 
   const page = searchParams.get("page") || "1";
-  const { data } = getOrders(+page);
+  const { data, mutate } = getOrders(+page);
 
   const onPageChange = useCallback((page: number) => {
     setSearchParams({ page: page.toString() });
+  }, []);
+
+  const onOpenPopup = (item: OrderItem) => {
+    setItemReview(item);
+    setOpenPopup(true);
+  };
+  const onClosePopup = useCallback((created?: boolean) => {
+    if (created) mutate();
+    setItemReview(undefined);
+    setOpenPopup(false);
   }, []);
 
   return (
@@ -54,9 +68,13 @@ const Order = () => {
                     {t("order.quantity")}: {item.quantity}
                   </p>
 
-                  <div className="flex flex-col justify-between md:flex-row">
-                    <p>
-                      {t("order.price")}: {(+item.book.price).toFixed(2)}
+                  <p>
+                    {t("order.price")}: {(+item.book.price).toFixed(2)}
+                  </p>
+
+                  <div className="flex flex-col justify-between md:flex-row md:items-center">
+                    <p className="text-[#1a9cb7] cursor-pointer hover:underline" onClick={() => onOpenPopup(item)}>
+                      {item.review ? "แก้ไขคะแนนสินค้า" : "ให้คะแนนสินค้า"}
                     </p>
                     <h4 className="text-base font-semibold text-[#554994] mt-2 md:mt-0">
                       ฿{(item.quantity * Number(item.book.price)).toFixed(2)}
@@ -77,6 +95,8 @@ const Order = () => {
           onPageChange={onPageChange}
         />
       )}
+
+      {itemReview && <ReviewPopup open={openPopup} item={itemReview} handleClose={onClosePopup} />}
     </div>
   );
 };

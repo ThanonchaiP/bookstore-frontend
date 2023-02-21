@@ -3,7 +3,7 @@ import Backend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 import { initReactI18next } from "react-i18next";
 
-const fallbackLng = ["en"];
+const fallbackLng = ["th"];
 
 i18n
   .use(Backend) // load translation using xhr -> see /public/locales. We will add locales in the next step
@@ -11,7 +11,7 @@ i18n
   .use(initReactI18next) // pass the i18n instance to react-i18next.
   .init({
     fallbackLng, // if user computer language is not on the list of available languages, than we will be using the fallback language specified earlier
-    lng: "th",
+    lng: localStorage.getItem("i18nextLng") || "th",
     debug: false,
     interpolation: {
       escapeValue: false,

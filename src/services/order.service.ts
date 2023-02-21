@@ -8,6 +8,6 @@ export const createOrder = async (payload: CreateOrderPayload) => {
 };
 
 export const getOrders = (page = 1) => {
-  const { data, isLoading } = useSWR<OrderResponse>(`/orders/me?page=${page}`);
-  return { data, isLoading };
+  const { data, isLoading, mutate } = useSWR<OrderResponse>(`/orders/me?page=${page}`);
+  return { data, isLoading, mutate };
 };

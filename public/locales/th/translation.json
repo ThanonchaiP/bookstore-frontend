@@ -72,6 +72,7 @@
     "productDetails": "รายละเอียดสินค้า",
     "bookInfo": "ข้อมูลหนังสือ",
     "like": "ถูกใจ",
+    "unlike": "เลิกถูกใจ",
     "removeFavorites": "ลบจากรายการโปรด"
   },
   "login": {
@@ -139,6 +140,17 @@
     "notFoundMessage": "คุณยังไม่มีรายการที่ชอบ"
   },
   "user": {
-    "myProfile": "ข้อมูลส่วนตัว"
+    "myProfile": "ข้อมูลส่วนตัว",
+    "rateProduct": "ให้คะแนนสินค้า",
+    "productQuality": "คุณภาพสินค้า",
+    "reviewMessage": "เขียนรีวิวสินค้าเพิ่มเติม",
+    "cancel": "ยกเลิก",
+    "submit": "ยืนยัน"
+  },
+  "review": {
+    "header": "คะแนนรีวิวจากผู้ซื้อจริง",
+    "full": "เต็ม",
+    "star": "ดาว",
+    "people": "คน"
   }
 }

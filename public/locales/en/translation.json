@@ -72,6 +72,7 @@
     "productDetails": "Product details",
     "bookInfo": "Book info",
     "like": "Like",
+    "unlike": "Unlike",
     "removeFavorites": "Remove favorites"
   },
   "login": {
@@ -139,6 +140,17 @@
     "notFoundMessage": "There Are No Favorites Yet."
   },
   "user": {
-    "myProfile": "My profile"
+    "myProfile": "My profile",
+    "rateProduct": "Rate Product",
+    "productQuality": "Product Quality",
+    "reviewMessage": "Message",
+    "cancel": "Cancel",
+    "submit": "Submit"
+  },
+  "review": {
+    "header": "Review score from buyers",
+    "full": "Full",
+    "star": "Star",
+    "people": "People"
   }
 }

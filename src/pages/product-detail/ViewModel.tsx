@@ -8,6 +8,8 @@ import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { userSelector, setOpenLoginPopup } from "store/slice/accountSlice";
 import { addToCartAsync } from "store/slice/cartSlice";
 import { removeFavoriteAsync, addFavoriteAsync } from "store/slice/favoriteSlice";
+import { getReviews } from "@/services/review.sevice";
+import { BookReview } from "@/models/review";
 
 export function useProductDetailViewModel() {
   const { id } = useParams();
@@ -18,6 +20,7 @@ export function useProductDetailViewModel() {
   const user = useAppSelector(userSelector);
   const { favorites } = useAppSelector((state) => state.favorite);
   const [data, setData] = useState<Book>();
+  const [review, setReview] = useState<BookReview>();
   const favoriteActive = data ? favorites.find((item) => item.book.id === data.id) : undefined;
 
   const bookDetail = [
@@ -55,14 +58,22 @@ export function useProductDetailViewModel() {
     navigate("/user/cart");
   };
 
+  const scrollToReview = () => {
+    const element = document.getElementById("reviews");
+    if (element) window.scrollTo({ behavior: "smooth", top: element.offsetTop - 120 });
+  };
+
   useEffect(() => {
     const loadData = async () => {
-      const result = await getProduct(id!);
-      setData(result.data);
+      const book = await getProduct(id!);
+      const review = await getReviews(id!);
+
+      setData(book.data);
+      setReview(review.data);
     };
 
-    if (id) loadData();
+    loadData();
   }, [id]);
 
-  return { data, bookDetail, favoriteActive, t, handleFavorite, addToCart, buyNow };
+  return { data, review, bookDetail, favoriteActive, t, handleFavorite, addToCart, buyNow, scrollToReview };
 }

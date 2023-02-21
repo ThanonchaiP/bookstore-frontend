@@ -1,14 +1,17 @@
 import classnames from "classnames";
-import { useProductDetailViewModel } from "./ViewModel";
+import RatingStar from "components/rating-star";
 import favouriteIcon from "assets/favourite-icon.png";
+import { useProductDetailViewModel } from "./ViewModel";
+import Review from "./components/Review";
 import styles from "./index.module.scss";
 
 const ProductDetail = () => {
-  const { data, favoriteActive, bookDetail, t, addToCart, buyNow, handleFavorite } = useProductDetailViewModel();
+  const { data, review, favoriteActive, bookDetail, t, addToCart, buyNow, handleFavorite, scrollToReview } =
+    useProductDetailViewModel();
 
   return (
     <>
-      {data && (
+      {data && review && (
         <div className={styles.container}>
           <div className={`${styles["detail-container"]} p-0 sm:px-8`}>
             <div className={styles["image-wrapper"]}>
@@ -21,10 +24,10 @@ const ProductDetail = () => {
 
               <div className="flex items-center gap-4 order-3 sm:gap-14 sm:mb-6">
                 <div className={styles.rating}>
-                  {Array.from({ length: 5 }).map((_, index) => (
-                    <i key={index} className="fa-regular fa-star"></i>
-                  ))}
-                  <p className="underline ml-2 cursor-pointer hidden sm:block">{t("productDetail.readReviews")}</p>
+                  <RatingStar rating={review.ratingAvg || 0} className="sm:text-[22px]" />
+                  <p className="underline ml-2 cursor-pointer hidden sm:block" onClick={scrollToReview}>
+                    {t("productDetail.readReviews")}
+                  </p>
                 </div>
 
                 <div className="hidden items-center gap-2 sm:flex" onClick={handleFavorite}>
@@ -62,14 +65,12 @@ const ProductDetail = () => {
 
                   <div className="absolute flex flex-col items-center right-[20px] top-[20%] sm:hidden">
                     <img
-                      className={`${
-                        favoriteActive ? "opacity-[0.2]" : "grayscale-[1]"
-                      } hover:opacity-[1] hover:grayscale-0`}
+                      className={classnames(styles["favourite-icon"], { [styles["favourite-active"]]: favoriteActive })}
                       src={favouriteIcon}
                       alt="favourite-icon"
                       onClick={handleFavorite}
                     />
-                    <p className="text-sm">{t("productDetail.like")}</p>
+                    <p className="text-sm">{favoriteActive ? t("productDetail.unlike") : t("productDetail.like")}</p>
                   </div>
                 </div>
               </div>
@@ -92,7 +93,7 @@ const ProductDetail = () => {
             </div>
           </div>
 
-          <div className="flex flex-col mt-8 sm:m-8 sm:p-8 rounded-md shadow-md sm:flex-row">
+          <div className="flex flex-col mt-8 sm:m-8 sm:p-8 rounded-md sm:shadow-md sm:flex-row">
             <div className="sm:min-w-[270px] md:min-w-[350px]">
               <h5 className="font-semibold mb-4">{t("productDetail.bookInfo")}</h5>
               <div className="flex flex-col justify-center gap-1 sm:gap-3">
@@ -110,6 +111,7 @@ const ProductDetail = () => {
               <p className="leading-relaxed">{data.description}</p>
             </div>
           </div>
+          <Review data={review} />
         </div>
       )}
     </>

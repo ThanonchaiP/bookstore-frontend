@@ -54,15 +54,9 @@
 
 .rating {
   display: flex;
+  align-items: center;
   @include breakpoint(sm) {
     gap: 2px;
-  }
-
-  i {
-    color: #eeca02;
-    @include breakpoint(sm) {
-      font-size: 22px;
-    }
   }
 }
 
@@ -70,9 +64,10 @@
   filter: grayscale(1);
   cursor: pointer;
   transition: 0.3s;
-
-  &:hover {
-    filter: grayscale(0);
+  @include breakpoint(sm) {
+    &:hover {
+      filter: grayscale(0);
+    }
   }
 }
 
