@@ -1,20 +1,26 @@
 @use "@/styles/main" as *;
 
 .banner {
+  max-height: 300px;
   min-height: 144px;
   @include breakpoint(xss) {
     min-height: 127px;
   }
   @include breakpoint(md) {
-    min-height: 256px;
+    min-height: 200px;
   }
   @include breakpoint(lg) {
-    min-height: 568px;
+    min-height: 300px;
   }
 
   img {
+    height: 135px;
+    max-height: 300px;
+    @include breakpoint(sm) {
+      height: auto;
+    }
     @include breakpoint(lg) {
-      min-height: 553px;
+      min-height: 300px;
     }
   }
 }
