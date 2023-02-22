@@ -24,19 +24,25 @@ function ProductCard({ data, className = "", display = "column" }: Props) {
   const { id, name, author, category, price, image, publisher } = data;
   const favoritActive = favorites.find((item) => item.book.id === id);
 
-  const addToCart = (e: React.MouseEvent<HTMLElement>) => {
-    e.preventDefault();
-
+  const isLogin = () => {
     if (!localStorage.getItem("user")) {
       dispatch(setOpenLoginPopup(true));
-      return;
+      return false;
     }
+
+    return true;
+  };
+
+  const addToCart = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
+    if (!isLogin()) return;
 
     dispatch(addToCartAsync({ bookId: id, quantity: 1 }));
   };
 
   const handleClickFavorite = async (e: React.MouseEvent<HTMLElement>) => {
     e.preventDefault();
+    if (!isLogin()) return;
     if (favoritActive) dispatch(removeFavoriteAsync({ favoriteId: favoritActive.id }));
     else dispatch(addFavoriteAsync({ bookId: id }));
   };

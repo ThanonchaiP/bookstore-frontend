@@ -7,7 +7,7 @@ import styles from "../best-seller-slider/index.module.scss";
 
 const NewProductSlider = () => {
   const { t } = useTranslation();
-  const { data } = getNewProduct({ page: 1, limit: 10 });
+  const { data } = getNewProduct({ page: 1, limit: 20 });
 
   return (
     <div className={styles.container}>

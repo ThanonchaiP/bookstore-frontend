@@ -7,11 +7,12 @@ import styles from "../best-seller/index.module.scss";
 
 const NewProduct = () => {
   const { t } = useTranslation();
-  const [pagination, setPagination] = useState({ page: 1, limit: 10 });
+  const [pagination, setPagination] = useState({ page: 1, limit: 20 });
   const { data } = getNewProduct({ page: pagination.page, limit: pagination.limit });
 
   const onPageChange = useCallback((page: number) => {
     setPagination((prev) => ({ ...prev, page }));
+    window.scroll(0, 0);
   }, []);
 
   return (
@@ -22,7 +23,7 @@ const NewProduct = () => {
         {data && data.data.map((item) => <ProductCard key={item.id} data={item} />)}
       </div>
 
-      <div className="flex justify-end my-6">
+      <div className="flex justify-end my-10">
         <Pagination
           currentPage={pagination.page}
           pageSize={pagination.limit}

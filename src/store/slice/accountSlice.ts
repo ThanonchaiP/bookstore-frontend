@@ -1,5 +1,6 @@
-import { createAsyncThunk, createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 import router from "routes/root";
+import { createAsyncThunk, createSelector, createSlice, isAnyOf } from "@reduxjs/toolkit";
 import { LoginForm } from "@/models/auth";
 import { User } from "@/models/user";
 import { login } from "@/services/auth.service";
@@ -68,6 +69,9 @@ const accountSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
+    builder.addCase(signInUser.fulfilled, () => {
+      toast.success("Login Success!", { autoClose: 2000 });
+    });
     builder.addCase(fetchCurrentUser.fulfilled, (state, action) => {
       state.user = action.payload;
       state.openLoginPopup = false;

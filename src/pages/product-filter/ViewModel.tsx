@@ -21,7 +21,7 @@ export function useSearchViewModel() {
   const [data, setData] = useState<Product[]>([]);
   const [meta, setMeta] = useState<Meta>({});
   const [display, setDisplay] = useState(Display.Column);
-  const [pagination, setPagination] = useState<{ page: number; limit: number }>({ page: 1, limit: 20 });
+  const [pagination, setPagination] = useState<{ page: number; limit: number }>({ page: 1, limit: 21 });
 
   const onPageChange = useCallback((page: number) => setPagination((state) => ({ ...state, page })), []);
   const onDisplayChange = useCallback((value: number) => setDisplay(value), []);
@@ -36,6 +36,7 @@ export function useSearchViewModel() {
       const result = await getProducts(payload);
       setMeta(result.meta);
       setData(result.data);
+      window.scroll(0, 0);
     };
 
     loadData();

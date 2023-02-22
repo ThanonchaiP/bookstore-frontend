@@ -16,7 +16,7 @@ const Dialog = ({ open, title, message, variant = "success", onClose }: Props) =
   const { t } = useTranslation();
 
   return (
-    <Modal open={open} width={400} onCancel={onClose} footer={<></>}>
+    <Modal open={open} width={400} onCancel={onClose} footer={null}>
       <img
         className="mx-auto mt-4"
         src={variant === "success" ? checkIcon : errorIcon}

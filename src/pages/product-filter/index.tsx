@@ -23,7 +23,11 @@ function ProductFilterPage() {
         {!isDesktop && <p className="md:text-xl my-4">{`${meta.itemCount || 0} ${t("resultsFor")} ${keywordText}`}</p>}
 
         <div className="flex justify-between items-center mb-6 md:mb-8">
-          {isDesktop ? <p className="text-xl">{`${meta.itemCount || 0} ${t("resultsFor")} ${keywordText}`}</p> : <Filter />}
+          {isDesktop ? (
+            <p className="text-xl">{`${meta.itemCount || 0} ${t("resultsFor")} ${keywordText}`}</p>
+          ) : (
+            <Filter />
+          )}
           <SortBar display={display} onDisplayChange={onDisplayChange} />
         </div>
 

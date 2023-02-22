@@ -43,7 +43,7 @@ const LoginModal = () => {
   };
 
   return (
-    <Modal open={openLoginPopup} width={600} footer={<></>} onCancel={handleClose}>
+    <Modal open={openLoginPopup} width={600} footer={null} onCancel={handleClose} closable={false}>
       <h1 className="text-xl font-medium">{t("login.login")}</h1>
 
       <form className="flex justify-center pt-8" onSubmit={handleSubmit(onSubmit)}>

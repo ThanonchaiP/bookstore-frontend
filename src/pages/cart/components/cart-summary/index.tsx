@@ -45,7 +45,7 @@ const CartSummary = () => {
       dispatch(fetchCartAsync());
 
       navigate("/user/order");
-      toast.success("Success!");
+      toast.success("Thank you for your purchase.");
     } catch (error) {
       console.log(error);
     }
