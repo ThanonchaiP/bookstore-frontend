@@ -69,7 +69,7 @@ const Order = () => {
                   </p>
 
                   <p>
-                    {t("order.price")}: {(+item.book.price).toFixed(2)}
+                    {t("order.price")}: ฿{(+item.book.price).toFixed(2)}
                   </p>
 
                   <div className="flex flex-col justify-between md:flex-row md:items-center">

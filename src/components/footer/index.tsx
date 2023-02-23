@@ -1,12 +1,25 @@
-import { memo } from "react";
+import classnames from "classnames";
+import { memo, useState } from "react";
 import { Row, Col } from "antd";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 import styles from "./index.module.scss";
 
+enum Menu {
+  AboutUs = 1,
+  Help = 2,
+  PrivacyPolicy = 3,
+}
+
 const Footer = () => {
   const { t } = useTranslation();
+  const [selected, setSelected] = useState<number>();
+
+  const onToggle = (menu: number) => {
+    if (selected === menu) setSelected(undefined);
+    else setSelected(menu);
+  };
 
   return (
     <div className={styles.footer}>
@@ -19,38 +32,60 @@ const Footer = () => {
           <p>book.store@support.ac.th</p>
         </Col>
 
-        <Col xs={24} sm={12} md={8} lg={4} className="flex flex-col pr-4">
-          <Link to="" className="font-bold">
+        <Col xs={24} sm={12} md={8} lg={4} className="flex flex-col sm:pr-4">
+          <div className="flex justify-between items-center text-base font-bold cursor-pointer">
             {t("footer.aboutUs")}
-          </Link>
-          <Link to="">{t("footer.history")}</Link>
-          <Link to="">{t("footer.boardOfDirectors")}</Link>
-          <Link to="">{t("footer.ourBranch")}</Link>
-          <Link to="">{t("footer.dealer")}</Link>
+            <i
+              className={`fa-solid ${
+                selected === Menu.AboutUs ? "fa-minus" : "fa-plus"
+              } text-lg text-[#554994] sm:hidden`}
+              onClick={() => onToggle(Menu.AboutUs)}
+            />
+          </div>
+          <div className={classnames(styles["sub-menu"], { [styles.show]: selected === Menu.AboutUs })}>
+            <Link to="">{t("footer.history")}</Link>
+            <Link to="">{t("footer.boardOfDirectors")}</Link>
+            <Link to="">{t("footer.ourBranch")}</Link>
+            <Link to="">{t("footer.dealer")}</Link>
+          </div>
         </Col>
 
-        <Col xs={24} sm={12} md={8} lg={4} className="flex flex-col pr-4">
-          <Link to="" className="font-bold">
+        <Col xs={24} sm={12} md={8} lg={4} className="flex flex-col sm:pr-4">
+          <div className="flex justify-between items-center text-base font-bold cursor-pointer">
             {t("footer.help")}
-          </Link>
-          <Link to="">{t("footer.howToOrder")}</Link>
-          <Link to="">{t("footer.howToPayment")}</Link>
-          <Link to="">{t("footer.transport")}</Link>
-          <Link to="">{t("footer.productReturn")}</Link>
-          <Link to="">{t("footer.cancelProduct")}</Link>
+            <i
+              className={`fa-solid ${selected === Menu.Help ? "fa-minus" : "fa-plus"} text-lg text-[#554994] sm:hidden`}
+              onClick={() => onToggle(Menu.Help)}
+            />
+          </div>
+          <div className={classnames(styles["sub-menu"], { [styles.show]: selected === Menu.Help })}>
+            <Link to="">{t("footer.howToOrder")}</Link>
+            <Link to="">{t("footer.howToPayment")}</Link>
+            <Link to="">{t("footer.transport")}</Link>
+            <Link to="">{t("footer.productReturn")}</Link>
+            <Link to="">{t("footer.cancelProduct")}</Link>
+          </div>
         </Col>
 
-        <Col xs={24} sm={12} md={8} lg={6} className="flex flex-col pr-4">
-          <Link to="" className="font-bold">
+        <Col xs={24} sm={12} md={8} lg={6} className="flex flex-col sm:pr-4">
+          <div className="flex justify-between items-center text-base font-bold cursor-pointer">
             {t("footer.privacyPolicy")}
-          </Link>
-          <Link to="">{t("footer.condition")}</Link>
-          <br />
-          <Link className="font-bold" to="">
-            {t("footer.contact")}
-          </Link>
-          <Link to="">{t("footer.recruitment")}</Link>
-          <Link to="">{t("footer.contactDealer")}</Link>
+            <i
+              className={`fa-solid ${
+                selected === Menu.PrivacyPolicy ? "fa-minus" : "fa-plus"
+              } text-lg text-[#554994] sm:hidden`}
+              onClick={() => onToggle(Menu.PrivacyPolicy)}
+            />
+          </div>
+          <div className={classnames(styles["sub-menu"], { [styles.show]: selected === Menu.PrivacyPolicy })}>
+            <Link to="">{t("footer.condition")}</Link>
+            <br />
+            <Link className="font-bold" to="">
+              {t("footer.contact")}
+            </Link>
+            <Link to="">{t("footer.recruitment")}</Link>
+            <Link to="">{t("footer.contactDealer")}</Link>
+          </div>
         </Col>
 
         <Col xs={24} md={8} lg={4}>
