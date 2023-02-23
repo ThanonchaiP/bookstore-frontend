@@ -33,12 +33,12 @@ const Footer = () => {
         </Col>
 
         <Col xs={24} sm={12} md={8} lg={4} className="flex flex-col sm:pr-4">
-          <div className="flex justify-between items-center text-base font-bold cursor-pointer">
+          <div className="flex justify-between items-center text-base font-bold">
             {t("footer.aboutUs")}
             <i
               className={`fa-solid ${
                 selected === Menu.AboutUs ? "fa-minus" : "fa-plus"
-              } text-lg text-[#554994] sm:hidden`}
+              } text-lg text-[#554994] cursor-pointer sm:hidden`}
               onClick={() => onToggle(Menu.AboutUs)}
             />
           </div>
@@ -51,10 +51,12 @@ const Footer = () => {
         </Col>
 
         <Col xs={24} sm={12} md={8} lg={4} className="flex flex-col sm:pr-4">
-          <div className="flex justify-between items-center text-base font-bold cursor-pointer">
+          <div className="flex justify-between items-center text-base font-bold">
             {t("footer.help")}
             <i
-              className={`fa-solid ${selected === Menu.Help ? "fa-minus" : "fa-plus"} text-lg text-[#554994] sm:hidden`}
+              className={`fa-solid ${
+                selected === Menu.Help ? "fa-minus" : "fa-plus"
+              } text-lg text-[#554994] cursor-pointer sm:hidden`}
               onClick={() => onToggle(Menu.Help)}
             />
           </div>
@@ -68,21 +70,19 @@ const Footer = () => {
         </Col>
 
         <Col xs={24} sm={12} md={8} lg={6} className="flex flex-col sm:pr-4">
-          <div className="flex justify-between items-center text-base font-bold cursor-pointer">
+          <div className="flex justify-between items-center text-base font-bold">
             {t("footer.privacyPolicy")}
             <i
               className={`fa-solid ${
                 selected === Menu.PrivacyPolicy ? "fa-minus" : "fa-plus"
-              } text-lg text-[#554994] sm:hidden`}
+              } text-lg text-[#554994] cursor-pointer sm:hidden`}
               onClick={() => onToggle(Menu.PrivacyPolicy)}
             />
           </div>
           <div className={classnames(styles["sub-menu"], { [styles.show]: selected === Menu.PrivacyPolicy })}>
             <Link to="">{t("footer.condition")}</Link>
             <br />
-            <Link className="font-bold" to="">
-              {t("footer.contact")}
-            </Link>
+            <div className=" text-base font-bold">{t("footer.contact")}</div>
             <Link to="">{t("footer.recruitment")}</Link>
             <Link to="">{t("footer.contactDealer")}</Link>
           </div>
