@@ -61,7 +61,7 @@ const Favorite = () => {
         </div>
       ) : (
         <>
-          <img className="mx-auto" src={notFoundImage} alt="not found" />
+          <img className="mx-auto md:min-h-[212px]" src={notFoundImage} alt="not found" />
           <h3 className="text-2xl font-semibold text-center text-[#554994] my-5">{t("favorite.notFoundMessage")}</h3>
           <Link to="/products-filter" className="block text-center md:pb-10">
             <button className="btn-primary mt-3">{t("cart.shoppingNow")}</button>

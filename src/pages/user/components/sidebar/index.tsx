@@ -1,13 +1,13 @@
 import { memo } from "react";
-import classnames from "classnames";
 import { useTranslation } from "react-i18next";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAppSelector } from "store/configureStore";
+import SidebarItem from "../sidebar-item";
 import styles from "./index.module.scss";
 
 const Sidebar = () => {
   const { t } = useTranslation();
-  const user = useAppSelector((state) => state.account.user)!;
+  const user = useAppSelector((state) => state.account.user);
 
   const menu = [
     {
@@ -46,19 +46,7 @@ const Sidebar = () => {
 
           <div className="flex flex-col gap-4 p-4">
             {menu.map((item) => (
-              <div className="flex items-center gap-5" key={item.id}>
-                {item.icon}
-                <NavLink
-                  to={item.link}
-                  className={({ isActive }) =>
-                    classnames("text-base font-medium hover:text-black", {
-                      ["text-[#554994] hover:text-[#392b84]"]: isActive,
-                    })
-                  }
-                >
-                  {item.title}
-                </NavLink>
-              </div>
+              <SidebarItem {...item} key={item.id} />
             ))}
           </div>
         </div>

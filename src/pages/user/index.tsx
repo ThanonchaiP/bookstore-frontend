@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Row, Col } from "antd";
 import ProtectedRoute from "routes/ProtectedRoute";
 import Sidebar from "./components/sidebar";
@@ -10,7 +11,9 @@ const UserWrapper = () => {
         <Sidebar />
       </Col>
       <Col span={24} lg={17}>
-        <ProtectedRoute />
+        <Suspense fallback={null}>
+          <ProtectedRoute />
+        </Suspense>
       </Col>
     </Row>
   );

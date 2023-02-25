@@ -38,7 +38,7 @@ const ReviewPopup = ({ open, item, handleClose }: Props) => {
         await createReview({ ...value, bookId: item.book.id, orderItemId: item.id });
       }
 
-      toast.success("Review Submitted Successfully.");
+      toast.success("Review Submitted Successfully.", { autoClose: 2000 });
       handleClose(item.review ? false : true);
     } catch (error) {
       console.log(error);

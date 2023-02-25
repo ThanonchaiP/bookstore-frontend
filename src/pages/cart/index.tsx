@@ -54,7 +54,7 @@ const Cart = () => {
         </Row>
       ) : (
         <div className="max-w-[800px] flex flex-col items-center justify-center mx-auto p-12">
-          <img src={notFoundImage} alt="not found" />
+          <img className="md:min-h-[212px]" src={notFoundImage} alt="not found" />
           <h3 className="text-2xl font-semibold text-center text-[#554994] my-5">{t("cart.notFoundMessage")}</h3>
           <Link to="/products-filter">
             <button className="btn-primary mt-3">{t("cart.shoppingNow")}</button>
