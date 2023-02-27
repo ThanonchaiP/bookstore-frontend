@@ -5,10 +5,12 @@ const ScrollToTop = () => {
   const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    document.documentElement.style.scrollBehavior = "auto";
+    document.documentElement.scrollTo({ top: 0, left: 0 });
+    setTimeout(() => (document.documentElement.style.scrollBehavior = "smooth"), 10);
   }, [location]);
 
-  return <></>;
+  return null;
 };
 
 export default ScrollToTop;
