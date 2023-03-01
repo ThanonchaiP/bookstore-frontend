@@ -1,0 +1,30 @@
+@use "@/styles/main" as *;
+
+.btn-contained,
+.btn-outlined {
+  height: 40px;
+  font-weight: 500;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: 0.3s;
+}
+
+.btn-contained {
+  color: #ffffff;
+  border: 2px solid $primary-color;
+  background-color: $primary-color;
+
+  &:hover {
+    background-color: #3d3375;
+  }
+}
+
+.btn-outlined {
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  background-color: #ffffff;
+
+  &:hover {
+    background-color: #dfdbf4;
+  }
+}
