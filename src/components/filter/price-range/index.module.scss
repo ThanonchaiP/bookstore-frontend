@@ -24,17 +24,9 @@
 
 .btn-submit {
   width: calc(100% - 32px);
-  height: 40px;
-  border-radius: 4px;
   margin-top: 1rem;
-  color: #ffffff;
-  background-color: $primary-color;
   transition: background-color 0.3s;
   @include breakpoint(lg) {
     width: 200px;
-  }
-
-  &:hover {
-    background-color: #42367f;
   }
 }

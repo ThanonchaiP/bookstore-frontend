@@ -6,8 +6,9 @@ import { setCategory } from "store/slice/filterSlice";
 import { selectCategoryState } from "store/slice/categorySlice";
 import useOnClickOutside from "utils/hooks/useOnClickOutside";
 import FilterItem from "./filter-item";
-import styles from "./index.module.scss";
+import Button from "components/button";
 import PriceRange from "./price-range";
+import styles from "./index.module.scss";
 
 const Filter: FC<WithTranslation> = ({ t }) => {
   const filterRef = useRef(null);
@@ -17,6 +18,7 @@ const Filter: FC<WithTranslation> = ({ t }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const [collapsibleMenu, setCollapsibleMenu] = useState(false);
 
+  const onOpenMenu = () => setOpenMenu(true);
   const onChange = useCallback((value: number) => dispatch(setCategory(value)), []);
 
   useOnClickOutside(filterRef, () => {
@@ -50,10 +52,10 @@ const Filter: FC<WithTranslation> = ({ t }) => {
         <PriceRange />
       </div>
 
-      <button className={styles["btn-filter"]} onClick={() => setOpenMenu(true)}>
+      <Button className={styles["btn-filter"]} onClick={onOpenMenu}>
         <i className="hidden sm:block fa-solid fa-filter mr-2" />
         {t("filter")}
-      </button>
+      </Button>
 
       <div className={classnames(styles["filter-overlay"], { [styles.show]: openMenu })}></div>
     </Fragment>

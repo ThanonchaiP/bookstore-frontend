@@ -9,6 +9,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { FormInput } from "components/form/input";
 import { signInUser, fetchCurrentUser, setOpenLoginPopup, loginPopupSelector } from "store/slice/accountSlice";
+import Button from "components/button";
 
 const LoginModal = () => {
   const { t } = useTranslation();
@@ -66,13 +67,9 @@ const LoginModal = () => {
 
           {formIncorrect && <p className="text-sm font-medium text-red-500">{t("errorMessage.incorrect")}</p>}
 
-          <button
-            className="w-full bg-[#554994] text-white h-[40px] rounded-md my-2"
-            type="submit"
-            disabled={isSubmitting}
-          >
+          <Button className="w-full !text-sm my-2" type="submit" disabled={isSubmitting}>
             {t("login.login")}
-          </button>
+          </Button>
 
           <div className="flex items-center justify-between flex-wrap">
             <p>

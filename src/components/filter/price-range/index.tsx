@@ -3,6 +3,7 @@ import { memo, SyntheticEvent, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { setPriceRange } from "store/slice/filterSlice";
 import { useAppDispatch } from "store/configureStore";
+import Button from "components/button";
 import styles from "./index.module.scss";
 
 type Input = { min: number | string; max: number | string };
@@ -58,9 +59,9 @@ const PriceRange = () => {
         <Slider range min={0} max={10000} value={[+input.min, +input.max]} onChange={(value) => onChange(value)} />
       </div>
 
-      <button className={styles["btn-submit"]} type="submit">
+      <Button className={styles["btn-submit"]} type="submit">
         {t("filterPrice")}
-      </button>
+      </Button>
     </form>
   );
 };

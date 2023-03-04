@@ -5,6 +5,7 @@ import { withTranslation, WithTranslation } from "react-i18next";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { clearCart } from "store/slice/cartSlice";
 import { clearFavoriteState } from "store/slice/favoriteSlice";
+import Button from "components/button";
 import styles from "./index.module.scss";
 
 const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
@@ -92,11 +93,7 @@ const MobileMenu: FC<WithTranslation> = ({ t, i18n }) => {
             </div>
           </div>
 
-          {user && (
-            <button className="text-white rounded-md bg-[#554994] h-[40px]" onClick={onLogOut}>
-              {t("navbar.logOut")}
-            </button>
-          )}
+          {user && <Button onClick={onLogOut}>{t("navbar.logOut")}</Button>}
         </div>
       </div>
 

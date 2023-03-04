@@ -3,6 +3,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "store/configureStore";
 import { removeCartItemAsync, selectCartState } from "store/slice/cartSlice";
+import Button from "components/button";
 import styles from "./index.module.scss";
 
 type Props = {
@@ -37,9 +38,7 @@ const CartPopup = ({ open, handleCartPopup }: Props) => {
       <p className="text-center font-bold py-6">ราคารวม : ฿ {totalPrice.toFixed(2)}</p>
 
       <Link className="block px-4" to="/user/cart" onClick={handleCartPopup}>
-        <button className="w-full h-[40px] rounded-md text-white mb-6 bg-[#554994]">
-          ดูรถเข็น ({cart?.cartItems.length || 0})
-        </button>
+        <Button className="w-full mb-6">ดูรถเข็น ({cart?.cartItems.length || 0})</Button>
       </Link>
     </div>
   );
