@@ -131,7 +131,8 @@
     "order": "Order",
     "orderDate": "Order date",
     "quantity": "Quantity",
-    "price": "Price"
+    "price": "Price",
+    "notFoundMessage": "There Are No Orders Yet."
   },
   "favorite": {
     "myWishlist": "My Wishlist",

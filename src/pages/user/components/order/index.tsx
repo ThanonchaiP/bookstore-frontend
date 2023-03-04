@@ -1,12 +1,14 @@
 import moment from "moment";
 import { useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { getOrders } from "@/services/order.service";
 import { OrderItem as IOrderItem } from "@/models/order";
 import Pagination from "components/pagination";
 import ReviewPopup from "../review-popup";
 import OrderItem from "../order-item";
+import Button from "components/button";
+import notFoundImage from "assets/not-product.svg";
 import styles from "./index.module.scss";
 import "moment/dist/locale/th";
 
@@ -38,7 +40,7 @@ const Order = () => {
     <div className="p-4 rounded-md shadow-lg">
       <h1 className="text-lg font-medium mb-8">{t("order.myOrder")}</h1>
 
-      {data && (
+      {data && data.data.length > 0 ? (
         <>
           {data.data.map((order) => (
             <div className={styles["order-item"]} key={order.id}>
@@ -70,6 +72,14 @@ const Order = () => {
             totalCount={data.meta.itemCount || 0}
             onPageChange={onPageChange}
           />
+        </>
+      ) : (
+        <>
+          <img className="mx-auto md:min-h-[212px]" src={notFoundImage} alt="not found" />
+          <h3 className="text-2xl font-semibold text-center text-[#554994] my-5">{t("order.notFoundMessage")}</h3>
+          <Link to="/products-filter" className="block text-center md:pb-10">
+            <Button className="w-[160px] mt-3">{t("cart.shoppingNow")}</Button>
+          </Link>
         </>
       )}
 

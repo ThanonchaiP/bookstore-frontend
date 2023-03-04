@@ -131,7 +131,8 @@
     "order": "คำสั่งซื้อ",
     "orderDate": "สั่งซื้อวันที่",
     "quantity": "จำนวน",
-    "price": "ราคา"
+    "price": "ราคา",
+    "notFoundMessage": "คุณยังไม่มีรายการสั่งซื้อ"
   },
   "favorite": {
     "myWishlist": "รายการที่ชอบ",
