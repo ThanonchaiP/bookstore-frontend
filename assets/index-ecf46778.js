@@ -1,0 +1,1 @@
+import{j as t}from"./index-442b5a61.js";import{L as o}from"./index-13305ef7.js";const s="/assets/not-found-2468e4d7.png",r=()=>t.jsx("div",{className:"flex flex-col items-center justify-center w-full h-[100vh] bg-black",children:t.jsx(o,{to:"/",children:t.jsx("img",{src:s,alt:"not found"})})});export{r as default};
