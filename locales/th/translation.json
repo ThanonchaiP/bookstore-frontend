@@ -1,0 +1,158 @@
+{
+  "category": "หมวดหมู่",
+  "bestSeller": "ขายดี",
+  "filter": "ตัวกรอง",
+  "filterPrice": "กรองราคา",
+  "priceRange": "ช่วงราคา",
+  "sortBy": "เรียงตาม",
+  "previous": "ก่อนหน้า",
+  "next": "ถัดไป",
+  "resultsFor": "ค้นพบสินค้า",
+  "author": "ผู้แต่ง",
+  "addToCart": "หยิบใส่รถเข็น",
+  "publisher": "สำนักพิมพ์",
+  "readMore": "อ่านเพิ่มเติม",
+  "viewMore": "ดูเพิ่มเติม",
+  "viewAll": "ดูทั้งหมด",
+  "newProduct": "สินค้ามาใหม่",
+  "ok": "ตกลง",
+  "cartoon": "การ์ตูน",
+  "navbar": {
+    "login": "เข้าสู่ระบบ",
+    "register": "ลงทะเบียน",
+    "language": "เปลี่ยนภาษา",
+    "thai": "ไทย",
+    "english": "อังกฤษ",
+    "searchPlaceholder": "พิมพ์ชื่อหนังสือ / ผู้แต่ง... ",
+    "favorite": "รายการโปรด",
+    "manageAccount": "จัดการบัญชีของฉัน",
+    "favoriteList": "รายการที่ชอบ",
+    "myOrder": "รายการสั่งซื้อของฉัน",
+    "editProfile": "แก้ไขข้อมูลส่วนตัว",
+    "logOut": "ออกจากระบบ"
+  },
+  "footer": {
+    "bookStore": "บุ๊คสโตร์",
+    "aboutUs": "เกี่ยวกับเรา",
+    "history": "ประวัติความเป็นมา",
+    "boardOfDirectors": "คณะกรรมการบริหาร",
+    "ourBranch": "สาขาของเรา",
+    "dealer": "ร้านค้าตัวแทนจำหน่าย",
+    "help": "ช่วยเหลือ",
+    "howToOrder": "วิธีการสั่งซื้อ",
+    "howToPayment": "วิธีการชำระเงิน",
+    "transport": "การจัดส่ง",
+    "productReturn": "การคืนสินค้า",
+    "cancelProduct": "การยกเลิกสินค้า",
+    "privacyPolicy": "นโยบายส่วนบุคคล",
+    "condition": "เงื่อนไข",
+    "contact": "ติดต่อเรา",
+    "recruitment": "สมัครงานกับเรา",
+    "contactDealer": "ติดต่อตัวแทนจำหน่าย",
+    "social": "โซเชียลเน็ตเวิร์ค",
+    "subscribe": "สมัครรับข่าวสาร"
+  },
+  "orderByItem": {
+    "newBook": "มาใหม่",
+    "bestSales": "ขายดี",
+    "priceLowToHigh": "ราคาจากตํ่าไปสูง",
+    "priceHighToLow": "ราคาจากสูงไปตํ่า",
+    "alphabetLowToHigh": "ตามตัวอักษรน้อยไปมาก",
+    "alphabetHighToLow": "ตามตัวอักษรมากไปน้อย"
+  },
+  "productDetail": {
+    "readReviews": "อ่านรีวิว",
+    "addToFavorites": "เพิ่มไปยังรายการโปรด",
+    "price": "ราคา",
+    "buyNow": "ซื้อทันที",
+    "addToCart": "หยิบใส่รถเข็น",
+    "releaseDate": "วันที่วางขาย",
+    "numberOfPages": "จำนวนหน้า",
+    "bookCategory": "หมวดหนังสือ",
+    "page": "หน้า",
+    "productDetails": "รายละเอียดสินค้า",
+    "bookInfo": "ข้อมูลหนังสือ",
+    "like": "ถูกใจ",
+    "unlike": "เลิกถูกใจ",
+    "removeFavorites": "ลบจากรายการโปรด"
+  },
+  "login": {
+    "login": "เข้าสู่ระบบ",
+    "email": "อีเมล",
+    "password": "รหัสผ่าน",
+    "newMember": "สมาชิกใหม่",
+    "register": "ลงทะเบียน",
+    "here": "ที่นี่",
+    "forgotPassword": "ลืมรหัสผ่าน"
+  },
+  "register": {
+    "createAccount": "สร้างบัญชี",
+    "signUp": "สมัครสมาชิก",
+    "alreadyMember": "เป็นสมาชิกอยู่แล้วหรือ",
+    "login": "เข้าสู่ระบบ",
+    "here": "ที่นี่"
+  },
+  "input": {
+    "name": "ชื่อ",
+    "surname": "นามสกุล",
+    "phoneNumber": "เบอร์โทร",
+    "email": "อีเมล",
+    "password": "รหัสผ่าน",
+    "confirmPassword": "ยืนยันรหัสผ่าน"
+  },
+  "errorMessage": {
+    "required": {
+      "name": "โปรดป้อนชื่อของคุณ",
+      "surname": "โปรดป้อนนามสกุลของคุณ",
+      "phone": "โปรดป้อนเบอร์โทรของคุณ",
+      "email": "โปรดป้อนอีเมลของคุณ",
+      "password": "กรุณาระบุรหัสผ่าน",
+      "confirmPassword": "กรุณาระบุรหัสผ่านอีกครั้ง"
+    },
+    "formInvalid": {
+      "email": "กรุณาตรวจสอบอีเมลของคุณอีกครั้ง"
+    },
+    "incorrect": "อีเมล หรือ รหัสผ่าน ไม่ถูกต้อง"
+  },
+  "cart": {
+    "selectAll": "เลือกทั้งหมด",
+    "piece": "ชิ้น",
+    "orderSummary": "สรุปข้อมูลคำสั่งซื้อ",
+    "productPrice": "ราคาสินค้า",
+    "shippingFee": "ค่าจัดส่ง",
+    "total": "ยอดรวมทั้งสิ้น",
+    "payment": "ชำระเงิน",
+    "notFoundMessage": "ไม่มีสินค้าในรถเข็นของคุณ",
+    "shoppingNow": "ช้อปปิ้งกันเลย"
+  },
+  "order": {
+    "myOrder": "รายการสั่งซื้อของฉัน",
+    "orderTotal": "รวมการสั่งซื้อ",
+    "order": "คำสั่งซื้อ",
+    "orderDate": "สั่งซื้อวันที่",
+    "quantity": "จำนวน",
+    "price": "ราคา",
+    "notFoundMessage": "คุณยังไม่มีรายการสั่งซื้อ"
+  },
+  "favorite": {
+    "myWishlist": "รายการที่ชอบ",
+    "book": "หนังสือ",
+    "price": "ราคา",
+    "remove": "นำออก",
+    "notFoundMessage": "คุณยังไม่มีรายการที่ชอบ"
+  },
+  "user": {
+    "myProfile": "ข้อมูลส่วนตัว",
+    "rateProduct": "ให้คะแนนสินค้า",
+    "productQuality": "คุณภาพสินค้า",
+    "reviewMessage": "เขียนรีวิวสินค้าเพิ่มเติม",
+    "cancel": "ยกเลิก",
+    "submit": "ยืนยัน"
+  },
+  "review": {
+    "header": "คะแนนรีวิวจากผู้ซื้อจริง",
+    "full": "เต็ม",
+    "star": "ดาว",
+    "people": "คน"
+  }
+}

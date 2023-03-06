@@ -1,0 +1,1 @@
+import{j as o}from"./index-eb84028e.js";import{L as t}from"./index-4ca9e7fe.js";const e="/bookstore-frontend/assets/not-found-2468e4d7.png",r=()=>o.jsx("div",{className:"flex flex-col items-center justify-center w-full h-[100vh] bg-black",children:o.jsx(t,{to:"/",children:o.jsx("img",{src:e,alt:"not found"})})});export{r as default};

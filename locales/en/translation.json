@@ -1,0 +1,158 @@
+{
+  "category": "Category",
+  "bestSeller": "Bestseller",
+  "filter": "Filter",
+  "filterPrice": "Filter price",
+  "priceRange": "Price range",
+  "sortBy": "Sort By",
+  "previous": "Previous",
+  "next": "Next",
+  "resultsFor": "Results for",
+  "author": "Author",
+  "addToCart": "Add to cart",
+  "publisher": "Publisher",
+  "readMore": "Read more",
+  "viewMore": "View More",
+  "viewAll": "View All",
+  "newProduct": "New Product",
+  "ok": "Ok",
+  "cartoon": "Cartoon",
+  "navbar": {
+    "login": "Login",
+    "register": "Register",
+    "language": "Language",
+    "thai": "Thai",
+    "english": "English",
+    "searchPlaceholder": "Type book name / author ... ",
+    "favorite": "Favorite",
+    "manageAccount": "Manage account",
+    "favoriteList": "Favorite list",
+    "myOrder": "My Order",
+    "editProfile": "Edit profile",
+    "logOut": "Log out"
+  },
+  "footer": {
+    "bookStore": "Book Store",
+    "aboutUs": "About us",
+    "history": "History",
+    "boardOfDirectors": "Board of directors",
+    "ourBranch": "Our branch",
+    "dealer": "Dealer",
+    "help": "Help",
+    "howToOrder": "How to order",
+    "howToPayment": "How to payment",
+    "transport": "Transport",
+    "productReturn": "Product return",
+    "cancelProduct": "Cancel product",
+    "privacyPolicy": "Privacy policy",
+    "condition": "Condition",
+    "contact": "Contact",
+    "recruitment": "Recruitment",
+    "contactDealer": "Contact dealer",
+    "social": "Social",
+    "subscribe": "Subscribe"
+  },
+  "orderByItem": {
+    "newBook": "New Book",
+    "bestSales": "Best Sales",
+    "priceLowToHigh": "Price low to high",
+    "priceHighToLow": "Price high to low",
+    "alphabetLowToHigh": "Alphabet low to high",
+    "alphabetHighToLow": "Alphabet high to low"
+  },
+  "productDetail": {
+    "readReviews": "Read reviews",
+    "addToFavorites": "Add to favorites",
+    "price": "Price",
+    "buyNow": "Buy now",
+    "addToCart": "Add to Cart",
+    "releaseDate": "Release date",
+    "numberOfPages": "Number of pages",
+    "bookCategory": "Book category",
+    "page": "Pages",
+    "productDetails": "Product details",
+    "bookInfo": "Book info",
+    "like": "Like",
+    "unlike": "Unlike",
+    "removeFavorites": "Remove favorites"
+  },
+  "login": {
+    "login": "Login",
+    "email": "Email",
+    "password": "Password",
+    "newMember": "New member",
+    "register": "Register",
+    "here": "here",
+    "forgotPassword": "Forgot Password"
+  },
+  "register": {
+    "createAccount": "Create Account",
+    "signUp": "Sign up",
+    "alreadyMember": "Already member",
+    "login": "login",
+    "here": "here"
+  },
+  "input": {
+    "name": "Name",
+    "surname": "Surname",
+    "phoneNumber": "Phone number",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password"
+  },
+  "errorMessage": {
+    "required": {
+      "name": "Please enter your Name.",
+      "surname": "Please enter your Surname.",
+      "phone": "Please enter your Phone number.",
+      "email": "Please enter your Email.",
+      "password": "Please enter your Password.",
+      "confirmPassword": "Please enter your Confirm Password."
+    },
+    "formInvalid": {
+      "email": "Incorrect invalid."
+    },
+    "incorrect": "Incorrect email or password."
+  },
+  "cart": {
+    "selectAll": "Select all",
+    "piece": "Piece",
+    "orderSummary": "Order summary",
+    "productPrice": "Product price",
+    "shippingFee": "Shipping fee",
+    "total": "Total",
+    "payment": "Payment",
+    "notFoundMessage": "There Are No Products In Your Cart.",
+    "shoppingNow": "Shopping now"
+  },
+  "order": {
+    "myOrder": "My Order",
+    "orderTotal": "Order Total",
+    "order": "Order",
+    "orderDate": "Order date",
+    "quantity": "Quantity",
+    "price": "Price",
+    "notFoundMessage": "There Are No Orders Yet."
+  },
+  "favorite": {
+    "myWishlist": "My Wishlist",
+    "book": "Book",
+    "price": "Price",
+    "remove": "Remove",
+    "notFoundMessage": "There Are No Favorites Yet."
+  },
+  "user": {
+    "myProfile": "My profile",
+    "rateProduct": "Rate Product",
+    "productQuality": "Product Quality",
+    "reviewMessage": "Message",
+    "cancel": "Cancel",
+    "submit": "Submit"
+  },
+  "review": {
+    "header": "Review score from buyers",
+    "full": "Full",
+    "star": "Star",
+    "people": "People"
+  }
+}

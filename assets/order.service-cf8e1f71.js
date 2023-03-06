@@ -1,0 +1,1 @@
+import{u as a}from"./index.esm-81e7d11a.js";import{l as o}from"./useTranslation-ad94cc8a.js";const d=async t=>(await o.post("/orders",t)).data,u=(t=1)=>{const{data:r,isLoading:e,mutate:s}=a(`/orders/me?page=${t}`);return{data:r,isLoading:e,mutate:s}};export{d as c,u as g};
