@@ -1,9 +1,9 @@
 # Bookstore Website
 
 ## Project description :
- Bookstore ระบบซื้อหนังสือออนไลน์
+ Bookstore ระบบซื้อหนังสือออนไลน์ (จัดทำขึ้นเพื่อพัฒนาทักษะเท่านั้น)
  
-## Live Demonstration
+## Live Demonstration :
 
 The Bookstore demo can be [viewed online here](http://bookstore-clone.shop/).
 
