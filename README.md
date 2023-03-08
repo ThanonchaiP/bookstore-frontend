@@ -7,7 +7,7 @@
 
 The Bookstore demo can be [viewed online here](http://bookstore-clone.shop/).
 
-Here are screenshots that show the E-commerce demo application in use.
+Here are screenshots that show the Bookstore demo application in use.
 
 **Home Page**
 ![image](https://user-images.githubusercontent.com/82367731/223605736-a1394bd7-54c5-4546-9391-94ff3a43d9ad.png)
@@ -33,5 +33,6 @@ Here are screenshots that show the E-commerce demo application in use.
 ![image](https://user-images.githubusercontent.com/82367731/223606431-84cd6cb0-7cb6-4eaf-b2e9-d7c2aef21a9d.png)
 
 **Login and Register Page**
+
 ![image](https://user-images.githubusercontent.com/82367731/223606533-b29f388d-4e7c-47c6-be01-c4a53fd32962.png)
 ![image](https://user-images.githubusercontent.com/82367731/223606572-37925384-3e6f-4376-80ab-c97422322580.png)
