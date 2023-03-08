@@ -13,6 +13,9 @@ Here are screenshots that show the E-commerce demo application in use.
 ![image](https://user-images.githubusercontent.com/82367731/223605736-a1394bd7-54c5-4546-9391-94ff3a43d9ad.png)
 ![image](https://user-images.githubusercontent.com/82367731/223605832-abd204b8-0b4c-4c9c-ab83-9e33a18c2833.png)
 
+**Product-detail Page**
+![image](https://user-images.githubusercontent.com/82367731/223606796-cbbdeb3d-7c83-46ac-a7d7-e140a0ed0922.png)
+
 **Product-filter Page**
 ![image](https://user-images.githubusercontent.com/82367731/223605955-23a27c85-7dc3-449f-ab88-1d7a6e30daeb.png)
 ![image](https://user-images.githubusercontent.com/82367731/223605985-6a17f1ca-3f54-4772-b6fc-ce245941569f.png)
