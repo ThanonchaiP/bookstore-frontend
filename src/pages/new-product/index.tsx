@@ -12,7 +12,6 @@ const NewProduct = () => {
 
   const onPageChange = useCallback((page: number) => {
     setPagination((prev) => ({ ...prev, page }));
-    window.scroll(0, 0);
   }, []);
 
   return (

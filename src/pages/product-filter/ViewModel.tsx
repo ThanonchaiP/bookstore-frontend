@@ -36,7 +36,6 @@ export function useSearchViewModel() {
       const result = await getProducts(payload);
       setMeta(result.meta);
       setData(result.data);
-      window.scroll(0, 0);
     };
 
     loadData();

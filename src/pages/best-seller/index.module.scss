@@ -1,7 +1,6 @@
 @use "@/styles/main" as *;
 
 .container {
-  min-height: 100vh;
   @include container();
 
   h1 {
